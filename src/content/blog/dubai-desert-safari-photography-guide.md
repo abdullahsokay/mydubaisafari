@@ -4,7 +4,7 @@ category: desert-safari
 date: "2025-02-05"
 author: "MyDubaiSafarii Team"
 excerpt: "From golden-hour dune shots to camel portraits at sunset, here is everything you need to know to photograph Dubai's desert like a pro — gear, timing, and composition tips included."
-cover: "/Images/desert-safari/631897022_18064656788654255_4155072576696643737_n.jpg"
+cover: "/Images/stock/blog/dubai-desert-safari-photography-guide.jpg"
 location: "Dubai Desert Conservation Reserve"
 relatedTours:
   - shared-desert-safari

@@ -4,7 +4,7 @@ category: dubai-travel-guides
 date: "2025-01-22"
 author: "MyDubaiSafarii Team"
 excerpt: "Everything you need to know before visiting the Burj Khalifa — ticket types, the best time to go, what the observation decks look like, and how to combine it with a Dubai city tour."
-cover: "/Images/blogpage.jpg"
+cover: "/Images/stock/blog/burj-khalifa-visitor-guide.jpg"
 location: "Burj Khalifa, Dubai"
 relatedTours:
   - shared-desert-safari

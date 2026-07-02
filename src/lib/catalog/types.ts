@@ -40,6 +40,8 @@ export type Tour = {
   tag?: string;
   /** Placeholder media: Tailwind gradient classes until real Cloudinary images exist. */
   gallery: string[];
+  /** Real card/hero photo (public path). Falls back to gallery gradient art when absent. */
+  image?: string;
   inclusions: string[];
   exclusions: string[];
   itinerary: ItineraryStop[];

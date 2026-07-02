@@ -4,7 +4,7 @@ category: desert-safari
 date: "2025-02-14"
 author: "MyDubaiSafarii Team"
 excerpt: "Can't decide between a dune buggy and a quad bike for your Dubai desert adventure? We compare both rides on speed, skill level, age suitability, and pure fun — so you can choose with confidence."
-cover: "/Images/desert-safari/719649545_18079909169654255_458072471552133251_n.jpg"
+cover: "/Images/stock/blog/dune-buggy-vs-quad-bike-dubai.jpg"
 location: "Dubai Desert Conservation Reserve"
 relatedTours:
   - afternoon-desert-safari

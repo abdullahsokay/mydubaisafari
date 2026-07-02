@@ -13,7 +13,18 @@ export function TourCard({ tour }: { tour: Tour }) {
   return (
     <Card className="flex flex-col">
       <Link href={href} className="block">
-        <div className={`dune-media relative h-52 ${tour.gallery[0]}`}>
+        <div
+          className={`dune-media relative h-52 ${tour.image ? "" : tour.gallery[0]}`}
+        >
+          {tour.image && (
+            <img
+              src={tour.image}
+              alt={tour.name}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
           {/* Grounding scrim so overlaid chips always sit on dark glass */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-24 bg-linear-to-t from-midnight/70 via-midnight/25 to-transparent" />
 

@@ -4,7 +4,7 @@ category: dubai-travel-guides
 date: "2025-01-29"
 author: "MyDubaiSafarii Team"
 excerpt: "From desert dunes to luxury yachts and ancient souks to record-breaking skyscrapers, here are the 10 essential Dubai experiences every visitor should have."
-cover: "/Images/desert-safari/730943319_18081562820654255_3271687340856723490_n.jpg"
+cover: "/Images/stock/blog/top-10-things-to-do-in-dubai.jpg"
 location: "Dubai, UAE"
 relatedTours:
   - shared-desert-safari

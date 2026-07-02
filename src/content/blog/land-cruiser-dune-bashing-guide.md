@@ -4,7 +4,7 @@ category: desert-safari
 date: "2025-02-10"
 author: "MyDubaiSafarii Team"
 excerpt: "Dune bashing in a Toyota Land Cruiser is the adrenaline centrepiece of any Dubai desert safari. Here is everything first-timers need to know — how it works, what the experience feels like, and how to stay safe."
-cover: "/Images/desert-safari/729499678_18081562808654255_3498124649243234354_n.jpg"
+cover: "/Images/stock/blog/land-cruiser-dune-bashing-guide.jpg"
 location: "Dubai Desert Conservation Reserve"
 relatedTours:
   - shared-desert-safari

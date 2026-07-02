@@ -4,7 +4,7 @@ category: family-travel
 date: "2025-02-12"
 author: "MyDubaiSafarii Team"
 excerpt: "Planning a Dubai family holiday? Discover the best family-friendly activities, age-appropriate tours, essential tips for travelling with children, and how to make every member of the family happy."
-cover: "/Images/desert-safari/638871921_18065501147654255_4740474802235265908_n.jpg"
+cover: "/Images/stock/blog/family-guide-to-dubai.jpg"
 relatedTours:
   - morning-desert-safari
   - shared-desert-safari

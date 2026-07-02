@@ -51,6 +51,7 @@ export const TOURS: Tour[] = [
     priceUnit: "person",
     pricingNote: "Children under 2 free",
     gallery: [GRADIENTS.ember, GRADIENTS.sunset, GRADIENTS.night],
+    image: "/Images/stock/tours/shared-desert-safari.jpg",
     inclusions: [
       "Shared 4x4 Land Cruiser pickup & drop-off (max 7 guests)",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -169,6 +170,7 @@ export const TOURS: Tour[] = [
     priceUnit: "2 persons · private",
     pricingNote: "Price for 2 persons · extra guests on request",
     gallery: [GRADIENTS.sunset, GRADIENTS.ember, GRADIENTS.gold],
+    image: "/Images/stock/tours/private-desert-safari.jpg",
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -280,6 +282,7 @@ export const TOURS: Tour[] = [
     priceUnit: "2 persons · private",
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.gold, GRADIENTS.ember, GRADIENTS.sunset],
+    image: "/Images/stock/tours/premium-camp-safari.jpg",
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -385,6 +388,7 @@ export const TOURS: Tour[] = [
     priceUnit: "2 persons · private",
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.gold, GRADIENTS.night, GRADIENTS.dusk],
+    image: "/Images/stock/tours/vip-bedouin-camp.jpg",
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -492,6 +496,7 @@ export const TOURS: Tour[] = [
     regularPrice: 1400,
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.gold, GRADIENTS.fusion, GRADIENTS.night],
+    image: "/Images/stock/tours/luxury-5star-vip-camp.jpg",
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -602,6 +607,7 @@ export const TOURS: Tour[] = [
     priceUnit: "2 persons · private",
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.night, GRADIENTS.gold, GRADIENTS.dusk],
+    image: "/Images/stock/tours/noble-camp-safari.jpg",
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -709,6 +715,7 @@ export const TOURS: Tour[] = [
     priceUnit: "2 persons · private",
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.ember, GRADIENTS.sunset, GRADIENTS.fusion],
+    image: "/Images/stock/tours/afternoon-desert-safari.jpg",
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -797,6 +804,7 @@ export const TOURS: Tour[] = [
     priceUnit: "2 persons · private",
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.sunset, GRADIENTS.ember, GRADIENTS.dusk],
+    image: "/Images/stock/tours/morning-desert-safari.jpg",
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "20–30 min Red Dunes dune bashing (Al Habab desert)",
