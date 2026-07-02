@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { Rating } from "@/components/ui/rating";
 import { buttonVariants } from "@/components/ui/button";
 import { Tabs, type TabItem } from "@/components/ui/tabs";
+import { BackButton } from "@/components/ui/back-button";
 import { TourCard } from "@/components/tours/tour-card";
 import {
   getTourBySlug,
@@ -236,6 +237,7 @@ export default async function TourDetailPage({
       {/* Body */}
       <section className="bg-sand pb-20">
         <Container className="py-10">
+          <BackButton fallback="/tours" className="mb-4" />
           <nav className="text-sm text-midnight/70">
             <Link href="/" className="hover:text-orange">
               Home

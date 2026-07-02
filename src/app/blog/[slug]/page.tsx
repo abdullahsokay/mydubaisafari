@@ -19,6 +19,7 @@ import { LoopVideo } from "@/components/ui/loop-video";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
+import { BackButton } from "@/components/ui/back-button";
 import { whatsappUrl } from "@/lib/site";
 
 interface PageProps {
@@ -147,6 +148,10 @@ export default async function BlogPostPage({ params }: PageProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-midnight/40 via-midnight/50 to-midnight/90" />
         <Container className="relative z-10">
+          <BackButton
+            fallback="/blog"
+            className="mb-5 border-white/30 bg-white/10 text-white/90 hover:border-palegold hover:text-white"
+          />
           {cat && (
             <Badge tone="gold" className="mb-4">
               {cat.emoji} {cat.name}

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { getTourBySlug } from "@/lib/catalog/repository";
 import { formatDuration } from "@/lib/catalog/format";
 import { BookingForm } from "@/components/booking/booking-form";
+import { BackButton } from "@/components/ui/back-button";
 
 export async function generateMetadata({
   params,
@@ -31,6 +32,7 @@ export default async function BookingPage({
   return (
     <div className="bg-sand pt-24 pb-20">
       <Container>
+        <BackButton fallback={`/tours/${tour.slug}`} className="mb-4" />
         {/* Breadcrumb */}
         <nav className="text-sm text-midnight/50">
           <Link href="/" className="hover:text-orange">
