@@ -6,7 +6,7 @@ export function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-sand
       className={cn(
-        "group overflow-hidden rounded-2xl bg-surface shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+        "group overflow-hidden rounded-2xl bg-surface shadow-luxe ring-1 ring-midnight/8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-luxe-lg hover:ring-gold/35",
         className,
       )}
       {...props}

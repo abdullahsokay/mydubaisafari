@@ -170,7 +170,7 @@ export function BookingForm({ tour }: BookingFormProps) {
 
   if (sent) {
     return (
-      <div className="rounded-2xl bg-surface p-8 shadow-sm ring-1 ring-black/5">
+      <div className="rounded-2xl bg-surface p-8 shadow-luxe-lg ring-1 ring-midnight/8">
         <div className="mx-auto max-w-lg text-center">
           <div className="text-4xl">💬</div>
           <h2 className="mt-4 font-heading text-h2 font-semibold text-midnight">
@@ -207,7 +207,7 @@ export function BookingForm({ tour }: BookingFormProps) {
   return (
     <form onSubmit={handleSubmit} noValidate>
       {/* Mobile fixed bottom CTA bar (hidden on lg+) */}
-      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden border-t border-midnight/10 bg-surface/95 backdrop-blur px-4 py-3 flex items-center gap-3 shadow-lg">
+      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden border-t border-gold/30 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center gap-3 shadow-[0_-10px_30px_-12px_rgba(126,60,27,0.4)]">
         <div className="flex-1 min-w-0">
           <p className="text-xs text-midnight/60 leading-tight">Estimated total</p>
           <p className="text-base font-bold text-midnight">
@@ -229,8 +229,9 @@ export function BookingForm({ tour }: BookingFormProps) {
         {/* Left: Form sections */}
         <div className="space-y-6">
           {/* Service */}
-          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <section className="relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Service
             </h2>
             <p className="mt-3 rounded-xl border border-midnight/10 bg-sand px-4 py-3 text-sm font-medium text-midnight">
@@ -239,8 +240,9 @@ export function BookingForm({ tour }: BookingFormProps) {
           </section>
 
           {/* Date & Time & Guests */}
-          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <section className="relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Date, Time &amp; Guests
             </h2>
 
@@ -259,7 +261,7 @@ export function BookingForm({ tour }: BookingFormProps) {
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                   required
-                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
                 />
               </div>
               <div>
@@ -273,7 +275,7 @@ export function BookingForm({ tour }: BookingFormProps) {
                   id="time"
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
                 >
                   <option>Morning</option>
                   <option>Afternoon</option>
@@ -305,8 +307,9 @@ export function BookingForm({ tour }: BookingFormProps) {
           </section>
 
           {/* Adventure add-ons */}
-          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <section className="relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Adventure Add-ons{" "}
               <span className="text-sm font-normal text-midnight/45">
                 (optional)
@@ -379,8 +382,9 @@ export function BookingForm({ tour }: BookingFormProps) {
           </section>
 
           {/* Pickup & Drop-off */}
-          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <section className="relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Pickup &amp; Drop-off
             </h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -397,7 +401,7 @@ export function BookingForm({ tour }: BookingFormProps) {
                   value={pickup}
                   onChange={(e) => setPickup(e.target.value)}
                   placeholder="e.g. Dubai Marina, hotel name…"
-                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
                 />
               </div>
               <div>
@@ -414,15 +418,16 @@ export function BookingForm({ tour }: BookingFormProps) {
                   value={dropoff}
                   onChange={(e) => setDropoff(e.target.value)}
                   placeholder="Same as pickup if blank"
-                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
                 />
               </div>
             </div>
           </section>
 
           {/* Food preference */}
-          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <section className="relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Food Preference
             </h2>
             <div className="mt-4">
@@ -436,7 +441,7 @@ export function BookingForm({ tour }: BookingFormProps) {
                 id="food-pref"
                 value={foodPref}
                 onChange={(e) => setFoodPref(e.target.value)}
-                className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
               >
                 <option>No preference</option>
                 <option>Vegetarian</option>
@@ -459,14 +464,15 @@ export function BookingForm({ tour }: BookingFormProps) {
                 value={foodNotes}
                 onChange={(e) => setFoodNotes(e.target.value)}
                 placeholder="e.g. nut allergy, no pork…"
-                className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
               />
             </div>
           </section>
 
           {/* Medical / special needs */}
-          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <section className="relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Medical &amp; Special Needs
             </h2>
             <p className="mt-1 text-sm text-midnight/75">
@@ -486,13 +492,14 @@ export function BookingForm({ tour }: BookingFormProps) {
               value={medicalNeeds}
               onChange={(e) => setMedicalNeeds(e.target.value)}
               placeholder="e.g. wheelchair user, carries EpiPen, fear of heights… or leave blank if none."
-              className="mt-3 w-full resize-none rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+              className="mt-3 w-full resize-none rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
             />
           </section>
 
           {/* Contact */}
-          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <section className="relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Your Details
             </h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -509,7 +516,7 @@ export function BookingForm({ tour }: BookingFormProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Jane Smith"
-                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
                 />
               </div>
               <div>
@@ -526,7 +533,7 @@ export function BookingForm({ tour }: BookingFormProps) {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+971 50 000 0000"
-                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                  className="mt-1.5 w-full rounded-xl border border-midnight/45 bg-sand px-4 py-2.5 text-sm text-midnight transition-colors hover:border-goldink placeholder:text-midnight/30 focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
                 />
               </div>
             </div>
@@ -535,8 +542,14 @@ export function BookingForm({ tour }: BookingFormProps) {
 
         {/* Right: Sticky summary */}
         <aside>
-          <div className="sticky top-24 rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
-            <h2 className="font-heading text-lg font-semibold text-midnight">
+          <div className="sticky top-24 relative overflow-hidden rounded-2xl bg-surface p-6 shadow-luxe-lg ring-1 ring-midnight/8">
+            {/* Gold gradient hairline crown */}
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-1 bg-brand-gradient"
+            />
+            <h2 className="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-midnight">
+              <span aria-hidden className="h-4 w-1 shrink-0 rounded-full bg-brand-gradient" />
               Booking Summary
             </h2>
 
@@ -604,9 +617,11 @@ export function BookingForm({ tour }: BookingFormProps) {
                   </span>
                 </div>
               ))}
-              <div className="flex justify-between border-t border-midnight/10 pt-2 text-base font-bold text-midnight">
+              <div className="mt-1 flex items-baseline justify-between rounded-xl bg-linear-to-r from-palegold/45 to-sand px-3 py-2.5 text-base font-bold text-midnight ring-1 ring-gold/25">
                 <span>Estimated total</span>
-                <span>AED {total.toLocaleString()}</span>
+                <span className="font-heading text-lg">
+                  AED {total.toLocaleString()}
+                </span>
               </div>
             </div>
 

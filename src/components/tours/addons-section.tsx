@@ -24,18 +24,26 @@ export function AddonsSection() {
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {ADDONS.map((addon) => (
+          {ADDONS.map((addon, i) => (
             <div
               key={addon.name}
-              className="flex flex-col rounded-2xl border border-midnight/10 bg-sand p-5 shadow-sm"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-midnight/10 bg-sand p-5 shadow-luxe transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe-lg"
             >
-              <p className="font-heading text-base font-semibold text-midnight">
+              {/* Gold hairline that brightens on hover */}
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-0.5 bg-linear-to-r from-gold/0 via-gold/50 to-gold/0 opacity-60 transition-opacity duration-300 group-hover:opacity-100"
+              />
+              <span className="font-heading text-xs font-semibold tracking-[0.18em] text-goldink/70">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-2 font-heading text-base font-semibold text-midnight">
                 {addon.name}
               </p>
               <p className="mt-1 text-xs text-midnight/55">
                 {addon.durationMin} minutes
               </p>
-              <p className="mt-3 font-heading text-sm font-semibold text-gold">
+              <p className="mt-3 font-heading text-sm font-semibold text-goldink">
                 {addon.priceLabel}
               </p>
               {addon.note && (

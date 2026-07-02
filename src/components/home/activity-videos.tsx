@@ -28,9 +28,11 @@ export function ActivityVideos() {
           {videos.map((src) => (
             <div
               key={src}
-              className="aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl shadow-xl ring-1 ring-midnight/10"
+              className="w-full max-w-xs rounded-[1.35rem] bg-linear-to-b from-gold/50 via-dune/25 to-transparent p-px shadow-luxe-lg transition-transform duration-300 hover:-translate-y-1.5"
             >
-              <LoopVideo src={src} className="h-full w-full" />
+              <div className="aspect-[9/16] overflow-hidden rounded-[calc(1.35rem-1px)] bg-midnight ring-1 ring-midnight/10">
+                <LoopVideo src={src} className="h-full w-full" />
+              </div>
             </div>
           ))}
         </div>

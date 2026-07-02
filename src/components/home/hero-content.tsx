@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function HeroContent() {
   const [progress, setProgress] = useState(0); // 0..1 scroll through hero
@@ -36,13 +37,18 @@ export function HeroContent() {
         opacity: 1 - progress * 1.15,
       }}
     >
-      <Badge>Dubai &middot; Desert Adventures</Badge>
+      <Badge className="animate-rise rise-1 border border-palegold/40 bg-midnight/30 text-palegold ring-palegold/30 backdrop-blur-md">
+        Dubai &middot; Desert Adventures
+      </Badge>
 
-      <h1 className="mt-6 max-w-3xl font-heading text-4xl font-semibold leading-tight sm:text-h1 lg:text-display">
-        Where Golden Dunes Meet Endless Adventure
+      <h1 className="animate-rise rise-2 mt-6 max-w-3xl font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-h1 lg:text-display">
+        Where Golden Dunes Meet{" "}
+        <span className="bg-linear-to-r from-palegold via-dune to-palegold bg-clip-text text-transparent [text-shadow:none]">
+          Endless Adventure
+        </span>
       </h1>
 
-      <p className="mt-5 max-w-2xl text-base text-surface/85 sm:text-lg">
+      <p className="animate-rise rise-3 mt-5 max-w-2xl text-base text-surface/85 sm:text-lg">
         Blast across the Arabian dunes at golden hour, ride a camel at sunset,
         dine under a Bedouin tent, and stargaze by the fire. MyDubaiSafarii
         crafts unforgettable desert adventures — dune bashing, quad biking,
@@ -51,19 +57,26 @@ export function HeroContent() {
         real Arabia.
       </p>
 
-      <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+      <div className="animate-rise rise-4 mt-9 flex flex-col gap-3 sm:flex-row">
         <Link href="/tours" className={buttonVariants({ size: "lg" })}>
           Explore Tours
         </Link>
         <Link
           href="/tours?category=desert-safari"
-          className={buttonVariants({ variant: "outline", size: "lg" })}
+          className={cn(
+            buttonVariants({ variant: "outline", size: "lg" }),
+            "border-palegold/60 text-surface backdrop-blur-sm hover:border-gold",
+          )}
         >
           Desert Safari
         </Link>
       </div>
 
-      <div className="mt-10 h-1 w-40 rounded-full bg-brand-gradient" />
+      <div className="animate-rise rise-4 mt-10 flex items-center gap-3">
+        <span className="h-px w-14 bg-linear-to-r from-transparent to-palegold/70" />
+        <span className="h-1.5 w-1.5 rotate-45 bg-palegold" />
+        <span className="h-px w-14 bg-linear-to-l from-transparent to-palegold/70" />
+      </div>
     </div>
   );
 }

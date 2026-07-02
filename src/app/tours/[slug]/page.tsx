@@ -205,16 +205,28 @@ export default async function TourDetailPage({
       />
 
       {/* Gallery */}
-      <section className="bg-midnight pt-20">
-        <Container className="py-6">
+      <section className="relative bg-midnight pt-20">
+        {/* Ember glow grounding the gallery plates */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(164,91,47,0.25),transparent_70%)]" />
+        <Container className="relative py-6">
           <div className="grid gap-3 sm:grid-cols-4 sm:grid-rows-2">
             <div
-              className={`h-64 rounded-2xl sm:col-span-2 sm:row-span-2 sm:h-full ${tour.gallery[0]}`}
-            />
+              className={`dune-media group h-64 rounded-2xl ring-1 ring-palegold/20 sm:col-span-2 sm:row-span-2 sm:h-full ${tour.gallery[0]}`}
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute top-4 left-4 z-[2] size-8 rounded-tl-2xl border-t border-l border-palegold/70"
+              />
+              <span
+                aria-hidden
+                className="pointer-events-none absolute right-4 bottom-4 z-[2] size-8 rounded-br-2xl border-r border-b border-palegold/70"
+              />
+              <span aria-hidden className="sheen" />
+            </div>
             {tour.gallery.slice(1, 3).map((g, i) => (
               <div
                 key={i}
-                className={`hidden h-full min-h-32 rounded-2xl sm:col-span-2 sm:block ${g}`}
+                className={`dune-media hidden h-full min-h-32 rounded-2xl ring-1 ring-palegold/15 sm:col-span-2 sm:block ${g}`}
               />
             ))}
           </div>
@@ -272,12 +284,12 @@ export default async function TourDetailPage({
                 </span>
               </div>
 
-              <div className="mt-8 rounded-2xl bg-surface p-6">
+              <div className="mt-8 rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
                 <Tabs tabs={tabs} />
               </div>
 
               {/* Reviews */}
-              <div className="mt-8 rounded-2xl bg-surface p-6">
+              <div className="mt-8 rounded-2xl bg-surface p-6 shadow-luxe ring-1 ring-midnight/8">
                 <h3 className="font-heading text-lg font-semibold text-midnight">
                   Guest reviews
                 </h3>
@@ -300,7 +312,10 @@ export default async function TourDetailPage({
 
             {/* Booking sidebar */}
             <aside>
-              <div className="sticky top-24 rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
+              <div className="sticky top-24 overflow-hidden rounded-2xl bg-surface shadow-luxe-lg ring-1 ring-midnight/8">
+                {/* Gold gradient hairline crown */}
+                <div className="h-1 w-full bg-brand-gradient" />
+                <div className="p-6">
                 {tour.regularPrice !== undefined && (
                   <p className="text-sm text-midnight/45 line-through">
                     {tour.currency} {tour.regularPrice.toLocaleString("en-US")}
@@ -348,6 +363,7 @@ export default async function TourDetailPage({
                 <p className="mt-4 border-t border-midnight/10 pt-4 text-xs text-midnight/75">
                   {tour.cancellationPolicy}
                 </p>
+                </div>
               </div>
             </aside>
           </div>

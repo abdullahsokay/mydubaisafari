@@ -49,17 +49,29 @@ export default async function Home() {
         {/* Light tint + grounding gradient — video stays clearly visible */}
         <div className="pointer-events-none absolute inset-0 bg-midnight/25" />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-midnight/40 via-transparent to-midnight/75" />
+        {/* Sunrise glow + edge vignette for cinematic depth */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_100%,rgba(250,231,172,0.14),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(140%_100%_at_50%_50%,transparent_60%,rgba(20,8,2,0.45)_100%)]" />
         <HeroContent />
+        {/* Gold hairline seam into the next section */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-palegold/50 to-transparent" />
       </section>
 
       {/* Popular experiences */}
-      <section className="bg-sand py-14 sm:py-20">
-        <Container>
+      <section className="relative bg-sand py-14 sm:py-20">
+        {/* Soft dune glow behind the grid for layered depth */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,182,133,0.25),transparent_70%)]" />
+        <Container className="relative">
           <div className="mb-10 flex flex-col items-center text-center">
             <Badge tone="orange">Handpicked</Badge>
-            <h2 className="mt-4 font-heading text-3xl font-semibold text-midnight sm:text-h2">
+            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
               Popular Experiences
             </h2>
+            <div className="mt-4 flex items-center gap-3" aria-hidden>
+              <span className="h-px w-10 bg-linear-to-r from-transparent to-gold/60" />
+              <span className="h-1.5 w-1.5 rotate-45 bg-gold" />
+              <span className="h-px w-10 bg-linear-to-l from-transparent to-gold/60" />
+            </div>
             <p className="mt-3 max-w-xl text-midnight/75">
               Our travellers&rsquo; favourite ways to explore the city and the
               dunes.

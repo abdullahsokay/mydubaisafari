@@ -38,8 +38,9 @@ const VALID_SORTS: TourSort[] = [
 ];
 
 const pill =
-  "rounded-full border border-midnight/15 px-4 py-2 text-sm text-midnight/70 transition-colors hover:border-gold hover:text-midnight";
-const pillActive = "border-gold bg-gold text-midnight";
+  "rounded-full border border-midnight/15 bg-surface/70 px-4 py-2 text-sm text-midnight/70 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-gold hover:text-midnight";
+const pillActive =
+  "border-gold bg-gold text-midnight font-medium shadow-[0_8px_20px_-8px_rgba(198,139,87,0.8)]";
 
 export default async function ToursPage({
   searchParams,
@@ -68,13 +69,15 @@ export default async function ToursPage({
 
   return (
     <>
-    <div className="bg-sand pt-24 pb-20 lg:pt-28">
-      <Container>
+    <div className="relative bg-sand pt-24 pb-20 lg:pt-28">
+      {/* Sunrise wash behind the page header */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(80%_100%_at_20%_0%,rgba(250,231,172,0.35),transparent_65%)]" />
+      <Container className="relative">
         <div className="max-w-2xl">
           <Badge tone="orange">
             {activeCategory ? activeCategory.name : "All Experiences"}
           </Badge>
-          <h1 className="mt-4 font-heading text-4xl font-semibold text-midnight leading-tight sm:text-h1">
+          <h1 className="mt-4 font-heading text-4xl font-semibold text-midnight leading-tight tracking-tight sm:text-h1">
             {activeCategory ? activeCategory.name : "Dubai Tours & Experiences"}
           </h1>
           <p className="mt-3 text-midnight/75">
