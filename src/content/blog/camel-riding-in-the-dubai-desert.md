@@ -4,7 +4,7 @@ category: desert-safari
 date: "2025-02-18"
 author: "MyDubaiSafarii Team"
 excerpt: "Riding a camel through the red dunes of Dubai is one of those once-in-a-lifetime moments — slow, rocking, and utterly unforgettable. Here is everything you need to know before you climb aboard."
-cover: "/Images/sand.jpg"
+cover: "/Images/desert-safari/721289947_18079908962654255_5596580267006573827_n.jpg"
 location: "Dubai Desert Conservation Reserve"
 relatedTours:
   - shared-desert-safari

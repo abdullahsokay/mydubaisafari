@@ -4,7 +4,7 @@ category: dubai-travel-guides
 date: "2025-01-08"
 author: "MyDubaiSafarii Team"
 excerpt: "Everything a first-time visitor needs to know about Dubai — from must-see landmarks and cultural etiquette to transport tips and the best experiences to book."
-cover: "/Images/sand.jpg"
+cover: "/Images/desert-safari/586688217_18057112556654255_7741085195391030487_n.jpg"
 location: "Dubai, UAE"
 relatedTours:
   - shared-desert-safari

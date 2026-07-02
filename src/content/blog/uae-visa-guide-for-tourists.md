@@ -4,7 +4,7 @@ category: travel-tips
 date: "2025-02-05"
 author: "MyDubaiSafarii Team"
 excerpt: "A clear, up-to-date guide to UAE tourist visas for 2025 — who gets a visa on arrival, how to apply for an e-visa, costs, duration, and key rules for visiting Dubai."
-cover: "/Images/sand.jpg"
+cover: "/Images/desert-safari/728726806_18081562811654255_2956007253204417439_n.jpg"
 relatedTours:
   - shared-desert-safari
 faqs:

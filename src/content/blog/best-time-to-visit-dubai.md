@@ -4,7 +4,7 @@ category: dubai-travel-guides
 date: "2025-01-15"
 author: "MyDubaiSafarii Team"
 excerpt: "Planning your Dubai trip? Discover the best months to visit, weather patterns, peak season deals, and annual events to help you choose the perfect time."
-cover: "/Images/sand.jpg"
+cover: "/Images/desert-safari/587758374_18057112574654255_1413101035280901224_n.jpg"
 location: "Dubai, UAE"
 relatedTours:
   - shared-desert-safari
