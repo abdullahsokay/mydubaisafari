@@ -45,7 +45,10 @@ export default async function Home() {
       {/* Hero */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-midnight px-6 text-center text-surface">
         {/* Background video — non-interactive (autoplay, loop, muted, not clickable) */}
-        <LoopVideo src="/Images/homepage/hero-section.mp4" className="absolute inset-0 size-full" preload="metadata" poster="/Images/sand.jpg" />
+        {/* No poster: it briefly showed an unrelated guest photo before the
+            video loaded. Falls back to the section's own dark bg-midnight
+            instead, which is tonally consistent with the overlays below. */}
+        <LoopVideo src="/Images/homepage/hero-section.mp4" className="absolute inset-0 size-full" preload="auto" />
         {/* Light tint + grounding gradient — video stays clearly visible */}
         <div className="pointer-events-none absolute inset-0 bg-midnight/25" />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-midnight/40 via-transparent to-midnight/75" />
