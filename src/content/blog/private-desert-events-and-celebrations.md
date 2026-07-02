@@ -4,7 +4,7 @@ category: desert-safari
 date: "2025-03-10"
 author: "MyDubaiSafarii Team"
 excerpt: "Dubai's desert offers one of the world's most spectacular backdrops for private events. Whether you are planning a marriage proposal, milestone birthday, romantic dinner, or corporate retreat — here is how to make it unforgettable."
-cover: "/Images/sand.jpg"
+cover: "/Images/private.webp"
 location: "Dubai Desert Conservation Reserve"
 relatedTours:
   - vip-bedouin-camp
