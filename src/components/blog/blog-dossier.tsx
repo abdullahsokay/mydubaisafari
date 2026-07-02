@@ -29,16 +29,16 @@ const FRAME_SHADOW = "shadow-[0_30px_80px_-30px_rgba(126,60,27,0.55)]";
 const EMBER_GLOW =
   "shadow-[0_30px_80px_-20px_rgba(224,122,44,0.45),0_0_60px_-10px_rgba(224,122,44,0.6)]";
 
-/* ── Public data shapes ────────────────────────────────────────────── */
+/* ── Internal data shapes (not consumed outside this file) ─────────── */
 
-export interface DossierSupporter {
+interface DossierSupporter {
   src: string;
   alt: string;
   ratio?: string;
   ember?: boolean;
 }
 
-export interface DossierMedia {
+interface DossierMedia {
   type: "image" | "video";
   /** Hero asset path (image or video). */
   hero: string;
@@ -56,7 +56,7 @@ export interface DossierMedia {
   supporters?: DossierSupporter[];
 }
 
-export interface DossierSection {
+interface DossierSection {
   /** Two-digit numeral shown on the spine node, e.g. "01". */
   number: string;
   /** Eyebrow badge label. */
@@ -310,7 +310,7 @@ function Spread({
 
 /* ── Prose helpers (desert ink) ────────────────────────────────────── */
 
-export function H2({
+function H2({
   id,
   children,
 }: {

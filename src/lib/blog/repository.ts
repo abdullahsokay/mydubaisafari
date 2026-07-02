@@ -78,10 +78,6 @@ export function listPostSlugs(): string[] {
     .map((f) => f.replace(/\.md$/, ""));
 }
 
-export function getPostsByCategory(categorySlug: string): PostMeta[] {
-  return getAllPosts().filter((p) => p.category === categorySlug);
-}
-
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   const filePath = path.join(CONTENT_DIR, slug + ".md");
   if (!fs.existsSync(filePath)) return null;

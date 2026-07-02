@@ -62,7 +62,7 @@ export function HeroContent() {
           Explore Tours
         </Link>
         <Link
-          href="/tours?category=desert-safari"
+          href="/tours?category=with-camp"
           className={cn(
             buttonVariants({ variant: "outline", size: "lg" }),
             "border-palegold/60 text-surface backdrop-blur-sm hover:border-gold",

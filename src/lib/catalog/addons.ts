@@ -1,4 +1,4 @@
-export type AddonOption = { label: string; price: number };
+type AddonOption = { label: string; price: number };
 
 export type Addon = {
   id: string;

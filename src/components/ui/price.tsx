@@ -4,22 +4,18 @@ import { cn } from "@/lib/utils";
 export function Price({
   amount,
   currency = "AED",
-  suffix = "person",
-  unit,
+  unit = "person",
   regular,
   className,
 }: {
   amount: number;
   currency?: string;
-  /** @deprecated Use `unit` instead. Kept for backwards-compat with existing callers. */
-  suffix?: string | null;
-  /** Pricing unit label, e.g. "2 persons · private". Overrides suffix when provided. */
+  /** Pricing unit label, e.g. "2 persons · private". Defaults to "person". */
   unit?: string;
   /** Original/regular price — shown as strikethrough before the sale price. */
   regular?: number;
   className?: string;
 }) {
-  const displayUnit = unit ?? suffix;
   return (
     <div className={cn("flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5", className)}>
       {regular !== undefined && (
@@ -31,8 +27,8 @@ export function Price({
       <span className="font-heading text-xl font-semibold text-midnight">
         {currency} {amount.toLocaleString("en-US")}
       </span>
-      {displayUnit && (
-        <span className="text-xs text-midnight/50">/ {displayUnit}</span>
+      {unit && (
+        <span className="text-xs text-midnight/50">/ {unit}</span>
       )}
     </div>
   );
