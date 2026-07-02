@@ -133,33 +133,43 @@ export function BookingForm({ tour }: BookingFormProps) {
       ? `${foodPref}, ${foodNotes.trim()}`
       : foodPref;
 
-    const addonsMsg = addonLines.length
-      ? "Add-ons: " +
-        addonLines
-          .map(
+    // WhatsApp renders *bold* / _italic_; emojis + dividers make the plain-text
+    // prefill read like a structured booking card in the chat.
+    const divider = "━━━━━━━━━━━━━━";
+    const addonsBlock = addonLines.length
+      ? [
+          "🎯 *Add-ons*",
+          ...addonLines.map(
             (l) =>
-              `${l.name} (${l.optLabel}) ×${l.qty} — AED ${l.lineTotal.toLocaleString()}`,
-          )
-          .join("; ")
+              `   • ${l.name} (${l.optLabel}) ×${l.qty} — AED ${l.lineTotal.toLocaleString()}`,
+          ),
+        ].join("\n")
       : null;
 
     const message = [
-      "New Booking Inquiry — MyDubaiSafarii",
-      `Service: ${tour.name}`,
-      `Package price: AED ${basePrice.toLocaleString()} (${tour.priceUnit ?? "per person"})`,
-      `Date: ${date}`,
-      `Time: ${time}`,
-      `People: ${peopleStr}`,
-      `Pickup: ${pickup}`,
-      `Drop-off: ${dropoff.trim() || "-"}`,
-      `Food: ${foodStr}`,
-      `Medical/Special needs: ${medicalNeeds.trim() || "None"}`,
-      addonsMsg,
-      `Estimated total: AED ${total.toLocaleString()} (final price confirmed on WhatsApp)`,
-      `Name: ${name}`,
-      `Phone: ${phone.trim() || "-"}`,
+      "🏜️ *New Booking Inquiry — MyDubaiSafarii*",
+      divider,
+      `📦 *${tour.name}*`,
+      `💰 Package: AED ${basePrice.toLocaleString()} _(${tour.priceUnit ?? "per person"})_`,
+      "",
+      `📅 Date: ${date}`,
+      `⏰ Time: ${time}`,
+      `👥 Guests: ${peopleStr}`,
+      "",
+      `📍 Pickup: ${pickup}`,
+      `🏁 Drop-off: ${dropoff.trim() || "Same as pickup"}`,
+      `🍽️ Food: ${foodStr}`,
+      `🩺 Medical/Special needs: ${medicalNeeds.trim() || "None"}`,
+      addonsBlock ? "" : null,
+      addonsBlock,
+      divider,
+      `💵 *Estimated total: AED ${total.toLocaleString()}*`,
+      "_(final price confirmed on WhatsApp)_",
+      "",
+      `🙍 Name: ${name}`,
+      `📞 Phone: ${phone.trim() || "-"}`,
     ]
-      .filter(Boolean)
+      .filter((l) => l !== null)
       .join("\n");
 
     const url = whatsappUrl(message);

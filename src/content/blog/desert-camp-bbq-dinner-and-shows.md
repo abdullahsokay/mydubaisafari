@@ -4,7 +4,7 @@ category: desert-safari
 date: "2025-03-03"
 author: "MyDubaiSafarii Team"
 excerpt: "After the dunes comes the camp — and for many guests, it is the highlight of the entire evening. Here is what to expect from Dubai's Bedouin desert camp experience: the food, the entertainment, and the atmosphere."
-cover: "/Images/sand.jpg"
+cover: "/Images/profiledesertcamp.jpg"
 location: "Dubai Desert Conservation Reserve"
 relatedTours:
   - shared-desert-safari
