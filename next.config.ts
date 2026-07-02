@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
+  // /blog is dynamic and reads src/content/blog at request time; Next can't
+  // trace that dynamic fs path, so bundle the markdown into the serverless
+  // function (fixes the 500 on the blog index in production).
+  outputFileTracingIncludes: {
+    "/blog": ["./src/content/blog/**/*"],
+    "/blog/[slug]": ["./src/content/blog/**/*"],
+  },
+
   async headers() {
     return [
       {
