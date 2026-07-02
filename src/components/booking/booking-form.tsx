@@ -6,10 +6,13 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { whatsappUrl } from "@/lib/site";
 import type { Tour } from "@/lib/catalog/types";
+import { ADDONS } from "@/lib/catalog/addons";
 
 interface BookingFormProps {
   tour: Tour;
 }
+
+type AddonSelection = { optionIndex: number; qty: number };
 
 function Stepper({
   label,
@@ -68,6 +71,48 @@ export function BookingForm({ tour }: BookingFormProps) {
   const [phone, setPhone] = useState("");
   const [sent, setSent] = useState(false);
   const [waUrl, setWaUrl] = useState("");
+  const [selectedAddons, setSelectedAddons] = useState<
+    Record<string, AddonSelection>
+  >({});
+
+  const toggleAddon = (id: string) =>
+    setSelectedAddons((prev) => {
+      const next = { ...prev };
+      if (next[id]) delete next[id];
+      else next[id] = { optionIndex: 0, qty: 1 };
+      return next;
+    });
+  const setAddonOption = (id: string, optionIndex: number) =>
+    setSelectedAddons((prev) => ({ ...prev, [id]: { ...prev[id], optionIndex } }));
+  const setAddonQty = (id: string, qty: number) =>
+    setSelectedAddons((prev) => ({
+      ...prev,
+      [id]: { ...prev[id], qty: Math.max(1, qty) },
+    }));
+
+  // Base price: per-person packages multiply by guests; private/per-vehicle is flat.
+  const isPerPerson = !tour.priceUnit || tour.priceUnit === "person";
+  const basePrice = isPerPerson
+    ? adults * tour.priceAdult +
+      children * tour.priceChild +
+      infants * tour.priceInfant
+    : tour.priceAdult;
+
+  const addonLines = ADDONS.flatMap((a) => {
+    const sel = selectedAddons[a.id];
+    if (!sel) return [];
+    const opt = a.options[sel.optionIndex];
+    return [
+      {
+        name: a.name,
+        optLabel: opt.label,
+        qty: sel.qty,
+        lineTotal: opt.price * sel.qty,
+      },
+    ];
+  });
+  const addonsTotal = addonLines.reduce((s, l) => s + l.lineTotal, 0);
+  const total = basePrice + addonsTotal;
 
   const isValid =
     date !== "" && adults >= 1 && pickup.trim() !== "" && name.trim() !== "";
@@ -88,9 +133,20 @@ export function BookingForm({ tour }: BookingFormProps) {
       ? `${foodPref}, ${foodNotes.trim()}`
       : foodPref;
 
+    const addonsMsg = addonLines.length
+      ? "Add-ons: " +
+        addonLines
+          .map(
+            (l) =>
+              `${l.name} (${l.optLabel}) ×${l.qty} — AED ${l.lineTotal.toLocaleString()}`,
+          )
+          .join("; ")
+      : null;
+
     const message = [
       "New Booking Inquiry — MyDubaiSafarii",
       `Service: ${tour.name}`,
+      `Package price: AED ${basePrice.toLocaleString()} (${tour.priceUnit ?? "per person"})`,
       `Date: ${date}`,
       `Time: ${time}`,
       `People: ${peopleStr}`,
@@ -98,9 +154,13 @@ export function BookingForm({ tour }: BookingFormProps) {
       `Drop-off: ${dropoff.trim() || "-"}`,
       `Food: ${foodStr}`,
       `Medical/Special needs: ${medicalNeeds.trim() || "None"}`,
+      addonsMsg,
+      `Estimated total: AED ${total.toLocaleString()} (final price confirmed on WhatsApp)`,
       `Name: ${name}`,
       `Phone: ${phone.trim() || "-"}`,
-    ].join("\n");
+    ]
+      .filter(Boolean)
+      .join("\n");
 
     const url = whatsappUrl(message);
     setWaUrl(url);
@@ -143,11 +203,6 @@ export function BookingForm({ tour }: BookingFormProps) {
       </div>
     );
   }
-
-  const total =
-    adults * tour.priceAdult +
-    children * tour.priceChild +
-    infants * tour.priceInfant;
 
   return (
     <form onSubmit={handleSubmit} noValidate>
@@ -246,6 +301,80 @@ export function BookingForm({ tour }: BookingFormProps) {
                 min={0}
                 onChange={setInfants}
               />
+            </div>
+          </section>
+
+          {/* Adventure add-ons */}
+          <section className="rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
+            <h2 className="font-heading text-lg font-semibold text-midnight">
+              Adventure Add-ons{" "}
+              <span className="text-sm font-normal text-midnight/45">
+                (optional)
+              </span>
+            </h2>
+            <p className="mt-1 text-sm text-midnight/75">
+              Add a quad bike or buggy blast (30 min each) to your safari — final
+              price confirmed on WhatsApp.
+            </p>
+            <div className="mt-4 space-y-3">
+              {ADDONS.map((a) => {
+                const sel = selectedAddons[a.id];
+                const checked = !!sel;
+                return (
+                  <div
+                    key={a.id}
+                    className="rounded-xl border border-midnight/15 bg-sand p-3"
+                  >
+                    <label className="flex cursor-pointer items-start gap-2.5">
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => toggleAddon(a.id)}
+                        className="mt-0.5 size-4 accent-orange"
+                        aria-label={`Add ${a.name}`}
+                      />
+                      <span className="min-w-0">
+                        <span className="text-sm font-medium text-midnight">
+                          {a.name}
+                        </span>
+                        <span className="block text-xs text-midnight/60">
+                          {a.durationMin} min · {a.priceLabel}
+                          {a.note ? ` · ${a.note}` : ""}
+                        </span>
+                      </span>
+                    </label>
+                    {checked && (
+                      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-3 pl-6">
+                        <label className="flex items-center gap-2 text-xs text-midnight/70">
+                          Option
+                          <select
+                            value={sel.optionIndex}
+                            onChange={(e) =>
+                              setAddonOption(a.id, Number(e.target.value))
+                            }
+                            aria-label={`${a.name} option`}
+                            className="rounded-lg border border-midnight/45 bg-surface px-2 py-1 text-sm text-midnight focus:border-orange focus:ring-2 focus:ring-orange/60 focus:outline-none"
+                          >
+                            {a.options.map((o, i) => (
+                              <option key={i} value={i}>
+                                {o.label} — AED {o.price.toLocaleString()}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        <div className="w-32">
+                          <Stepper
+                            label="Qty"
+                            value={sel.qty}
+                            min={1}
+                            onChange={(v) => setAddonQty(a.id, v)}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -454,12 +583,39 @@ export function BookingForm({ tour }: BookingFormProps) {
               </li>
             </ul>
 
+            {/* Price breakdown */}
+            <div className="mt-4 space-y-2 border-t border-midnight/10 pt-4 text-sm">
+              <div className="flex justify-between text-midnight/70">
+                <span>Package</span>
+                <span className="font-medium text-midnight">
+                  AED {basePrice.toLocaleString()}
+                  <span className="ml-1 text-xs text-midnight/50">
+                    {isPerPerson ? "· per person" : "· private"}
+                  </span>
+                </span>
+              </div>
+              {addonLines.map((l, i) => (
+                <div key={i} className="flex justify-between text-midnight/70">
+                  <span className="max-w-[190px] truncate">
+                    {l.name} ({l.optLabel}) ×{l.qty}
+                  </span>
+                  <span className="font-medium text-midnight">
+                    AED {l.lineTotal.toLocaleString()}
+                  </span>
+                </div>
+              ))}
+              <div className="flex justify-between border-t border-midnight/10 pt-2 text-base font-bold text-midnight">
+                <span>Estimated total</span>
+                <span>AED {total.toLocaleString()}</span>
+              </div>
+            </div>
+
             <div
               className={cn(
                 "mt-4 rounded-xl border border-midnight/10 bg-sand p-3 text-xs text-midnight/60",
               )}
             >
-              We&apos;ll confirm price &amp; availability on WhatsApp.
+              We&apos;ll confirm the final price &amp; availability on WhatsApp.
             </div>
 
             <Button
