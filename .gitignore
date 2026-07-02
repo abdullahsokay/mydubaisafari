@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Raw 89MB photogrammetry scan (web build is kaira-web.glb)
+public/Images/kaira.glb

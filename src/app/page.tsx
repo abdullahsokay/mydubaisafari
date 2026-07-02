@@ -7,6 +7,7 @@ import { getFeaturedTours } from "@/lib/catalog/repository";
 import GallerySection from "@/components/gallery/gallery-section";
 import { HeroContent } from "@/components/home/hero-content";
 import { ActivityVideos } from "@/components/home/activity-videos";
+import { KairaSection } from "@/components/home/kaira-section";
 import { LoopVideo } from "@/components/ui/loop-video";
 import { SITE } from "@/lib/site";
 
@@ -96,6 +97,8 @@ export default async function Home() {
       </section>
 
       <ActivityVideos />
+
+      <KairaSection />
 
       <GallerySection />
     </>
