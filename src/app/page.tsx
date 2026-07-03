@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,10 @@ import { SITE } from "@/lib/site";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
+
+export const metadata: Metadata = {
+  alternates: { canonical: `${SITE_URL}/` },
+};
 
 /** Serialize JSON-LD safely — escapes < > & to prevent script tag breakout. */
 function safeJsonLd(obj: unknown): string {
