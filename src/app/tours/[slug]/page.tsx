@@ -17,6 +17,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Tabs, type TabItem } from "@/components/ui/tabs";
 import { BackButton } from "@/components/ui/back-button";
 import { TourCard } from "@/components/tours/tour-card";
+import { HeroCarousel } from "@/components/tours/hero-carousel";
 import {
   getTourBySlug,
   getRelatedTours,
@@ -210,27 +211,61 @@ export default async function TourDetailPage({
         {/* Ember glow grounding the gallery plates */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(164,91,47,0.25),transparent_70%)]" />
         <Container className="relative py-6">
-          <div className="grid gap-3 sm:grid-cols-4 sm:grid-rows-2">
-            <div
-              className={`dune-media group h-64 rounded-2xl ring-1 ring-palegold/20 sm:col-span-2 sm:row-span-2 sm:h-full ${tour.gallery[0]}`}
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute top-4 left-4 z-[2] size-8 rounded-tl-2xl border-t border-l border-palegold/70"
+          {tour.images && tour.images.length > 0 ? (
+            <div className="grid gap-3 sm:grid-cols-4 sm:grid-rows-2">
+              {/* Main plate: auto-rotating photo carousel */}
+              <HeroCarousel
+                images={tour.images}
+                alt={`${tour.name} — photo gallery`}
+                className="h-64 sm:col-span-2 sm:row-span-2 sm:h-full sm:min-h-96"
               />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute right-4 bottom-4 z-[2] size-8 rounded-br-2xl border-r border-b border-palegold/70"
-              />
-              <span aria-hidden className="sheen" />
+              {/* Side plates: the two supporting photos, static */}
+              {tour.images.slice(1, 3).map((src, i) => (
+                <div
+                  key={src}
+                  className="relative hidden h-full min-h-32 overflow-hidden rounded-2xl ring-1 ring-palegold/15 sm:col-span-2 sm:block"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-midnight/40 to-transparent" />
+                  {i === 1 && (
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute right-3 bottom-3 size-7 rounded-br-2xl border-r border-b border-palegold/70"
+                    />
+                  )}
+                </div>
+              ))}
             </div>
-            {tour.gallery.slice(1, 3).map((g, i) => (
+          ) : (
+            <div className="grid gap-3 sm:grid-cols-4 sm:grid-rows-2">
               <div
-                key={i}
-                className={`dune-media hidden h-full min-h-32 rounded-2xl ring-1 ring-palegold/15 sm:col-span-2 sm:block ${g}`}
-              />
-            ))}
-          </div>
+                className={`dune-media group h-64 rounded-2xl ring-1 ring-palegold/20 sm:col-span-2 sm:row-span-2 sm:h-full ${tour.gallery[0]}`}
+              >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute top-4 left-4 z-[2] size-8 rounded-tl-2xl border-t border-l border-palegold/70"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute right-4 bottom-4 z-[2] size-8 rounded-br-2xl border-r border-b border-palegold/70"
+                />
+                <span aria-hidden className="sheen" />
+              </div>
+              {tour.gallery.slice(1, 3).map((g, i) => (
+                <div
+                  key={i}
+                  className={`dune-media hidden h-full min-h-32 rounded-2xl ring-1 ring-palegold/15 sm:col-span-2 sm:block ${g}`}
+                />
+              ))}
+            </div>
+          )}
         </Container>
       </section>
 

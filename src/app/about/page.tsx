@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Users,
   BadgeCheck,
+  Car,
+  Clock,
+  MapPin,
   MessageCircle,
   ShieldCheck,
-  Clock,
-  Map,
-  Eye,
-  Target,
+  Tent,
+  Users,
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -16,351 +16,535 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { whatsappUrl } from "@/lib/site";
-
 import { Reveal } from "@/components/about/reveal";
-import { TiltCard } from "@/components/about/tilt-card";
-import { Counter } from "@/components/about/counter";
-import { ParallaxHero } from "@/components/about/parallax-hero";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export const metadata: Metadata = {
   title: "About Us",
+  description:
+    "Meet MyDubaiSafarii — a local Dubai crew guiding the Al Habab red dunes. Licensed drivers, small private groups, handpicked camps and WhatsApp-direct booking.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
     title: "About MyDubaiSafarii",
     description:
-      "Learn about MyDubaiSafarii — a Dubai-based desert safari company founded by lifelong desert lovers, offering authentic Bedouin experiences and thrilling adventures.",
+      "Meet MyDubaiSafarii — a local Dubai crew guiding the Al Habab red dunes. Licensed drivers, small private groups, handpicked camps and WhatsApp-direct booking.",
     url: `${SITE_URL}/about`,
   },
 };
 
-const whyCards = [
+/* ── Content ─────────────────────────────────────────────────────── */
+
+const heroChips = [
+  { icon: MapPin, label: "Al Habab red dunes" },
+  { icon: ShieldCheck, label: "Licensed & insured" },
+  { icon: MessageCircle, label: "WhatsApp-direct" },
+];
+
+const stats = [
+  { value: "10k+", label: "Happy Guests" },
+  { value: "4.9★", label: "Average Rating" },
+  { value: "8", label: "Curated Packages" },
+  { value: "24/7", label: "WhatsApp Support" },
+];
+
+const values = [
   {
-    icon: Users,
-    title: "Expert Local Guides",
-    desc: "Born-and-bred Dubai locals who know every dune, trail, and desert secret.",
+    icon: ShieldCheck,
+    title: "Licensed & insured drivers",
+    desc: "Certified dune drivers in fully insured 4x4s — tyre pressures set, gear checked, and a proper safety briefing before the first descent.",
   },
   {
-    icon: BadgeCheck,
-    title: "Best Price Guarantee",
-    desc: "Found it cheaper? We'll match it — no questions, no hassle.",
+    icon: Users,
+    title: "Small private groups",
+    desc: "Your own vehicle and your own pace. No mega-convoys, no strangers squeezed onto your bench seat.",
+  },
+  {
+    icon: Tent,
+    title: "Handpicked desert camps",
+    desc: "We only use camps we would bring our own families to — live fire, proper coffee, clean facilities and honest food.",
   },
   {
     icon: MessageCircle,
-    title: "Instant WhatsApp Booking",
-    desc: "Confirm your safari in under 2 minutes — straight from your phone.",
+    title: "Instant WhatsApp confirmation",
+    desc: "A human replies in minutes with times, prices and a confirmed pickup. No forms, no waiting on email.",
   },
   {
-    icon: ShieldCheck,
-    title: "Safety First",
-    desc: "Fully insured vehicles, certified drivers, and pre-trip safety checks every time.",
+    icon: BadgeCheck,
+    title: "Best-price promise",
+    desc: "Found the same package for less? Send us the quote on WhatsApp and we will match it. Simple.",
   },
   {
-    icon: Clock,
-    title: "24/7 Support",
-    desc: "Day or night, our team is one message away for any travel need.",
-  },
-  {
-    icon: Map,
-    title: "Tailored Itineraries",
-    desc: "Solo, family, corporate — we craft each journey around you.",
+    icon: Car,
+    title: "Hotel pickup across Dubai",
+    desc: "Door-to-door from any hotel, apartment or cruise terminal in Dubai — you just wait in the lobby.",
   },
 ];
 
-const trustedPlatforms = [
-  "TripAdvisor",
-  "Google Reviews",
-  "Instagram",
-  "Viator",
-  "GetYourGuide",
-  "Klook",
+const steps = [
+  {
+    title: "Choose your package",
+    desc: "Browse our curated experiences — evening safaris, overnight camps, private charters — and pick the one that fits your crew.",
+  },
+  {
+    title: "WhatsApp us",
+    desc: "Tap the green button and tell us your date, hotel and group size. A real person replies in minutes, any hour.",
+  },
+  {
+    title: "We confirm & pick you up",
+    desc: "You get your pickup time and driver details on the spot. On the day, your 4x4 is waiting at the lobby.",
+  },
 ];
+
+const postcards = [
+  {
+    src: "/Images/desert-safari/641262509_18065993909654255_583259857927294763_n.jpg",
+    alt: "Close portrait of a smiling guest wearing a traditional embroidered headscarf",
+    kicker: "Hospitality",
+    caption: "Welcomed like family",
+  },
+  {
+    src: "/Images/desert-safari/723144659_18080327912654255_7038926133804453364_n.jpg",
+    alt: "Guest walking beside camels through golden late-afternoon light on the dunes",
+    kicker: "Golden hour",
+    caption: "Walking with the caravan",
+  },
+  {
+    src: "/Images/desert-safari/728003758_18080992646654255_7810894865877275181_n.jpg",
+    alt: "Guest in a black and gold abaya standing before a blazing orange desert sunset",
+    kicker: "Sunset",
+    caption: "Dressed for the dunes",
+  },
+];
+
+/* ── Page ────────────────────────────────────────────────────────── */
 
 export default function AboutPage() {
   return (
     <main>
-      {/* 1 ─ Parallax Hero */}
-      <ParallaxHero />
+      {/* 1 ─ Hero */}
+      <section className="relative overflow-hidden bg-midnight text-surface">
+        {/* Sunrise + ember glows grounding the dark hero */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_12%_0%,rgba(250,231,172,0.12),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_88%_100%,rgba(164,91,47,0.3),transparent_70%)]" />
+
+        <Container className="relative grid items-center gap-12 pt-28 pb-16 sm:pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:pb-24">
+          {/* Left — copy */}
+          <div>
+            <Badge className="animate-rise rise-1 border border-palegold/40 bg-midnight/30 text-palegold ring-palegold/30 backdrop-blur-md">
+              The team behind the dunes
+            </Badge>
+
+            <h1 className="animate-rise rise-2 mt-6 max-w-xl font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-h1">
+              Born in Dubai.{" "}
+              <span className="bg-linear-to-r from-palegold via-dune to-palegold bg-clip-text text-transparent">
+                Raised on the red dunes.
+              </span>
+            </h1>
+
+            <p className="animate-rise rise-3 mt-5 max-w-xl text-base leading-relaxed text-surface/80 sm:text-lg">
+              We&rsquo;re the small local crew behind Dubai&rsquo;s warmest
+              desert evenings — drivers, guides and camp hosts who&rsquo;ve
+              spent years reading the Al Habab dunes, one WhatsApp message
+              away.
+            </p>
+
+            <ul className="animate-rise rise-4 mt-8 flex flex-wrap gap-2.5">
+              {heroChips.map((chip) => (
+                <li
+                  key={chip.label}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-surface/10 px-3.5 py-1.5 text-xs font-medium text-surface/90 ring-1 ring-palegold/25 backdrop-blur-sm"
+                >
+                  <chip.icon className="size-3.5 text-palegold" aria-hidden />
+                  {chip.label}
+                </li>
+              ))}
+            </ul>
+
+            <div className="animate-rise rise-4 mt-10 flex items-center gap-3" aria-hidden>
+              <span className="h-px w-14 bg-linear-to-r from-transparent to-palegold/70" />
+              <span className="h-1.5 w-1.5 rotate-45 bg-palegold" />
+              <span className="h-px w-14 bg-linear-to-l from-transparent to-palegold/70" />
+            </div>
+          </div>
+
+          {/* Right — signature photo plate */}
+          <div className="animate-rise rise-3 relative mx-auto w-full max-w-md lg:ml-auto">
+            {/* Offset gold frame echo */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -top-3 -right-3 hidden size-40 rounded-tr-3xl border-t border-r border-palegold/30 sm:block"
+            />
+            <div className="dune-media group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-luxe-lg ring-1 ring-palegold/25">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/Images/desert-safari/631414459_18064862606654255_9132147263810183976_n.jpg"
+                alt="Guest silhouetted against the low desert sun, throwing an arc of golden sand from a dune crest"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-28 bg-linear-to-t from-midnight/70 via-midnight/25 to-transparent" />
+              <span
+                aria-hidden
+                className="pointer-events-none absolute top-4 left-4 z-[2] size-8 rounded-tl-2xl border-t border-l border-palegold/70"
+              />
+              <span
+                aria-hidden
+                className="pointer-events-none absolute right-4 bottom-4 z-[2] size-8 rounded-br-2xl border-r border-b border-palegold/70"
+              />
+              <span aria-hidden className="sheen" />
+              <p className="absolute bottom-4 left-4 z-[3] inline-flex items-center gap-1.5 rounded-full bg-midnight/45 px-3 py-1 text-xs font-medium text-surface ring-1 ring-palegold/30 backdrop-blur-md">
+                <MapPin className="size-3.5 text-palegold" aria-hidden />
+                Al Habab Desert, Dubai
+              </p>
+            </div>
+          </div>
+        </Container>
+
+        {/* Gold hairline seam into the next section */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-palegold/50 to-transparent" />
+      </section>
 
       {/* 2 ─ Our Story */}
-      <section className="bg-surface py-14 sm:py-24">
-        <Container>
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            {/* Left: text */}
-            <div>
-              <Reveal>
-                <Badge tone="gold" className="mb-4">
-                  Our Story
-                </Badge>
-              </Reveal>
-              <Reveal delay={80}>
-                <h2 className="font-heading text-3xl font-bold text-midnight sm:text-h2">
-                  A Passion for the Desert,{" "}
-                  <span className="text-orange">Born in Dubai</span>
-                </h2>
-              </Reveal>
-              <Reveal delay={160}>
-                <p className="mt-5 leading-relaxed text-navy/80">
-                  MyDubaiSafarii was founded by a team of lifelong desert lovers who grew
-                  tired of seeing visitors experience Dubai through the same rehearsed
-                  script. We set out to change that — to offer journeys as wild, warm, and
-                  genuine as the Emirate itself.
-                </p>
-              </Reveal>
-              <Reveal delay={220}>
-                <p className="mt-4 leading-relaxed text-navy/80">
-                  Every safari we run is rooted in authentic Bedouin hospitality: generous
-                  service, time-honoured traditions, and an obsession with safety that lets
-                  you relax and soak in every golden moment.
-                </p>
-              </Reveal>
-              <Reveal delay={280}>
-                <p className="mt-4 leading-relaxed text-navy/80">
-                  From heart-pounding dune bashing and camel rides at twilight to overnight
-                  desert camping and starlit BBQ evenings, our experiences are designed
-                  to become the highlight of your entire trip.
-                </p>
-              </Reveal>
-            </div>
+      <section className="relative overflow-hidden bg-sand py-16 sm:py-24">
+        {/* Soft sunrise wash behind the header */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,182,133,0.25),transparent_70%)]" />
 
-            {/* Right: TiltCard with image */}
+        <Container className="relative grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+          {/* Text */}
+          <div>
+            <Reveal>
+              <Badge tone="gold">Our Story</Badge>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+                The desert isn&rsquo;t our office.{" "}
+                <span className="text-orange">It&rsquo;s our home.</span>
+              </h2>
+              <div
+                aria-hidden
+                className="mt-5 h-px w-24 bg-linear-to-r from-gold/70 to-transparent"
+              />
+            </Reveal>
+            <Reveal delay={140}>
+              <p className="mt-6 leading-relaxed text-midnight/75">
+                MyDubaiSafarii is a small, local outfit — drivers, guides and
+                camp hosts who grew up with the desert on our doorstep.
+                We&rsquo;ve spent years leading 4x4s through the Al Habab red
+                dunes, and it shows in the small things: which ridge catches
+                the last light, where the sand runs soft after a windy night,
+                when to pause the convoy so nobody misses the sunset.
+              </p>
+            </Reveal>
             <Reveal delay={200}>
-              <TiltCard className="rounded-3xl">
-                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/Images/sand.jpg"
-                    alt="Dubai desert dunes at golden hour"
-                    className="h-[480px] w-full object-cover object-center"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-midnight/70 via-transparent to-transparent" />
-
-                  {/* Floating stat badge */}
-                  <div className="absolute bottom-6 left-6 flex items-center gap-3 rounded-2xl bg-surface/90 px-5 py-3 shadow-xl backdrop-blur-sm">
-                    <span className="text-3xl font-bold text-gold font-heading">4.9</span>
-                    <div>
-                      <div className="flex gap-0.5 text-gold text-sm">★★★★★</div>
-                      <p className="text-xs text-midnight/70 font-body">1 200+ verified reviews</p>
-                    </div>
-                  </div>
-                </div>
-              </TiltCard>
+              <p className="mt-4 leading-relaxed text-midnight/75">
+                Our philosophy is simple: real Arabia, not a theme-park
+                version of it. That means small groups instead of
+                mega-convoys, camps with live fire and unhurried dinners, and
+                a safety-first routine — certified drivers, checked equipment,
+                clear briefings — that lets you switch off and enjoy the ride.
+              </p>
+            </Reveal>
+            <Reveal delay={260}>
+              <p className="mt-4 leading-relaxed text-midnight/75">
+                And no faceless booking portals. You message us on WhatsApp
+                and the reply comes from the same crew that will drive you —
+                so plans can change, questions get straight answers, and
+                nothing is lost between you and the desert.
+              </p>
+            </Reveal>
+            <Reveal delay={320}>
+              <figure className="mt-8 border-l-2 border-gold/70 pl-5">
+                <blockquote className="font-heading text-lg text-midnight/85 italic">
+                  &ldquo;If an evening in the desert is worth your holiday,
+                  it&rsquo;s worth doing properly.&rdquo;
+                </blockquote>
+                <figcaption className="mt-2 text-sm text-midnight/75">
+                  — The MyDubaiSafarii crew
+                </figcaption>
+              </figure>
             </Reveal>
           </div>
-        </Container>
-      </section>
 
-      {/* 2b ─ Vision & Mission */}
-      <section className="bg-sand py-14 sm:py-20">
-        <Container>
-          <Reveal className="mb-12 text-center">
-            <Badge tone="gold" className="mb-4">
-              Our Purpose
-            </Badge>
-            <h2 className="font-heading text-3xl font-bold text-midnight sm:text-h2">
-              Driven by Passion, Guided by Purpose
-            </h2>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <div className="grid gap-6 md:grid-cols-2">
-              {/* Vision */}
-              <TiltCard className="h-full rounded-2xl">
-                <div className="flex h-full flex-col gap-5 rounded-2xl bg-surface p-8 shadow-md ring-1 ring-dune/20 transition-shadow hover:shadow-xl">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-gradient shadow-md">
-                    <Eye className="h-6 w-6 text-surface" strokeWidth={1.8} />
-                  </div>
-                  <h3 className="font-heading text-xl font-semibold text-midnight">
-                    Our Vision
-                  </h3>
-                  <p className="leading-relaxed text-navy/75">
-                    To become Dubai&apos;s most loved adventure and travel company — inspiring
-                    travellers from every corner of the world to discover the magic, beauty,
-                    and culture of the Emirates.
-                  </p>
-                </div>
-              </TiltCard>
-
-              {/* Mission */}
-              <TiltCard className="h-full rounded-2xl">
-                <div className="flex h-full flex-col gap-5 rounded-2xl bg-surface p-8 shadow-md ring-1 ring-dune/20 transition-shadow hover:shadow-xl">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-gradient shadow-md">
-                    <Target className="h-6 w-6 text-surface" strokeWidth={1.8} />
-                  </div>
-                  <h3 className="font-heading text-xl font-semibold text-midnight">
-                    Our Mission
-                  </h3>
-                  <p className="leading-relaxed text-navy/75">
-                    To craft safe, thrilling, and genuinely meaningful desert journeys
-                    across Dubai&apos;s golden dunes, ancient Bedouin trails, and starlit
-                    sands — delivered with the warmth of true Arabian hospitality.
-                  </p>
-                </div>
-              </TiltCard>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* 3 ─ Stats band */}
-      <section className="bg-midnight py-14 sm:py-20">
-        <Container>
-          <div className="grid grid-cols-2 gap-12 text-center lg:grid-cols-4">
-            {[
-              { value: 500, suffix: "+", decimals: 0, label: "Happy Guests" },
-              { value: 6, suffix: "+", decimals: 0, label: "Signature Experiences" },
-              { value: 4.9, suffix: "★", decimals: 1, label: "Average Rating" },
-              { value: 100, suffix: "%", decimals: 0, label: "Verified Reviews" },
-            ].map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 100}>
-                <div>
-                  <p className="font-heading text-4xl font-extrabold text-palegold sm:text-display">
-                    <Counter
-                      value={stat.value}
-                      suffix={stat.suffix}
-                      decimals={stat.decimals}
-                    />
-                  </p>
-                  <p className="mt-2 font-body text-sm font-medium uppercase tracking-widest text-dune/70">
-                    {stat.label}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 3b ─ Trusted By strip */}
-      <section className="bg-surface py-12">
-        <Container>
-          <Reveal className="text-center">
-            <p className="mb-6 font-heading text-base font-semibold uppercase tracking-widest text-midnight/50">
-              Trusted by travellers across the globe
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-              {trustedPlatforms.map((platform) => (
+          {/* Layered photo composition */}
+          <Reveal delay={180}>
+            <div className="relative mx-auto max-w-md pb-10 pl-6 sm:pl-10 lg:max-w-none">
+              <div className="dune-media group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-luxe-lg ring-1 ring-palegold/25">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/Images/desert-safari/640247413_18065993912654255_5399607698326251875_n.jpg"
+                  alt="Guest in a traditional red headscarf resting on a red dune, safari 4x4s parked on the ridge behind"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-24 bg-linear-to-t from-midnight/60 via-midnight/20 to-transparent" />
                 <span
-                  key={platform}
-                  className="rounded-full border border-midnight/10 bg-sand px-5 py-2 font-heading font-semibold text-midnight/70"
-                >
-                  {platform}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* 4 ─ Why Choose Us */}
-      <section className="bg-sand py-14 sm:py-24">
-        <Container>
-          <Reveal className="mb-14 text-center">
-            <Badge tone="orange" className="mb-4">
-              Why Choose Us
-            </Badge>
-            <h2 className="font-heading text-3xl font-bold text-midnight sm:text-h2">
-              The MyDubaiSafarii Difference
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-navy/80">
-              Six reasons thousands of travellers choose us year after year.
-            </p>
-          </Reveal>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {whyCards.map((card, i) => (
-              <Reveal key={card.title} delay={i * 80}>
-                <TiltCard className="h-full rounded-2xl">
-                  <div className="flex h-full flex-col gap-4 rounded-2xl bg-surface p-8 shadow-md ring-1 ring-dune/20 transition-shadow hover:shadow-xl">
-                    {/* Icon circle */}
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-gradient shadow-md">
-                      <card.icon className="h-6 w-6 text-surface" strokeWidth={1.8} />
-                    </div>
-                    <h3 className="font-heading text-lg font-semibold text-midnight">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-navy/75">{card.desc}</p>
-                  </div>
-                </TiltCard>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 4b ─ Meet the Team / Founder's Note */}
-      <section className="bg-sand py-14 sm:py-20">
-        <Container>
-          <Reveal className="mb-12 text-center">
-            <Badge tone="gold" className="mb-4">
-              Our People
-            </Badge>
-            <h2 className="font-heading text-3xl font-bold text-midnight sm:text-h2">
-              The People Behind Your Adventure
-            </h2>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <div className="mx-auto max-w-3xl">
-              <div className="flex flex-col items-center rounded-2xl bg-surface p-8 text-center shadow-md ring-1 ring-dune/20 sm:p-10">
-                {/* Team avatar */}
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-brand-gradient shadow-lg">
-                  <span className="font-heading text-xl font-bold text-surface">MDS</span>
-                </div>
-
-                {/* Quote */}
-                <blockquote className="text-lg leading-relaxed text-navy/80 sm:text-xl">
-                  &ldquo;Dubai isn&apos;t just where we work — it&apos;s our home, and the
-                  desert is our playground. Every safari and adventure we run is built on
-                  one promise: to treat every guest like family and make their desert
-                  story unforgettable.&rdquo;
-                </blockquote>
-
-                {/* Signature */}
-                <p className="mt-6 font-heading font-semibold text-midnight">
-                  — The MyDubaiSafarii Team
+                  aria-hidden
+                  className="pointer-events-none absolute top-4 right-4 z-[2] size-8 rounded-tr-2xl border-t border-r border-palegold/70"
+                />
+                <span aria-hidden className="sheen" />
+                <p className="absolute right-4 bottom-4 z-[3] rounded-full bg-midnight/45 px-3 py-1 text-xs font-medium text-surface ring-1 ring-palegold/30 backdrop-blur-md">
+                  Between drives &middot; Al Habab
                 </p>
+              </div>
+              {/* Floating companion plate, matted on the sand background */}
+              <div className="absolute bottom-0 left-0 w-36 overflow-hidden rounded-2xl border-4 border-sand shadow-luxe-lg sm:w-44">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/Images/desert-safari/721387620_18079909151654255_5178452121857985887_n.jpg"
+                  alt="Two guests posing with a camel on the red dunes"
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-square w-full object-cover"
+                />
               </div>
             </div>
           </Reveal>
         </Container>
       </section>
 
-      {/* 5 ─ CTA band */}
-      <section className="bg-brand-gradient py-14 sm:py-24">
+      {/* 3 ─ Stats band */}
+      <section className="relative overflow-hidden bg-midnight py-14 sm:py-16">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_100%_at_50%_100%,rgba(164,91,47,0.22),transparent_70%)]" />
+
+        <Container className="relative">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 text-center lg:grid-cols-4 lg:divide-x lg:divide-palegold/15">
+            {stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 90} className="px-4">
+                <p className="font-heading text-4xl font-semibold text-palegold sm:text-5xl">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-xs font-medium tracking-[0.18em] text-surface/75 uppercase">
+                  {stat.label}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-palegold/40 to-transparent" />
+      </section>
+
+      {/* 4 ─ Why Ride With Us */}
+      <section className="relative bg-sand py-16 sm:py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,182,133,0.22),transparent_70%)]" />
+
+        <Container className="relative">
+          <Reveal className="flex flex-col items-center text-center">
+            <Badge tone="orange">Why Ride With Us</Badge>
+            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+              Six reasons the dunes feel different with us
+            </h2>
+            <div className="mt-4 flex items-center gap-3" aria-hidden>
+              <span className="h-px w-10 bg-linear-to-r from-transparent to-gold/60" />
+              <span className="h-1.5 w-1.5 rotate-45 bg-gold" />
+              <span className="h-px w-10 bg-linear-to-l from-transparent to-gold/60" />
+            </div>
+            <p className="mt-3 max-w-xl text-midnight/75">
+              Everything is set up the way we&rsquo;d want it as guests —
+              checked, confirmed and honest.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((value, i) => (
+              <Reveal key={value.title} delay={i * 70} className="h-full">
+                <div className="group relative flex h-full flex-col gap-4 rounded-2xl bg-surface p-7 shadow-luxe ring-1 ring-midnight/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-luxe-lg">
+                  {/* Gold corner tick */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute top-3 right-3 size-6 rounded-tr-xl border-t border-r border-palegold/50 transition-colors duration-300 group-hover:border-palegold"
+                  />
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-gold/15 text-goldink ring-1 ring-gold/30 transition-colors duration-300 group-hover:bg-gold/25">
+                    <value.icon className="size-6" strokeWidth={1.8} aria-hidden />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-midnight">
+                    {value.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-midnight/75">
+                    {value.desc}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 5 ─ How It Works */}
+      <section className="relative overflow-hidden bg-surface py-16 sm:py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(250,231,172,0.2),transparent_70%)]" />
+
+        <Container className="relative">
+          <Reveal className="flex flex-col items-center text-center">
+            <Badge tone="gold">Booking, Simplified</Badge>
+            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+              From your phone to the dunes in three steps
+            </h2>
+            <p className="mt-3 max-w-xl text-midnight/75">
+              No accounts, no checkout forms, no waiting. Just a conversation.
+            </p>
+          </Reveal>
+
+          <div className="relative mt-14 grid gap-12 sm:grid-cols-3 sm:gap-8">
+            {/* Connecting line behind the numbered circles */}
+            <div
+              aria-hidden
+              className="absolute top-7 right-[17%] left-[17%] hidden h-px bg-linear-to-r from-palegold/0 via-palegold/60 to-palegold/0 sm:block"
+            />
+            {steps.map((step, i) => (
+              <Reveal key={step.title} delay={i * 120}>
+                <div className="relative flex flex-col items-center text-center">
+                  <div className="relative z-[1] flex size-14 items-center justify-center rounded-full bg-gold font-heading text-xl font-semibold text-midnight shadow-[0_10px_24px_-10px_rgba(198,139,87,0.85)] ring-4 ring-gold/20">
+                    {i + 1}
+                  </div>
+                  <h3 className="mt-5 font-heading text-lg font-semibold text-midnight">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 max-w-xs text-sm leading-relaxed text-midnight/75">
+                    {step.desc}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={360} className="mt-14 text-center">
+            <Link
+              href="/tours"
+              className={buttonVariants({ variant: "secondary", size: "md" })}
+            >
+              Start with step one — browse packages
+            </Link>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* 6 ─ Postcards photo mosaic */}
+      <section className="relative overflow-hidden bg-sand pt-16 pb-24 sm:pt-20 lg:pb-32">
         <Container>
           <Reveal className="flex flex-col items-center text-center">
-            <h2 className="font-heading text-4xl font-extrabold text-surface max-w-2xl leading-tight sm:text-h1">
-              Ready to write your Dubai story?
+            <Badge tone="gold">Field Notes</Badge>
+            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+              Postcards from the sand
             </h2>
-            <p className="mt-5 max-w-xl text-lg text-palegold/90">
-              Book in seconds — no long forms, no waiting. Just you, the desert, and us.
+            <p className="mt-3 max-w-xl text-midnight/75">
+              Straight from our guests&rsquo; evenings on the Al Habab dunes —
+              no filters needed.
             </p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
+          </Reveal>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-3 sm:gap-5">
+            {postcards.map((card, i) => (
+              <div
+                key={card.src}
+                className={cn(i % 2 === 1 && "sm:translate-y-8")}
+              >
+                <Reveal delay={i * 90}>
+                  <figure className="dune-media group relative h-80 overflow-hidden rounded-2xl shadow-luxe ring-1 ring-palegold/25 lg:h-96">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={card.src}
+                      alt={card.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-28 bg-linear-to-t from-midnight/75 via-midnight/30 to-transparent" />
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute top-3 right-3 z-[2] size-7 rounded-tr-2xl border-t border-r border-palegold/80 transition-colors duration-300 group-hover:border-palegold"
+                    />
+                    <span aria-hidden className="sheen" />
+                    <figcaption className="absolute inset-x-4 bottom-4 z-[3]">
+                      <p className="text-[11px] font-medium tracking-[0.16em] text-palegold uppercase">
+                        {card.kicker}
+                      </p>
+                      <p className="mt-0.5 font-heading text-sm font-semibold text-surface">
+                        {card.caption}
+                      </p>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 7 ─ Final CTA band */}
+      <section className="relative overflow-hidden bg-midnight py-20 text-surface sm:py-28">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(250,231,172,0.1),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_100%,rgba(164,91,47,0.35),transparent_70%)]" />
+
+        <Container className="relative flex flex-col items-center text-center">
+          <Reveal>
+            <Badge className="border border-palegold/40 bg-midnight/30 text-palegold ring-palegold/30 backdrop-blur-md">
+              Direct &middot; No middlemen
+            </Badge>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-6 max-w-2xl font-heading text-3xl font-semibold leading-tight tracking-tight sm:text-h1">
+              The dunes are waiting.{" "}
+              <span className="bg-linear-to-r from-palegold via-dune to-palegold bg-clip-text text-transparent">
+                Planning takes two minutes.
+              </span>
+            </h2>
+          </Reveal>
+          <Reveal delay={170}>
+            <p className="mt-5 max-w-xl text-surface/80 sm:text-lg">
+              Tell us your date and hotel on WhatsApp — we&rsquo;ll suggest
+              the right package, confirm your pickup and handle the rest.
+            </p>
+          </Reveal>
+          <Reveal delay={250}>
+            <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
               <a
-                href={whatsappUrl("Hi! I want to book a Dubai safari.")}
+                href={whatsappUrl(
+                  "Hi MyDubaiSafarii! I'd like to plan a desert safari — can you help me pick the right package?",
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
                   buttonVariants({ variant: "primary", size: "lg" }),
-                  "bg-[#1a7f40] text-white hover:bg-[#155f30] shadow-lg"
+                  "bg-[#1a7f40] text-white shadow-lg hover:bg-[#155f30]",
                 )}
               >
+                <MessageCircle className="size-5" aria-hidden />
                 Chat on WhatsApp
               </a>
               <Link
                 href="/tours"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
-                  "border-surface/60 text-surface hover:bg-surface/10"
+                  "border-palegold/60 text-surface hover:border-gold hover:bg-surface/10 hover:text-surface",
                 )}
               >
-                Explore Tours
+                Explore the tours
               </Link>
             </div>
+          </Reveal>
+          <Reveal delay={330}>
+            <ul className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-surface/75">
+              <li className="inline-flex items-center gap-1.5">
+                <Clock className="size-3.5 text-palegold" aria-hidden />
+                Replies in minutes, day or night
+              </li>
+              <li className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="size-3.5 text-palegold" aria-hidden />
+                Licensed &amp; insured
+              </li>
+              <li className="inline-flex items-center gap-1.5">
+                <Car className="size-3.5 text-palegold" aria-hidden />
+                Hotel pickup across Dubai
+              </li>
+            </ul>
           </Reveal>
         </Container>
       </section>

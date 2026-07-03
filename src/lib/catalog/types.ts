@@ -42,6 +42,8 @@ export type Tour = {
   gallery: string[];
   /** Real card/hero photo (public path). Falls back to gallery gradient art when absent. */
   image?: string;
+  /** Hero gallery photos for the detail page carousel (usually 3, incl. `image`). */
+  images?: string[];
   inclusions: string[];
   exclusions: string[];
   itinerary: ItineraryStop[];

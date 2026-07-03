@@ -247,6 +247,29 @@ a:focus-visible > .sheen {
   animation: dossier-tick 2.4s ease-in-out infinite;
 }
 
+/* Slow cinematic Ken Burns drift for hero carousel slides. */
+@keyframes kenburns-drift {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.08) translate(-1%, -1%); }
+}
+.kenburns {
+  animation: kenburns-drift 6s ease-out both;
+}
+
+/* Scroll-reveal (driven by <Reveal>): fade + rise on first viewport entry. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .dossier-spine,
   .dossier-underline,
@@ -256,6 +279,7 @@ a:focus-visible > .sheen {
   .animate-float,
   .kenburns,
   .animate-rise,
+  .reveal,
   .sheen,
   .group:hover .sheen,
   a:hover > .sheen,
@@ -268,6 +292,7 @@ a:focus-visible > .sheen {
   /* Sheen stays invisible; risen content stays fully visible. */
   .sheen { opacity: 0; }
   .animate-rise { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; }
   /* Neutralize the Ken-Burns hover drift for reduced-motion users. */
   .kenburns,
   .kenburns:hover,

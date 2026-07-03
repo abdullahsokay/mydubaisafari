@@ -52,6 +52,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Children under 2 free",
     gallery: [GRADIENTS.ember, GRADIENTS.sunset, GRADIENTS.night],
     image: "/Images/stock/tours/shared-desert-safari.jpg",
+    images: [
+      "/Images/stock/tours/shared-desert-safari.jpg",
+      "/Images/stock/hero/shared-desert-safari-2.jpg",
+      "/Images/stock/hero/shared-desert-safari-3.jpg",
+    ],
     inclusions: [
       "Shared 4x4 Land Cruiser pickup & drop-off (max 7 guests)",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -171,6 +176,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Price for 2 persons · extra guests on request",
     gallery: [GRADIENTS.sunset, GRADIENTS.ember, GRADIENTS.gold],
     image: "/Images/stock/tours/private-desert-safari.jpg",
+    images: [
+      "/Images/stock/tours/private-desert-safari.jpg",
+      "/Images/stock/hero/private-desert-safari-2.jpg",
+      "/Images/stock/hero/private-desert-safari-3.jpg",
+    ],
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -283,6 +293,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.gold, GRADIENTS.ember, GRADIENTS.sunset],
     image: "/Images/stock/tours/premium-camp-safari.jpg",
+    images: [
+      "/Images/stock/tours/premium-camp-safari.jpg",
+      "/Images/stock/hero/premium-camp-safari-2.jpg",
+      "/Images/stock/hero/premium-camp-safari-3.jpg",
+    ],
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -389,6 +404,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.gold, GRADIENTS.night, GRADIENTS.dusk],
     image: "/Images/stock/tours/vip-bedouin-camp.jpg",
+    images: [
+      "/Images/stock/tours/vip-bedouin-camp.jpg",
+      "/Images/stock/hero/vip-bedouin-camp-2.jpg",
+      "/Images/stock/hero/vip-bedouin-camp-3.jpg",
+    ],
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -497,6 +517,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.gold, GRADIENTS.fusion, GRADIENTS.night],
     image: "/Images/stock/tours/luxury-5star-vip-camp.jpg",
+    images: [
+      "/Images/stock/tours/luxury-5star-vip-camp.jpg",
+      "/Images/stock/hero/luxury-5star-vip-camp-2.jpg",
+      "/Images/stock/hero/luxury-5star-vip-camp-3.jpg",
+    ],
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -608,6 +633,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.night, GRADIENTS.gold, GRADIENTS.dusk],
     image: "/Images/stock/tours/noble-camp-safari.jpg",
+    images: [
+      "/Images/stock/tours/noble-camp-safari.jpg",
+      "/Images/stock/hero/noble-camp-safari-2.jpg",
+      "/Images/stock/hero/noble-camp-safari-3.jpg",
+    ],
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -716,6 +746,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.ember, GRADIENTS.sunset, GRADIENTS.fusion],
     image: "/Images/stock/tours/afternoon-desert-safari.jpg",
+    images: [
+      "/Images/stock/tours/afternoon-desert-safari.jpg",
+      "/Images/stock/hero/afternoon-desert-safari-2.jpg",
+      "/Images/stock/hero/afternoon-desert-safari-3.jpg",
+    ],
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "30–40 min Red Dunes dune bashing (Al Habab desert)",
@@ -805,6 +840,11 @@ export const TOURS: Tour[] = [
     pricingNote: "Price for 2 persons · private vehicle",
     gallery: [GRADIENTS.sunset, GRADIENTS.ember, GRADIENTS.dusk],
     image: "/Images/stock/tours/morning-desert-safari.jpg",
+    images: [
+      "/Images/stock/tours/morning-desert-safari.jpg",
+      "/Images/stock/hero/morning-desert-safari-2.jpg",
+      "/Images/stock/hero/morning-desert-safari-3.jpg",
+    ],
     inclusions: [
       "Private 4x4 Land Cruiser pickup & drop-off",
       "20–30 min Red Dunes dune bashing (Al Habab desert)",
