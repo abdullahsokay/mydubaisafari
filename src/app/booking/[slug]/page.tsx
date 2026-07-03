@@ -4,10 +4,16 @@ import Link from "next/link";
 import { Clock, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
-import { getTourBySlug } from "@/lib/catalog/repository";
+import { getTourBySlug, listTourSlugs } from "@/lib/catalog/repository";
 import { formatDuration } from "@/lib/catalog/format";
 import { BookingForm } from "@/components/booking/booking-form";
 import { BackButton } from "@/components/ui/back-button";
+
+// Prerender every booking page at build time (form logic is client-side).
+export async function generateStaticParams() {
+  const slugs = await listTourSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata({
   params,
