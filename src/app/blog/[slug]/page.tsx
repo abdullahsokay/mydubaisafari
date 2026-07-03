@@ -285,15 +285,21 @@ export default async function BlogPostPage({ params }: PageProps) {
                         href={`/tours/${tour.slug}`}
                         className="group overflow-hidden rounded-2xl bg-surface shadow hover:shadow-lg transition-shadow"
                       >
-                        {tour.gallery?.[0] && (
-                          tour.gallery[0].startsWith("/") || tour.gallery[0].startsWith("http") ? (
-                            <img
-                              src={tour.gallery[0]}
-                              alt={tour.name}
-                              className="h-40 w-full object-cover"
+                        {tour.image ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={tour.image}
+                            alt={tour.name}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          tour.gallery?.[0] && (
+                            <div
+                              className={`h-40 w-full ${tour.gallery[0]}`}
+                              aria-hidden="true"
                             />
-                          ) : (
-                            <div className={`h-40 w-full ${tour.gallery[0]}`} aria-hidden="true" />
                           )
                         )}
                         <div className="p-4">
