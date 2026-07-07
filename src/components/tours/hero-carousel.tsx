@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
@@ -68,16 +69,17 @@ export function HeroCarousel({
       )}
     >
       {images.map((src, i) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           key={src}
           src={src}
           alt={i === 0 ? alt : ""}
           aria-hidden={i !== active}
-          loading={i === 0 ? "eager" : "lazy"}
-          decoding="async"
+          fill
+          priority={i === 0}
+          loading={i === 0 ? undefined : "lazy"}
+          sizes="(min-width: 640px) 50vw, 100vw"
           className={cn(
-            "absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out",
+            "object-cover transition-opacity duration-700 ease-out",
             i === active ? "opacity-100" : "opacity-0",
             animate && i === active && "kenburns",
           )}
@@ -99,19 +101,25 @@ export function HeroCarousel({
       {images.length > 1 && (
         <div className="absolute bottom-4 left-1/2 z-[3] flex -translate-x-1/2 gap-2">
           {images.map((_, i) => (
+            // Padded hit area (≥24px) around the small visual dot — the dot
+            // alone is far below minimum touch-target size.
             <button
               key={i}
               type="button"
               aria-label={`Photo ${i + 1} of ${images.length}`}
               aria-pressed={i === active}
               onClick={() => pick(i)}
-              className={cn(
-                "h-2 rounded-full ring-1 ring-midnight/20 transition-all duration-300",
-                i === active
-                  ? "w-6 bg-palegold"
-                  : "w-2 bg-surface/70 hover:bg-surface",
-              )}
-            />
+              className="-m-1 p-2.5"
+            >
+              <span
+                className={cn(
+                  "block h-2 rounded-full ring-1 ring-midnight/20 transition-all duration-300",
+                  i === active
+                    ? "w-6 bg-palegold"
+                    : "w-2 bg-surface/70 hover:bg-surface",
+                )}
+              />
+            </button>
           ))}
         </div>
       )}

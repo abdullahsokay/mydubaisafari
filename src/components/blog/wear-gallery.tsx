@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const INITIAL = 8;
@@ -97,11 +98,13 @@ export function WearGallery({ images }: { images: string[] }) {
             className="group aspect-square cursor-zoom-in overflow-hidden rounded-xl"
             aria-label={`View outfit photo ${i + 1}`}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={src}
               alt="Desert safari guest outfit"
+              width={300}
+              height={300}
               loading="lazy"
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
               className="h-full w-full object-cover transition-transform duration-500 [@media(hover:hover)]:group-hover:scale-125"
             />
           </button>

@@ -8,11 +8,12 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-gold text-midnight shadow-[0_10px_24px_-10px_rgba(198,139,87,0.85)] hover:-translate-y-0.5 hover:bg-gold/90 hover:shadow-[0_14px_30px_-10px_rgba(198,139,87,0.95)] active:translate-y-0",
+    // White on terracotta (--color-gold) is ≥4.5:1 (WCAG AA).
+    "bg-gold text-white font-semibold shadow-[0_10px_24px_-10px_rgba(176,66,28,0.55)] hover:-translate-y-0.5 hover:bg-gold/90 hover:shadow-[0_14px_30px_-10px_rgba(176,66,28,0.65)] active:translate-y-0",
   secondary:
-    "bg-navy text-surface shadow-[0_10px_24px_-12px_rgba(126,60,27,0.7)] hover:-translate-y-0.5 hover:bg-navy/90 active:translate-y-0",
+    "bg-navy text-surface shadow-[0_10px_24px_-12px_rgba(30,27,24,0.5)] hover:-translate-y-0.5 hover:bg-navy/90 active:translate-y-0",
   outline:
-    "border border-gold text-goldink hover:-translate-y-0.5 hover:bg-gold hover:text-midnight active:translate-y-0",
+    "border border-gold text-goldink hover:-translate-y-0.5 hover:bg-gold hover:text-white active:translate-y-0",
   ghost: "text-current hover:opacity-70",
 };
 

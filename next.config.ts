@@ -3,6 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
+  images: {
+    // Serve AVIF first (best compression), WebP fallback.
+    formats: ["image/avif", "image/webp"],
+    // Tour/blog photos are immutable files — cache optimized variants long.
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+  },
+
   // /blog is dynamic and reads src/content/blog at request time; Next can't
   // trace that dynamic fs path, so bundle the markdown into the serverless
   // function (fixes the 500 on the blog index in production).

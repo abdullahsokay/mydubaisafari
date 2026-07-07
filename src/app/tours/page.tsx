@@ -36,7 +36,7 @@ export default async function ToursPage() {
     <>
       <div className="relative bg-sand pt-24 pb-20 lg:pt-28">
         {/* Sunrise wash behind the page header */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(80%_100%_at_20%_0%,rgba(250,231,172,0.35),transparent_65%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(80%_100%_at_20%_0%,rgba(242,203,170,0.35),transparent_65%)]" />
         <Container className="relative">
           <div className="max-w-2xl">
             <Badge tone="orange">All Experiences</Badge>

@@ -111,6 +111,12 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     }
     return `<h${depth}>${text}</h${depth}>`;
   };
+  // Article images always load lazily and decode off the main thread —
+  // markdown authors don't have to remember the attributes.
+  renderer.image = ({ href, title, text }: { href: string; title: string | null; text: string }) => {
+    const t = title ? ` title="${title}"` : "";
+    return `<img src="${href}" alt="${text}"${t} loading="lazy" decoding="async" />`;
+  };
   const rawHtml = await marked.parse(content, { renderer });
 
   // Sanitize: allow standard formatting + media/iframe, strip scripts and js: URLs

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   BadgeCheck,
   Car,
@@ -126,8 +127,8 @@ export default function AboutPage() {
       {/* 1 ─ Hero */}
       <section className="relative overflow-hidden bg-midnight text-surface">
         {/* Sunrise + ember glows grounding the dark hero */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_12%_0%,rgba(250,231,172,0.12),transparent_60%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_88%_100%,rgba(164,91,47,0.3),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_12%_0%,rgba(242,203,170,0.12),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_88%_100%,rgba(156,54,18,0.3),transparent_70%)]" />
 
         <Container className="relative grid items-center gap-12 pt-28 pb-16 sm:pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:pb-24">
           {/* Left — copy */}
@@ -177,13 +178,13 @@ export default function AboutPage() {
               className="pointer-events-none absolute -top-3 -right-3 hidden size-40 rounded-tr-3xl border-t border-r border-palegold/30 sm:block"
             />
             <div className="dune-media group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-luxe-lg ring-1 ring-palegold/25">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/Images/desert-safari/631414459_18064862606654255_9132147263810183976_n.jpg"
                 alt="Guest silhouetted against the low desert sun, throwing an arc of golden sand from a dune crest"
+                fill
                 loading="lazy"
-                decoding="async"
-                className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-28 bg-linear-to-t from-midnight/70 via-midnight/25 to-transparent" />
               <span
@@ -210,16 +211,13 @@ export default function AboutPage() {
       {/* 2 ─ Our Story */}
       <section className="relative overflow-hidden bg-sand py-16 sm:py-24">
         {/* Soft sunrise wash behind the header */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,182,133,0.25),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,161,115,0.25),transparent_70%)]" />
 
         <Container className="relative grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
           {/* Text */}
           <div>
-            <Reveal>
-              <Badge tone="gold">Our Story</Badge>
-            </Reveal>
             <Reveal delay={80}>
-              <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+              <h2 className="font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
                 The desert isn&rsquo;t our office.{" "}
                 <span className="text-orange">It&rsquo;s our home.</span>
               </h2>
@@ -256,7 +254,7 @@ export default function AboutPage() {
               </p>
             </Reveal>
             <Reveal delay={320}>
-              <figure className="mt-8 border-l-2 border-gold/70 pl-5">
+              <figure className="mt-8 rounded-lg bg-sand/70 px-5 py-4">
                 <blockquote className="font-heading text-lg text-midnight/85 italic">
                   &ldquo;If an evening in the desert is worth your holiday,
                   it&rsquo;s worth doing properly.&rdquo;
@@ -272,13 +270,13 @@ export default function AboutPage() {
           <Reveal delay={180}>
             <div className="relative mx-auto max-w-md pb-10 pl-6 sm:pl-10 lg:max-w-none">
               <div className="dune-media group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-luxe-lg ring-1 ring-palegold/25">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/Images/desert-safari/640247413_18065993912654255_5399607698326251875_n.jpg"
                   alt="Guest in a traditional red headscarf resting on a red dune, safari 4x4s parked on the ridge behind"
+                  fill
                   loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-24 bg-linear-to-t from-midnight/60 via-midnight/20 to-transparent" />
                 <span
@@ -292,12 +290,13 @@ export default function AboutPage() {
               </div>
               {/* Floating companion plate, matted on the sand background */}
               <div className="absolute bottom-0 left-0 w-36 overflow-hidden rounded-2xl border-4 border-sand shadow-luxe-lg sm:w-44">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/Images/desert-safari/721387620_18079909151654255_5178452121857985887_n.jpg"
                   alt="Two guests posing with a camel on the red dunes"
+                  width={176}
+                  height={176}
                   loading="lazy"
-                  decoding="async"
+                  sizes="176px"
                   className="aspect-square w-full object-cover"
                 />
               </div>
@@ -309,7 +308,7 @@ export default function AboutPage() {
       {/* 3 ─ Stats band */}
       <section className="relative overflow-hidden bg-midnight py-14 sm:py-16">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/40 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_100%_at_50%_100%,rgba(164,91,47,0.22),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_100%_at_50%_100%,rgba(156,54,18,0.22),transparent_70%)]" />
 
         <Container className="relative">
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 text-center lg:grid-cols-4 lg:divide-x lg:divide-palegold/15">
@@ -331,12 +330,11 @@ export default function AboutPage() {
 
       {/* 4 ─ Why Ride With Us */}
       <section className="relative bg-sand py-16 sm:py-24">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,182,133,0.22),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,161,115,0.22),transparent_70%)]" />
 
         <Container className="relative">
           <Reveal className="flex flex-col items-center text-center">
-            <Badge tone="orange">Why Ride With Us</Badge>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
               Six reasons the dunes feel different with us
             </h2>
             <div className="mt-4 flex items-center gap-3" aria-hidden>
@@ -378,12 +376,11 @@ export default function AboutPage() {
       {/* 5 ─ How It Works */}
       <section className="relative overflow-hidden bg-surface py-16 sm:py-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/40 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(250,231,172,0.2),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(242,203,170,0.2),transparent_70%)]" />
 
         <Container className="relative">
           <Reveal className="flex flex-col items-center text-center">
-            <Badge tone="gold">Booking, Simplified</Badge>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
               From your phone to the dunes in three steps
             </h2>
             <p className="mt-3 max-w-xl text-midnight/75">
@@ -400,7 +397,7 @@ export default function AboutPage() {
             {steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 120}>
                 <div className="relative flex flex-col items-center text-center">
-                  <div className="relative z-[1] flex size-14 items-center justify-center rounded-full bg-gold font-heading text-xl font-semibold text-midnight shadow-[0_10px_24px_-10px_rgba(198,139,87,0.85)] ring-4 ring-gold/20">
+                  <div className="relative z-[1] flex size-14 items-center justify-center rounded-full bg-gold font-heading text-xl font-semibold text-white shadow-[0_10px_24px_-10px_rgba(176,66,28,0.85)] ring-4 ring-gold/20">
                     {i + 1}
                   </div>
                   <h3 className="mt-5 font-heading text-lg font-semibold text-midnight">
@@ -429,8 +426,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-sand pt-16 pb-24 sm:pt-20 lg:pb-32">
         <Container>
           <Reveal className="flex flex-col items-center text-center">
-            <Badge tone="gold">Field Notes</Badge>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
               Postcards from the sand
             </h2>
             <p className="mt-3 max-w-xl text-midnight/75">
@@ -447,13 +443,13 @@ export default function AboutPage() {
               >
                 <Reveal delay={i * 90}>
                   <figure className="dune-media group relative h-80 overflow-hidden rounded-2xl shadow-luxe ring-1 ring-palegold/25 lg:h-96">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={card.src}
                       alt={card.alt}
+                      fill
                       loading="lazy"
-                      decoding="async"
-                      className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="z-[1] object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-28 bg-linear-to-t from-midnight/75 via-midnight/30 to-transparent" />
                     <span
@@ -480,8 +476,8 @@ export default function AboutPage() {
       {/* 7 ─ Final CTA band */}
       <section className="relative overflow-hidden bg-midnight py-20 text-surface sm:py-28">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/50 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(250,231,172,0.1),transparent_60%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_100%,rgba(164,91,47,0.35),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(242,203,170,0.1),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_100%,rgba(156,54,18,0.35),transparent_70%)]" />
 
         <Container className="relative flex flex-col items-center text-center">
           <Reveal>

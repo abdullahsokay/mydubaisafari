@@ -1,30 +1,35 @@
 @import "tailwindcss";
 
 /*
- * MyDubaiSafarii design tokens — DESERT / SUNSET palette.
- * Token names are kept (midnight/navy/gold/orange/sand/surface) so existing
- * utility classes stay unchanged; only the VALUES are remapped to warm desert
- * tones. New tokens added: palegold, dune, clay.
+ * MyDubaiSafarii design tokens — 3-color system (60/30/10):
+ *   1. Stone neutral   — page bg + ink (chroma ≈ 0, not cream)
+ *   2. Deep charcoal   — dark sections, footer, secondary
+ *   3. Terracotta      — the single accent: CTAs, links, highlights
+ * Token NAMES are kept (midnight/navy/gold/orange/sand/surface/…) so existing
+ * utility classes stay unchanged; only the VALUES are remapped. Warmth comes
+ * from photography and the one accent, not from a tinted body background.
  */
 @theme {
-  /* Surfaces */
-  --color-surface: #fffdf8; /* warm white — cards            */
-  --color-sand: #f5eed2; /* cream — page backgrounds       */
+  /* Neutral surfaces */
+  --color-surface: #ffffff; /* cards                          */
+  --color-sand: #f4f3f1; /* page background — neutral off-white */
 
-  /* Sunrise -> sunset ramp (light to dark) */
-  --color-palegold: #fae7ac; /* sunrise highlight             */
-  --color-dune: #d9b685; /* light sand                    */
-  --color-gold: #c68b57; /* camel — accent / CTA          */
-  --color-clay: #b57349; /* terracotta                    */
-  --color-orange: #a45b2f; /* burnt orange — highlight      */
-  --color-navy: #8c5c44; /* coffee — secondary dark       */
-  --color-midnight: #7e3c1b; /* espresso — darkest: hero/text */
+  /* Terracotta accent ramp (light tint -> deep) */
+  --color-palegold: #f2cbaa; /* light tint — accents on dark   */
+  --color-dune: #d9a173; /* mid tint — decorative gradients */
+  --color-gold: #b0421c; /* terracotta — accent / CTA (white text) */
+  --color-clay: #8a3110; /* deep terracotta                */
+  --color-orange: #9c3612; /* text accent / links — ≥4.5:1 on white */
+
+  /* Charcoal neutrals (dark) */
+  --color-navy: #44403b; /* warm charcoal — secondary dark */
+  --color-midnight: #1e1b18; /* near-black ink — text, dark sections */
 
   /* Accessible ink tokens — for TEXT/LINKS on light backgrounds (≥4.5:1) */
-  /* --color-gold (#c68b57) is ~2.8:1 on surface — decorative only           */
-  --color-goldink: #7a4f22;   /* dark amber — ≥4.5:1 on #fffdf8 / #f5eed2   */
-  --color-inklink: #7a3a14;   /* dark burnt orange — ≥4.5:1 on light bg      */
-  --color-ink-muted: #5c2e0e; /* deep espresso muted — ≥4.5:1 on surface/sand */
+  --color-espresso: #171310;  /* darkest ink                                 */
+  --color-goldink: #8a4a18;   /* dark amber-terracotta — ≥4.5:1 on white     */
+  --color-inklink: #9c3612;   /* terracotta link ink — ≥4.5:1 on light bg    */
+  --color-ink-muted: #57534e; /* muted stone — ≥4.5:1 on surface/sand        */
 
   /* Typography (SRS §7.2.2) */
   --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
@@ -62,17 +67,16 @@ body {
 
 /* ── Desert-luxe surface treatments ─────────────────────────────── */
 
-/* Warm elevation shadows — espresso-tinted instead of pure black so cards
-   sit in the sand palette rather than floating on grey. */
+/* Elevation shadows — neutral ink-tinted, realistic on the stone background. */
 @utility shadow-luxe {
   box-shadow:
-    0 1px 2px rgba(126, 60, 27, 0.06),
-    0 10px 30px -12px rgba(126, 60, 27, 0.18);
+    0 1px 2px rgba(30, 27, 24, 0.05),
+    0 10px 30px -12px rgba(30, 27, 24, 0.14);
 }
 @utility shadow-luxe-lg {
   box-shadow:
-    0 2px 4px rgba(126, 60, 27, 0.08),
-    0 24px 48px -16px rgba(126, 60, 27, 0.28);
+    0 2px 4px rgba(30, 27, 24, 0.06),
+    0 24px 48px -16px rgba(30, 27, 24, 0.22);
 }
 
 /*
@@ -137,7 +141,7 @@ body {
   background: linear-gradient(
     105deg,
     transparent 15%,
-    rgba(255, 244, 214, 0.32) 50%,
+    rgba(255, 255, 255, 0.3) 50%,
     transparent 85%
   );
   transform: translateX(-160%) skewX(-18deg);
@@ -263,7 +267,8 @@ a:focus-visible > .sheen {
   transition:
     opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  /* no will-change: it pinned a GPU layer per revealed element forever;
+     the one-shot 700ms transition doesn't need pre-promotion */
 }
 .reveal-visible {
   opacity: 1;
@@ -337,9 +342,11 @@ a:focus-visible > .sheen {
   color: color-mix(in srgb, var(--color-midnight) 80%, transparent);
 }
 .article strong { font-weight: 700; }
+/* Background tint instead of a left accent stripe (side-stripe = AI tell). */
 .article blockquote {
-  border-left: 4px solid var(--color-gold);
-  padding-left: 1rem;
+  background: color-mix(in srgb, var(--color-sand) 70%, transparent);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
   font-style: italic;
   margin: 1.5rem 0;
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,12 +18,12 @@ export function TourCard({ tour }: { tour: Tour }) {
           className={`dune-media relative h-52 ${tour.image ? "" : tour.gallery[0]}`}
         >
           {tour.image && (
-            <img
+            <Image
               src={tour.image}
               alt={tour.name}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 z-[1] h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              className="z-[1] object-cover transition-transform duration-500 group-hover:scale-105"
             />
           )}
           {/* Grounding scrim so overlaid chips always sit on dark glass */}

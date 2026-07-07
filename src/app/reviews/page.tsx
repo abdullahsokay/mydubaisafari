@@ -130,8 +130,8 @@ export default async function ReviewsPage() {
 
       {/* ── Cinematic dark hero ─────────────────────────────── */}
       <section className="relative overflow-hidden bg-midnight pt-28 pb-16 text-center text-surface sm:pt-32">
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(75%_100%_at_50%_100%,rgba(164,91,47,0.32),transparent_70%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(250,231,172,0.08),transparent_65%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(75%_100%_at_50%_100%,rgba(156,54,18,0.32),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(242,203,170,0.08),transparent_65%)]" />
         <Container className="relative">
           <Badge className="animate-rise rise-1 border border-palegold/40 bg-midnight/30 text-palegold ring-palegold/30 backdrop-blur-md">
             Guest Reviews
@@ -204,7 +204,7 @@ export default async function ReviewsPage() {
 
       {/* ── Rating distribution ─────────────────────────────── */}
       <section className="relative bg-sand py-14 sm:py-16">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,182,133,0.25),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,161,115,0.25),transparent_70%)]" />
         <Container className="relative">
           <div className="mx-auto grid max-w-4xl items-center gap-10 lg:grid-cols-2">
             <Reveal>
@@ -357,7 +357,7 @@ export default async function ReviewsPage() {
       {/* ── CTA ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-midnight py-16 text-center text-surface">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/50 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(164,91,47,0.3),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(156,54,18,0.3),transparent_70%)]" />
         <Container className="relative">
           <Reveal>
             <h2 className="mx-auto max-w-xl font-heading text-3xl font-semibold tracking-tight sm:text-h2">

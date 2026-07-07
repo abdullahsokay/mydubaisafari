@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getAllPosts } from "@/lib/blog/repository";
-import { BlogIndex } from "@/components/blog/blog-index";
+import { BlogIndex, BlogIndexView } from "@/components/blog/blog-index";
 import { BlogSearch } from "@/components/blog/blog-search";
 import { DubaiWeather } from "@/components/blog/dubai-weather";
 import { TripCostCalculator } from "@/components/blog/trip-cost-calculator";
@@ -35,14 +36,13 @@ export default function BlogPage() {
     <>
       {/* Hero */}
       <section className="relative flex min-h-[520px] items-end overflow-hidden bg-midnight pb-14 pt-32 sm:min-h-[600px]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/Images/blogpage.jpg"
           alt="Dubai desert dunes at sunset"
-          width={1920}
-          height={600}
-          fetchPriority="high"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center [filter:contrast(1.12)_saturate(1.15)_brightness(1.03)]"
+          fill
+          priority
+          sizes="100vw"
+          className="pointer-events-none object-cover object-center [filter:contrast(1.12)_saturate(1.15)_brightness(1.03)]"
         />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-midnight via-midnight/45 to-midnight/15" />
         <div className="relative z-10 mr-auto w-full max-w-xl px-6 sm:pl-10 lg:pl-16">
@@ -62,8 +62,10 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Pills + featured + grid (client-side category filter) */}
-      <Suspense fallback={null}>
+      {/* Pills + featured + grid (client-side category filter). The fallback
+          renders the full unfiltered index so the static HTML contains every
+          post for crawlers and there is no pop-in on first paint. */}
+      <Suspense fallback={<BlogIndexView posts={allPosts} />}>
         <BlogIndex posts={allPosts} />
       </Suspense>
 

@@ -22,6 +22,10 @@ export function LoopVideo({
   poster?: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
+  // Every mp4 in public/ ships a first-frame poster (<name>.poster.webp) so
+  // the slot shows real imagery immediately instead of a blank box while the
+  // video buffers (also what reduced-motion users see).
+  const posterSrc = poster ?? src.replace(/\.mp4$/, ".poster.webp");
 
   useEffect(() => {
     const v = ref.current;
@@ -62,7 +66,7 @@ export function LoopVideo({
         muted
         playsInline
         preload={preload}
-        poster={poster}
+        poster={posterSrc}
         tabIndex={-1}
         aria-hidden="true"
         disablePictureInPicture

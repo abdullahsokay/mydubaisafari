@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /*
@@ -22,11 +23,13 @@ function Row({ images, reverse }: { images: string[]; reverse?: boolean }) {
             key={i}
             className="size-40 shrink-0 overflow-hidden rounded-xl ring-1 ring-surface/10 sm:size-48"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={src}
               alt="MyDubaiSafarii guest photo"
+              width={192}
+              height={192}
               loading="lazy"
+              sizes="192px"
               className="size-full object-cover"
             />
           </div>

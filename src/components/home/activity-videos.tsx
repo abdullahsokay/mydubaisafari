@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { whatsappUrl } from "@/lib/site";
 import { getActivityVideos } from "@/lib/activity-videos";
@@ -14,8 +13,7 @@ export function ActivityVideos() {
     <section className="bg-surface py-14 sm:py-20">
       <Container>
         <div className="mb-10 text-center">
-          <Badge tone="orange">Desert Adventures</Badge>
-          <h2 className="mt-4 font-heading text-3xl font-semibold text-midnight sm:text-h2">
+          <h2 className="font-heading text-3xl font-semibold text-midnight sm:text-h2">
             See the Thrill in Action
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-midnight/65">

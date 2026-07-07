@@ -1,5 +1,4 @@
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { whatsappUrl } from "@/lib/site";
@@ -14,8 +13,7 @@ export function AddonsSection() {
     <section id="add-ons" className="bg-surface py-14 sm:py-20">
       <Container>
         <div className="max-w-2xl">
-          <Badge tone="orange">Adventure Add-ons</Badge>
-          <h2 className="mt-4 font-heading text-h2 font-semibold text-midnight leading-tight">
+          <h2 className="font-heading text-h2 font-semibold text-midnight leading-tight">
             Add More Adrenaline
           </h2>
           <p className="mt-3 text-midnight/75">

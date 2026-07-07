@@ -1,25 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function HeroContent() {
-  const [progress, setProgress] = useState(0); // 0..1 scroll through hero
+  const ref = useRef<HTMLDivElement>(null);
 
-  // Scroll-linked parallax + fade (gives the "feel" of scrolling)
+  // Scroll-linked parallax + fade (gives the "feel" of scrolling).
+  // Writes transform/opacity straight to the DOM node inside RAF — no
+  // setState, so scrolling never re-renders the React tree.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() =>
-        setProgress(
-          Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1),
-        ),
-      );
+      raf = requestAnimationFrame(() => {
+        const el = ref.current;
+        if (!el) return;
+        const progress = Math.min(
+          window.scrollY / Math.max(window.innerHeight, 1),
+          1,
+        );
+        el.style.transform = `translateY(${progress * -80}px)`;
+        el.style.opacity = String(1 - progress * 1.15);
+      });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -31,21 +38,18 @@ export function HeroContent() {
 
   return (
     <div
+      ref={ref}
       className="relative z-10 flex flex-col items-center [text-shadow:0_2px_18px_rgba(10,5,0,0.6)]"
-      style={{
-        transform: `translateY(${progress * -80}px)`,
-        opacity: 1 - progress * 1.15,
-      }}
     >
       <Badge className="animate-rise rise-1 border border-palegold/40 bg-midnight/30 text-palegold ring-palegold/30 backdrop-blur-md">
         Dubai &middot; Desert Adventures
       </Badge>
 
+      {/* Solid palegold (not gradient text): keeps the dark text-shadow so
+          the accent words stay readable over the bright dune footage. */}
       <h1 className="animate-rise rise-2 mt-6 max-w-3xl font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-h1 lg:text-display">
         Where Golden Dunes Meet{" "}
-        <span className="bg-linear-to-r from-palegold via-dune to-palegold bg-clip-text text-transparent [text-shadow:none]">
-          Endless Adventure
-        </span>
+        <span className="text-palegold">Endless Adventure</span>
       </h1>
 
       <p className="animate-rise rise-3 mt-5 max-w-2xl text-base text-surface/85 sm:text-lg">

@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { CATEGORIES, getCategory } from "@/lib/blog/categories";
 import type { PostMeta } from "@/lib/blog/repository";
+import { formatPostDate } from "@/lib/blog/format";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -13,11 +15,25 @@ import { cn } from "@/lib/utils";
  * Filtering happens in the browser via ?category= so the /blog route can be
  * fully static — all markdown is read at build time, never at request time
  * (this is what fixed the 500 on Vercel serverless).
+ *
+ * Split in two: <BlogIndexView> is presentational (no hooks that opt out of
+ * prerendering) so the page can use it as the Suspense fallback — the full
+ * unfiltered list then ships in the static HTML for crawlers and first paint.
+ * <BlogIndex> reads ?category= and re-renders the same view when filtering.
  */
 export function BlogIndex({ posts }: { posts: PostMeta[] }) {
   const searchParams = useSearchParams();
   const category = searchParams.get("category") ?? undefined;
+  return <BlogIndexView posts={posts} category={category} />;
+}
 
+export function BlogIndexView({
+  posts,
+  category,
+}: {
+  posts: PostMeta[];
+  category?: string;
+}) {
   const displayedPosts = category
     ? posts.filter((p) => p.category === category)
     : posts;
@@ -56,7 +72,7 @@ export function BlogIndex({ posts }: { posts: PostMeta[] }) {
                     : "bg-sand text-midnight hover:bg-gold/20",
                 )}
               >
-                {cat.emoji} {cat.name}
+                {cat.name}
               </Link>
             ))}
           </div>
@@ -66,7 +82,7 @@ export function BlogIndex({ posts }: { posts: PostMeta[] }) {
       <Container className="py-12">
         {activeCat && (
           <h2 className="mb-8 text-2xl font-bold text-midnight">
-            {activeCat.emoji} {activeCat.name}
+            {activeCat.name}
           </h2>
         )}
 
@@ -76,13 +92,12 @@ export function BlogIndex({ posts }: { posts: PostMeta[] }) {
             href={`/blog/${featured.slug}`}
             className="group mb-12 grid overflow-hidden rounded-3xl bg-surface shadow-md hover:shadow-xl transition-shadow lg:grid-cols-2"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={featured.cover}
               alt={featured.title}
               width={800}
               height={500}
-              loading="lazy"
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="h-64 w-full object-cover lg:h-full"
             />
             <div className="flex flex-col justify-center p-8">
@@ -90,7 +105,7 @@ export function BlogIndex({ posts }: { posts: PostMeta[] }) {
                 const cat = getCategory(featured.category);
                 return cat ? (
                   <Badge tone="gold" className="mb-3 w-fit">
-                    {cat.emoji} {cat.name}
+                    {cat.name}
                   </Badge>
                 ) : null;
               })()}
@@ -99,7 +114,7 @@ export function BlogIndex({ posts }: { posts: PostMeta[] }) {
               </h2>
               <p className="mt-3 text-midnight/75">{featured.excerpt}</p>
               <p className="mt-4 text-sm text-midnight/40">
-                {featured.author} · {featured.date} · {featured.readingTime}
+                {featured.author} · {formatPostDate(featured.date)} · {featured.readingTime}
               </p>
               <span className="mt-6 inline-flex items-center font-semibold text-orange">
                 Read article →
@@ -121,19 +136,19 @@ export function BlogIndex({ posts }: { posts: PostMeta[] }) {
                   href={`/blog/${post.slug}`}
                   className="group flex flex-col overflow-hidden rounded-2xl bg-surface shadow hover:shadow-lg transition-shadow"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={post.cover}
                     alt={post.title}
                     width={400}
                     height={200}
                     loading="lazy"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="h-48 w-full object-cover"
                   />
                   <div className="flex flex-1 flex-col p-5">
                     {cat && (
                       <Badge tone="neutral" className="mb-2 w-fit text-xs">
-                        {cat.emoji} {cat.name}
+                        {cat.name}
                       </Badge>
                     )}
                     <h3 className="font-semibold text-midnight group-hover:text-orange transition-colors line-clamp-2">
@@ -143,7 +158,7 @@ export function BlogIndex({ posts }: { posts: PostMeta[] }) {
                       {post.excerpt}
                     </p>
                     <p className="mt-3 text-xs text-midnight/40">
-                      {post.author} · {post.date} · {post.readingTime}
+                      {post.author} · {formatPostDate(post.date)} · {post.readingTime}
                     </p>
                   </div>
                 </Link>

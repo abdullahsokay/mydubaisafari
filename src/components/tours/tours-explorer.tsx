@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const pill =
   "rounded-full border border-midnight/15 bg-surface/70 px-4 py-2 text-sm text-midnight/70 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-gold hover:text-midnight";
 const pillActive =
-  "border-gold bg-gold text-midnight font-medium shadow-[0_8px_20px_-8px_rgba(198,139,87,0.8)]";
+  "border-gold bg-gold text-white font-medium shadow-[0_8px_20px_-8px_rgba(176,66,28,0.8)]";
 
 type SortKey = "popular" | "price-asc" | "price-desc" | "rating";
 

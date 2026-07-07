@@ -10,7 +10,7 @@ export default function GallerySection() {
   return (
     <section className="relative bg-midnight py-14 sm:py-20">
       {/* Warm ember glow rising from the base of the dark section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[radial-gradient(80%_100%_at_50%_100%,rgba(164,91,47,0.28),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[radial-gradient(80%_100%_at_50%_100%,rgba(156,54,18,0.28),transparent_70%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-palegold/40 to-transparent" />
       <Container className="relative">
         <div className="mb-10 text-center">

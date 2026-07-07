@@ -25,6 +25,9 @@ export function SandLayer() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Desktop-only: on touch devices there is no cursor trail and the ambient
+    // drift just burns battery/CPU next to real content.
+    if (!window.matchMedia("(pointer: fine)").matches) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -90,6 +93,9 @@ export function SandLayer() {
 
     let raf = 0;
     let running = false;
+    // Not armed until the browser is idle (set in startWhenIdle) — the
+    // visibility/IO callbacks below must not start the loop before that.
+    let armed = false;
 
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
@@ -130,7 +136,7 @@ export function SandLayer() {
     };
 
     const startLoop = () => {
-      if (!running) {
+      if (armed && !running) {
         running = true;
         raf = requestAnimationFrame(draw);
       }
@@ -160,10 +166,20 @@ export function SandLayer() {
     );
     io.observe(canvas);
 
-    // Start immediately if visible
-    if (document.visibilityState !== "hidden") startLoop();
+    // Defer the first frame to idle time so the effect never competes with
+    // hydration / LCP work right after load.
+    const hasIdle = typeof window.requestIdleCallback === "function";
+    const startWhenIdle = () => {
+      armed = true;
+      if (document.visibilityState !== "hidden") startLoop();
+    };
+    const idleId = hasIdle
+      ? window.requestIdleCallback(startWhenIdle, { timeout: 2000 })
+      : window.setTimeout(startWhenIdle, 300);
 
     return () => {
+      if (hasIdle) window.cancelIdleCallback(idleId as number);
+      else clearTimeout(idleId);
       stopLoop();
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("resize", resize);

@@ -217,7 +217,7 @@ export function BookingForm({ tour }: BookingFormProps) {
   return (
     <form onSubmit={handleSubmit} noValidate>
       {/* Mobile fixed bottom CTA bar (hidden on lg+) */}
-      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden border-t border-gold/30 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center gap-3 shadow-[0_-10px_30px_-12px_rgba(126,60,27,0.4)]">
+      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden border-t border-gold/30 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center gap-3 shadow-[0_-10px_30px_-12px_rgba(30,27,24,0.4)]">
         <div className="flex-1 min-w-0">
           <p className="text-xs text-midnight/60 leading-tight">Estimated total</p>
           <p className="text-base font-bold text-midnight">

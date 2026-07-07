@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const CARDS = [
   {
     src: "/Images/wear/blog-what-to-wear-desert-safari-00.jpg",
@@ -19,13 +21,15 @@ export function OutfitCards() {
         {CARDS.map((c) => (
           <figure
             key={c.src}
-            className="relative w-full max-w-xs overflow-hidden rounded-2xl ring-1 ring-gold/30 shadow-[0_0_28px_-8px_rgba(201,169,97,0.5)] transition duration-500 ease-out group-hover:opacity-50 hover:z-10 hover:!opacity-100 hover:scale-[1.04] hover:shadow-[0_0_44px_-6px_rgba(224,122,44,0.7)]"
+            className="relative w-full max-w-xs overflow-hidden rounded-2xl ring-1 ring-gold/30 shadow-[0_0_28px_-8px_rgba(217,161,115,0.5)] transition duration-500 ease-out group-hover:opacity-50 hover:z-10 hover:!opacity-100 hover:scale-[1.04] hover:shadow-[0_0_44px_-6px_rgba(176,66,28,0.7)]"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={c.src}
               alt={c.label}
+              width={320}
+              height={427}
               loading="lazy"
+              sizes="320px"
               className="aspect-[3/4] w-full object-cover"
             />
             <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-midnight/85 to-transparent p-4 text-center font-heading text-sm font-semibold text-white">

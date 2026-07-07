@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Reveal } from "@/components/about/reveal";
 import { TiltCard } from "@/components/about/tilt-card";
 import { LoopVideo } from "@/components/ui/loop-video";
@@ -24,10 +25,10 @@ import { cn } from "@/lib/utils";
 
 const FRAME_BASE =
   "group relative overflow-hidden rounded-[1.75rem] ring-1 ring-gold/20";
-const FRAME_SHADOW = "shadow-[0_30px_80px_-30px_rgba(126,60,27,0.55)]";
+const FRAME_SHADOW = "shadow-[0_30px_80px_-30px_rgba(30,27,24,0.55)]";
 // Extra warm ember glow reserved for fire/action scenes.
 const EMBER_GLOW =
-  "shadow-[0_30px_80px_-20px_rgba(224,122,44,0.45),0_0_60px_-10px_rgba(224,122,44,0.6)]";
+  "shadow-[0_30px_80px_-20px_rgba(176,66,28,0.45),0_0_60px_-10px_rgba(176,66,28,0.6)]";
 
 /* ── Internal data shapes (not consumed outside this file) ─────────── */
 
@@ -131,12 +132,13 @@ function StillFrame({
         className,
       )}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={src}
         alt={alt}
+        fill
         loading="lazy"
-        className="kenburns h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+        sizes="(min-width: 1024px) 58vw, 100vw"
+        className="kenburns object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
       />
       <FrameEdges />
     </div>
@@ -168,12 +170,13 @@ function HeroFrame({
         {type === "video" ? (
           <LoopVideo src={src} className="h-full w-full" />
         ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={src}
             alt={alt}
+            fill
             loading="lazy"
-            className="kenburns h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className="kenburns object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
           />
         )}
         <HeroCaption label={caption} />
@@ -246,7 +249,7 @@ function MediaCluster({ media }: { media: DossierMedia }) {
 
 function NumeralNode({ n }: { n: string }) {
   return (
-    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-surface font-heading text-sm font-semibold tracking-widest text-gold ring-1 ring-gold/40 shadow-[0_8px_24px_-10px_rgba(198,139,87,0.7)]">
+    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-surface font-heading text-sm font-semibold tracking-widest text-gold ring-1 ring-gold/40 shadow-[0_8px_24px_-10px_rgba(176,66,28,0.7)]">
       {n}
     </span>
   );

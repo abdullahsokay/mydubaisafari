@@ -65,7 +65,7 @@ Same as morning safaris — closed shoes that you can easily slip off for the du
 
 ## What to Pack in Your Bag
 
-<img src="/Images/wear/wearing-bag.png" alt="What to pack in your desert safari bag" style="max-width:340px;width:100%;border-radius:12px;margin:1rem auto;display:block" />
+<img src="/Images/wear/wearing-bag.webp" alt="What to pack in your desert safari bag" width="340" height="189" loading="lazy" decoding="async" style="max-width:340px;width:100%;height:auto;border-radius:12px;margin:1rem auto;display:block" />
 
 
 

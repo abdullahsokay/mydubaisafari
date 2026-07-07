@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import { MapPin } from "lucide-react";
 import { existsSync } from "fs";
 import { join } from "path";
 import {
@@ -8,6 +10,7 @@ import {
   getRelatedPosts,
   listPostSlugs,
 } from "@/lib/blog/repository";
+import { formatPostDate } from "@/lib/blog/format";
 import { getTourBySlug } from "@/lib/catalog/repository";
 import { getCategory } from "@/lib/blog/categories";
 import { getWearImages } from "@/lib/wear-gallery";
@@ -138,13 +141,13 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Hero */}
       <section className="relative flex min-h-[420px] items-end bg-midnight pb-12 pt-32">
-        <img
+        <Image
           src={post.cover}
           alt={post.title}
-          width={1920}
-          height={420}
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-midnight/40 via-midnight/50 to-midnight/90" />
         <Container className="relative z-10">
@@ -154,7 +157,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           />
           {cat && (
             <Badge tone="gold" className="mb-4">
-              {cat.emoji} {cat.name}
+              {cat.name}
             </Badge>
           )}
           <h1 className="font-heading text-3xl font-bold text-white lg:text-5xl max-w-3xl">
@@ -163,13 +166,16 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="mt-4 flex flex-wrap gap-4 text-sm text-white/70">
             <span>{post.author}</span>
             <span>·</span>
-            <span>{post.date}</span>
+            <span>{formatPostDate(post.date)}</span>
             <span>·</span>
             <span>{post.readingTime}</span>
             {post.location && (
               <>
                 <span>·</span>
-                <span>📍 {post.location}</span>
+                <span className="inline-flex items-center gap-1">
+                  <MapPin className="size-3.5" aria-hidden />
+                  {post.location}
+                </span>
               </>
             )}
           </div>
@@ -220,7 +226,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <SandboardingStory />
             ) : (
               <article
-                className="article prose max-w-none"
+                className="article prose max-w-[75ch]"
                 dangerouslySetInnerHTML={{ __html: post.html }}
               />
             )}
@@ -286,12 +292,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                         className="group overflow-hidden rounded-2xl bg-surface shadow hover:shadow-lg transition-shadow"
                       >
                         {tour.image ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
+                          <Image
                             src={tour.image}
                             alt={tour.name}
+                            width={400}
+                            height={160}
                             loading="lazy"
-                            decoding="async"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                             className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         ) : (
@@ -372,18 +379,19 @@ export default async function BlogPostPage({ params }: PageProps) {
                     href={`/blog/${rp.slug}`}
                     className="group flex flex-col overflow-hidden rounded-2xl bg-surface shadow hover:shadow-lg transition-shadow"
                   >
-                    <img
+                    <Image
                       src={rp.cover}
                       alt={rp.title}
                       width={400}
                       height={200}
                       loading="lazy"
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       className="h-48 w-full object-cover"
                     />
                     <div className="flex flex-1 flex-col p-5">
                       {rCat && (
                         <Badge tone="neutral" className="mb-2 w-fit text-xs">
-                          {rCat.emoji} {rCat.name}
+                          {rCat.name}
                         </Badge>
                       )}
                       <h3 className="font-semibold text-midnight group-hover:text-orange transition-colors line-clamp-2">
@@ -393,7 +401,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         {rp.excerpt}
                       </p>
                       <p className="mt-3 text-xs text-midnight/40">
-                        {rp.author} · {rp.date}
+                        {rp.author} · {formatPostDate(rp.date)}
                       </p>
                     </div>
                   </Link>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { TourCard } from "@/components/tours/tour-card";
 import { getFeaturedTours } from "@/lib/catalog/repository";
@@ -47,18 +46,19 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: safeJsonLd(orgSchema) }}
       />
 
-      {/* Hero */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-midnight px-6 text-center text-surface">
-        {/* Background video — non-interactive (autoplay, loop, muted, not clickable) */}
-        {/* No poster: it briefly showed an unrelated guest photo before the
-            video loaded. Falls back to the section's own dark bg-midnight
-            instead, which is tonally consistent with the overlays below. */}
-        <LoopVideo src="/Images/homepage/hero-section.mp4" className="absolute inset-0 size-full" preload="auto" />
+      {/* Hero — min-h-dvh (not vh) so mobile browser chrome collapsing
+          doesn't leave a gap or overflow under the URL bar */}
+      <section className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden bg-midnight px-6 text-center text-surface">
+        {/* Background video — non-interactive (autoplay, loop, muted, not
+            clickable). Poster = the video's own first frame, so paint is
+            instant; preload="metadata" keeps the 3.6MB file off the critical
+            path and playback starts via LoopVideo's IntersectionObserver. */}
+        <LoopVideo src="/Images/homepage/hero-section.mp4" className="absolute inset-0 size-full" />
         {/* Light tint + grounding gradient — video stays clearly visible */}
         <div className="pointer-events-none absolute inset-0 bg-midnight/25" />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-midnight/40 via-transparent to-midnight/75" />
         {/* Sunrise glow + edge vignette for cinematic depth */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_100%,rgba(250,231,172,0.14),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_100%,rgba(242,203,170,0.14),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(140%_100%_at_50%_50%,transparent_60%,rgba(20,8,2,0.45)_100%)]" />
         <HeroContent />
         {/* Gold hairline seam into the next section */}
@@ -68,11 +68,10 @@ export default async function Home() {
       {/* Popular experiences */}
       <section className="relative bg-sand py-14 sm:py-20">
         {/* Soft dune glow behind the grid for layered depth */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,182,133,0.25),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(70%_100%_at_50%_0%,rgba(217,161,115,0.25),transparent_70%)]" />
         <Container className="relative">
           <div className="mb-10 flex flex-col items-center text-center">
-            <Badge tone="orange">Handpicked</Badge>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-midnight sm:text-h2">
               Popular Experiences
             </h2>
             <div className="mt-4 flex items-center gap-3" aria-hidden>
@@ -93,11 +92,12 @@ export default async function Home() {
           </div>
 
           <div className="mt-10 text-center">
+            {/* Same label as the hero CTA — one label per intent sitewide */}
             <Link
               href="/tours"
               className={buttonVariants({ variant: "secondary", size: "lg" })}
             >
-              View all tours
+              Explore Tours
             </Link>
           </div>
         </Container>

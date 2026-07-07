@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   Clock,
@@ -209,7 +210,7 @@ export default async function TourDetailPage({
       {/* Gallery */}
       <section className="relative bg-midnight pt-20">
         {/* Ember glow grounding the gallery plates */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(164,91,47,0.25),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(70%_100%_at_50%_100%,rgba(156,54,18,0.25),transparent_70%)]" />
         <Container className="relative py-6">
           {tour.images && tour.images.length > 0 ? (
             <div className="grid gap-3 sm:grid-cols-4 sm:grid-rows-2">
@@ -225,13 +226,13 @@ export default async function TourDetailPage({
                   key={src}
                   className="relative hidden h-full min-h-32 overflow-hidden rounded-2xl ring-1 ring-palegold/15 sm:col-span-2 sm:block"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={src}
                     alt=""
+                    fill
                     loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-midnight/40 to-transparent" />
                   {i === 1 && (
@@ -297,8 +298,9 @@ export default async function TourDetailPage({
           </nav>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_360px]">
-            {/* Main */}
-            <div>
+            {/* Main — min-w-0 so the nowrap tab row scrolls inside its card
+                instead of propagating min-content width and widening the page */}
+            <div className="min-w-0">
               {tour.tag && <Badge>{tour.tag}</Badge>}
               <h1 className="mt-3 font-heading text-3xl font-semibold text-midnight leading-tight sm:text-h2 lg:text-h1">
                 {tour.name}
