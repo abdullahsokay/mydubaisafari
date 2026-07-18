@@ -1,9 +1,7 @@
 import type { MetadataRoute } from "next";
 import { listTourSlugs } from "@/lib/catalog/repository";
 import { listPostSlugs } from "@/lib/blog/repository";
-
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
+import { SITE_URL as BASE_URL } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [tourSlugs, postSlugs] = await Promise.all([

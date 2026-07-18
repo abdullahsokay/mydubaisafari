@@ -8,10 +8,8 @@ import { DubaiWeather } from "@/components/blog/dubai-weather";
 import { TripCostCalculator } from "@/components/blog/trip-cost-calculator";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
-import { whatsappUrl } from "@/lib/site";
+import { whatsappUrl, SITE_URL } from "@/lib/site";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export const metadata: Metadata = {
   title: "Dubai Travel Blog",

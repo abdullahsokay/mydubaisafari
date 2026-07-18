@@ -1,7 +1,18 @@
 import type { NextConfig } from "next";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+
+  // A stray package-lock.json in a parent dir (C:\Users\User) makes Next infer
+  // the wrong workspace root. Pin it to this project so module resolution and
+  // file watching stay scoped here.
+  turbopack: {
+    root: projectRoot,
+  },
 
   images: {
     // Serve AVIF first (best compression), WebP fallback.

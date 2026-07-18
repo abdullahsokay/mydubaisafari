@@ -7,6 +7,7 @@ import { Rating } from "@/components/ui/rating";
 import { Price } from "@/components/ui/price";
 import { buttonVariants } from "@/components/ui/button";
 import { formatDuration } from "@/lib/catalog/format";
+import { blurProps } from "@/lib/blur";
 import type { Tour } from "@/lib/catalog/types";
 
 export function TourCard({ tour }: { tour: Tour }) {
@@ -24,6 +25,7 @@ export function TourCard({ tour }: { tour: Tour }) {
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
               className="z-[1] object-cover transition-transform duration-500 group-hover:scale-105"
+              {...blurProps(tour.image)}
             />
           )}
           {/* Grounding scrim so overlaid chips always sit on dark glass */}

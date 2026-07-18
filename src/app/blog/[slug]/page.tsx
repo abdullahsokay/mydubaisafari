@@ -14,6 +14,7 @@ import { formatPostDate } from "@/lib/blog/format";
 import { getTourBySlug } from "@/lib/catalog/repository";
 import { getCategory } from "@/lib/blog/categories";
 import { getWearImages } from "@/lib/wear-gallery";
+import { blurProps } from "@/lib/blur";
 import { WearGallery } from "@/components/blog/wear-gallery";
 import { OutfitCards } from "@/components/blog/outfit-cards";
 import { DesertCampStory } from "@/components/blog/desert-camp-story";
@@ -23,7 +24,7 @@ import { ShareButtons } from "@/components/blog/share-buttons";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { BackButton } from "@/components/ui/back-button";
-import { whatsappUrl } from "@/lib/site";
+import { whatsappUrl, SITE_URL } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -33,8 +34,6 @@ export async function generateStaticParams() {
   return listPostSlugs().map((slug) => ({ slug }));
 }
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 /** Serialize JSON-LD safely — escapes < > & to prevent script tag breakout. */
 function safeJsonLd(obj: unknown): string {
@@ -148,6 +147,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           priority
           sizes="100vw"
           className="object-cover opacity-50"
+          {...blurProps(post.cover)}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-midnight/40 via-midnight/50 to-midnight/90" />
         <Container className="relative z-10">

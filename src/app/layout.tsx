@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { SandLayer } from "@/components/effects/sand-layer";
+import { SITE_URL } from "@/lib/site";
 
 // Headings — Poppins (SRS §7.2.2). Poppins is not a variable font, so weights are explicit.
 const poppins = Poppins({
@@ -28,9 +29,7 @@ export const metadata: Metadata = {
   },
   description:
     "Discover and book Dubai's best desert safaris and adventure experiences — dune bashing, quad biking, overnight camping and Bedouin BBQ dinners. Confirmed in minutes via WhatsApp, best price, 24/7 support.",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: "website",
     siteName: "MyDubaiSafarii",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     description:
       "Discover and book Dubai's best desert safaris and adventure experiences — dune bashing, quad biking, overnight camping and Bedouin BBQ dinners. Confirmed in minutes via WhatsApp, best price, 24/7 support.",
     locale: "en",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com",
+    url: SITE_URL,
     // Sitewide default share image (real desert photo). Pages/tours can override.
     images: [
       {

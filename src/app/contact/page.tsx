@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { WhatsappIcon, InstagramIcon, FacebookIcon, TiktokIcon } from "@/components/icons/social";
-import { SITE, whatsappUrl } from "@/lib/site";
+import { SITE, whatsappUrl, SITE_URL } from "@/lib/site";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export const metadata: Metadata = {
   title: "Contact",

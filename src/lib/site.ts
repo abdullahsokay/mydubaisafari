@@ -1,3 +1,13 @@
+/**
+ * Canonical site origin — the single source of truth for the domain.
+ * Set NEXT_PUBLIC_SITE_URL in the deploy environment (e.g. Vercel) to
+ * "https://mydubaisafari.com"; the fallback keeps builds working without it.
+ * No trailing slash. Import this everywhere instead of re-deriving it, so the
+ * domain can never drift between files again.
+ */
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafari.com";
+
 export const SITE = {
   whatsappNumber: "971557788202", // wa.me format (no +)
   whatsappDisplay: "+971 55 778 8202",

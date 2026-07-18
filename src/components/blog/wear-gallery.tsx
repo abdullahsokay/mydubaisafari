@@ -153,13 +153,21 @@ export function WearGallery({ images }: { images: string[] }) {
           >
             <ChevronLeft className="size-9" />
           </button>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={images[active]}
-            alt={`Desert safari guest outfit ${active + 1} of ${images.length}`}
-            className="max-h-[88vh] max-w-[92vw] rounded-lg object-contain"
+          {/* Next-optimized (AVIF/WebP) rather than the raw original — the
+              source jpgs run to ~800KB, which is a long wait on a tap. */}
+          <div
+            className="relative h-[88vh] w-[92vw]"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <Image
+              src={images[active]}
+              alt={`Desert safari guest outfit ${active + 1} of ${images.length}`}
+              fill
+              priority
+              sizes="92vw"
+              className="rounded-lg object-contain"
+            />
+          </div>
           <button
             type="button"
             aria-label="Next photo"

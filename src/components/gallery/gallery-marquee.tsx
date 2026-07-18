@@ -7,6 +7,10 @@ import { cn } from "@/lib/utils";
  * keeps them SHARP instead of upscaling a tiny image to full width (which
  * looked blurry). Pure CSS animation; pauses on hover. Swap back to the
  * large slideshow once high-resolution photos are available.
+ *
+ * Deliberately NO blur placeholder: the strip renders 192 nodes, and inlining
+ * a base64 blur into each cost ~25KB of render-blocking HTML to smooth in
+ * decorative below-fold thumbnails that are already lazy-loaded. Bad trade.
  */
 function Row({ images, reverse }: { images: string[]; reverse?: boolean }) {
   const items = [...images, ...images]; // duplicated for a seamless loop

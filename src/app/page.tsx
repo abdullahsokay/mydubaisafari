@@ -8,10 +8,8 @@ import GallerySection from "@/components/gallery/gallery-section";
 import { HeroContent } from "@/components/home/hero-content";
 import { ActivityVideos } from "@/components/home/activity-videos";
 import { LoopVideo } from "@/components/ui/loop-video";
-import { SITE } from "@/lib/site";
+import { SITE, SITE_URL } from "@/lib/site";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/` },

@@ -7,11 +7,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { CountUp } from "@/components/ui/count-up";
 import { listTours } from "@/lib/catalog/repository";
-import { whatsappUrl } from "@/lib/site";
+import { whatsappUrl, SITE_URL } from "@/lib/site";
 import { GUEST_REVIEWS, RATING_DISTRIBUTION } from "@/lib/reviews";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export const metadata: Metadata = {
   title: "Guest Reviews",

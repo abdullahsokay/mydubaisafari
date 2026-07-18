@@ -183,7 +183,7 @@ export default function PrivacyPolicyPage() {
                 7. Cookies and Website Tracking
               </h2>
               <p>
-                Our website (mydubaisafarii.com) is a static brochure site. We do
+                Our website (mydubaisafari.com) is a static brochure site. We do
                 not use tracking cookies, third-party analytics, or advertising
                 networks. If this changes, we will update this policy accordingly
                 and provide a cookie notice.

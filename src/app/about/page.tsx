@@ -16,11 +16,9 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { whatsappUrl } from "@/lib/site";
+import { whatsappUrl, SITE_URL } from "@/lib/site";
 import { Reveal } from "@/components/about/reveal";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export const metadata: Metadata = {
   title: "About Us",

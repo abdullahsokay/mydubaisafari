@@ -26,6 +26,8 @@ import {
   listTourSlugs,
 } from "@/lib/catalog/repository";
 import { formatDuration, formatPrice } from "@/lib/catalog/format";
+import { blurProps } from "@/lib/blur";
+import { SITE_URL } from "@/lib/site";
 
 /** Serialize JSON-LD safely — escapes < > & to prevent script tag breakout. */
 function safeJsonLd(obj: unknown): string {
@@ -39,9 +41,6 @@ export async function generateStaticParams() {
   const slugs = await listTourSlugs();
   return slugs.map((slug) => ({ slug }));
 }
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export async function generateMetadata({
   params,
@@ -233,6 +232,7 @@ export default async function TourDetailPage({
                     loading="lazy"
                     sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-500 hover:scale-105"
+                    {...blurProps(src)}
                   />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-midnight/40 to-transparent" />
                   {i === 1 && (

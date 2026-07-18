@@ -4,14 +4,13 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { AddonsSection } from "@/components/tours/addons-section";
 import { ToursExplorer } from "@/components/tours/tours-explorer";
+import { SITE_URL } from "@/lib/site";
 import { listCategories, listTours } from "@/lib/catalog/repository";
 
 // Prerendered at build time; ?category= and ?sort= are applied client-side
 // by <ToursExplorer>, so every request is served straight from the CDN.
 export const dynamic = "force-static";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mydubaisafarii.com";
 
 export const metadata: Metadata = {
   title: "Dubai Tours & Experiences",
