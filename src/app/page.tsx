@@ -8,41 +8,24 @@ import GallerySection from "@/components/gallery/gallery-section";
 import { HeroContent } from "@/components/home/hero-content";
 import { ActivityVideos } from "@/components/home/activity-videos";
 import { LoopVideo } from "@/components/ui/loop-video";
-import { SITE, SITE_URL } from "@/lib/site";
-
+import { SITE_URL } from "@/lib/site";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
+  description:
+    "Book Dubai desert safaris direct: dune bashing, quad biking, camel rides, sandboarding and overnight Bedouin camps with BBQ dinner. Instant WhatsApp confirmation, best price, 24/7 support.",
   alternates: { canonical: `${SITE_URL}/` },
 };
-
-/** Serialize JSON-LD safely — escapes < > & to prevent script tag breakout. */
-function safeJsonLd(obj: unknown): string {
-  return JSON.stringify(obj)
-    .replace(/</g, "\\u003c")
-    .replace(/>/g, "\\u003e")
-    .replace(/&/g, "\\u0026");
-}
 
 export default async function Home() {
   const featured = await getFeaturedTours(4);
 
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "MyDubaiSafarii",
-    url: SITE_URL,
-    logo: `${SITE_URL}/Images/sand.jpg`,
-    telephone: SITE.phone,
-    sameAs: [SITE.instagram, SITE.facebook, SITE.tiktok],
-  };
-
   return (
     <>
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(orgSchema) }}
-      />
+      {/* Site-wide structured data: the business (TravelAgency) + the website,
+          sharing stable @id anchors so Google sees one entity. */}
+      <JsonLd data={[organizationSchema(), websiteSchema()]} />
 
       {/* Hero — min-h-dvh (not vh) so mobile browser chrome collapsing
           doesn't leave a gap or overflow under the URL bar */}

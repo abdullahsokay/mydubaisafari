@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
-import { SITE } from "@/lib/site";
+import { SITE, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Learn how MyDubaiSafarii collects, uses, and protects your personal information when you book a Dubai desert safari via WhatsApp.",
+  alternates: { canonical: `${SITE_URL}/policy/privacy` },
 };
 
 const LAST_UPDATED = "1 July 2026";

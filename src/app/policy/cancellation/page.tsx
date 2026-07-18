@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
-import { SITE, whatsappUrl } from "@/lib/site";
+import { SITE, whatsappUrl, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Cancellation Policy",
   description:
     "MyDubaiSafarii's cancellation and refund policy for desert safari and adventure tours booked via WhatsApp.",
+  alternates: { canonical: `${SITE_URL}/policy/cancellation` },
 };
 
 const LAST_UPDATED = "1 July 2026";

@@ -15,6 +15,8 @@ import { getTourBySlug } from "@/lib/catalog/repository";
 import { getCategory } from "@/lib/blog/categories";
 import { getWearImages } from "@/lib/wear-gallery";
 import { blurProps } from "@/lib/blur";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbSchema, orgRef } from "@/lib/seo/schema";
 import { WearGallery } from "@/components/blog/wear-gallery";
 import { OutfitCards } from "@/components/blog/outfit-cards";
 import { DesertCampStory } from "@/components/blog/desert-camp-story";
@@ -35,13 +37,6 @@ export async function generateStaticParams() {
 }
 
 
-/** Serialize JSON-LD safely — escapes < > & to prevent script tag breakout. */
-function safeJsonLd(obj: unknown): string {
-  return JSON.stringify(obj)
-    .replace(/</g, "\\u003c")
-    .replace(/>/g, "\\u003e")
-    .replace(/&/g, "\\u0026");
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -100,13 +95,15 @@ export default async function BlogPostPage({ params }: PageProps) {
       "@type": "Person",
       name: post.author,
     },
-    publisher: {
-      "@type": "Organization",
-      name: "MyDubaiSafarii",
-      url: SITE_URL,
-    },
+    publisher: orgRef,
     url: pageUrl,
   };
+
+  const breadcrumb = breadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: post.title, url: pageUrl },
+  ]);
 
   // JSON-LD: FAQPage
   const faqSchema = post.faqs && post.faqs.length > 0
@@ -126,17 +123,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(blogPostingSchema) }}
-      />
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }}
-        />
-      )}
+      <JsonLd data={[blogPostingSchema, breadcrumb, faqSchema].filter(Boolean)} />
 
       {/* Hero */}
       <section className="relative flex min-h-[420px] items-end bg-midnight pb-12 pt-32">

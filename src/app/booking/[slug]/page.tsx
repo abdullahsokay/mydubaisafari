@@ -22,8 +22,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const tour = await getTourBySlug(slug);
-  if (!tour) return { title: "Tour not found" };
-  return { title: `Book ${tour.name}` };
+  // Booking pages are transactional funnels — keep them out of the index
+  // (robots.ts also disallows /booking/, but a linked URL can still be indexed
+  // without an explicit noindex).
+  if (!tour) return { title: "Tour not found", robots: { index: false } };
+  return { title: `Book ${tour.name}`, robots: { index: false } };
 }
 
 export default async function BookingPage({

@@ -6,6 +6,8 @@ import { SITE, whatsappUrl, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
+  description:
+    "Get in touch with MyDubaiSafarii via WhatsApp, email, or social media. We respond to Dubai desert safari booking enquiries within minutes, 24/7.",
   alternates: { canonical: `${SITE_URL}/contact` },
   openGraph: {
     title: "Contact MyDubaiSafarii",

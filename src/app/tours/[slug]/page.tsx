@@ -28,14 +28,8 @@ import {
 import { formatDuration, formatPrice } from "@/lib/catalog/format";
 import { blurProps } from "@/lib/blur";
 import { SITE_URL } from "@/lib/site";
-
-/** Serialize JSON-LD safely — escapes < > & to prevent script tag breakout. */
-function safeJsonLd(obj: unknown): string {
-  return JSON.stringify(obj)
-    .replace(/</g, "\\u003c")
-    .replace(/>/g, "\\u003e")
-    .replace(/&/g, "\\u0026");
-}
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbSchema, orgRef } from "@/lib/seo/schema";
 
 export async function generateStaticParams() {
   const slugs = await listTourSlugs();
@@ -49,7 +43,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const tour = await getTourBySlug(slug);
-  if (!tour) return { title: "Tour not found" };
+  if (!tour) return { title: "Tour not found", robots: { index: false } };
   const canonicalUrl = `${SITE_URL}/tours/${slug}`;
   return {
     title: tour.name,
@@ -196,15 +190,18 @@ export default async function TourDetailPage({
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/tours/${tour.slug}`,
     },
+    provider: orgRef,
   };
+
+  const breadcrumb = breadcrumbSchema([
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Tours", url: `${SITE_URL}/tours` },
+    { name: tour.name, url: `${SITE_URL}/tours/${tour.slug}` },
+  ]);
 
   return (
     <>
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(tourSchema) }}
-      />
+      <JsonLd data={[tourSchema, breadcrumb]} />
 
       {/* Gallery */}
       <section className="relative bg-midnight pt-20">

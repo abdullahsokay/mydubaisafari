@@ -18,6 +18,14 @@ export const SITE = {
   tiktok: "https://www.tiktok.com/@mydubaisafari",
   address: "4th Floor, City Avenue, opposite Deira City Centre, Deira, Dubai, UAE",
   areas: "Marsa Dubai · Deira, Dubai",
+  // Structured form of `address`, for schema.org PostalAddress (SEO).
+  // Keep in sync with `address` above.
+  postalAddress: {
+    streetAddress: "4th Floor, City Avenue, opposite Deira City Centre",
+    addressLocality: "Deira, Dubai",
+    addressRegion: "Dubai",
+    addressCountry: "AE",
+  },
 };
 
 export function whatsappUrl(message: string) {

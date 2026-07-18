@@ -9,6 +9,8 @@ import { CountUp } from "@/components/ui/count-up";
 import { listTours } from "@/lib/catalog/repository";
 import { whatsappUrl, SITE_URL } from "@/lib/site";
 import { GUEST_REVIEWS, RATING_DISTRIBUTION } from "@/lib/reviews";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationSchema } from "@/lib/seo/schema";
 
 
 export const metadata: Metadata = {
@@ -23,14 +25,6 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/reviews`,
   },
 };
-
-/** Serialize JSON-LD safely — escapes < > & to prevent script tag breakout. */
-function safeJsonLd(obj: unknown): string {
-  return JSON.stringify(obj)
-    .replace(/</g, "\\u003c")
-    .replace(/>/g, "\\u003e")
-    .replace(/&/g, "\\u0026");
-}
 
 const WA_REVIEW = whatsappUrl(
   "Hi! I recently completed a tour with MyDubaiSafarii and I'd love to share my feedback.",
@@ -91,11 +85,10 @@ export default async function ReviewsPage() {
   const weightedSum = tours.reduce((sum, t) => sum + t.rating * t.reviewCount, 0);
   const avgRating = totalReviews > 0 ? weightedSum / totalReviews : 0;
 
+  // Attach ratings/reviews to the SHARED org node (same @id) so Google reads
+  // one business with reviews, not a second conflicting Organization.
   const reviewsSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "MyDubaiSafarii",
-    url: SITE_URL,
+    ...organizationSchema(),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: Number(avgRating.toFixed(1)),
@@ -121,10 +114,7 @@ export default async function ReviewsPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(reviewsSchema) }}
-      />
+      <JsonLd data={reviewsSchema} />
 
       {/* ── Cinematic dark hero ─────────────────────────────── */}
       <section className="relative overflow-hidden bg-midnight pt-28 pb-16 text-center text-surface sm:pt-32">

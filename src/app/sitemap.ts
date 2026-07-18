@@ -1,14 +1,17 @@
 import type { MetadataRoute } from "next";
 import { listTourSlugs } from "@/lib/catalog/repository";
-import { listPostSlugs } from "@/lib/blog/repository";
+import { getAllPosts } from "@/lib/blog/repository";
 import { SITE_URL as BASE_URL } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [tourSlugs, postSlugs] = await Promise.all([
+  const [tourSlugs, posts] = await Promise.all([
     listTourSlugs(),
-    Promise.resolve(listPostSlugs()),
+    Promise.resolve(getAllPosts()),
   ]);
 
+  // Build-time timestamp for pages without their own change date. This file is
+  // generated at build, so `now` = deploy time — a real signal, not a
+  // per-request "changed today" that trains crawlers to ignore lastModified.
   const now = new Date();
 
   // Core static pages
@@ -77,10 +80,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
-  // Blog post pages
-  const blogPages: MetadataRoute.Sitemap = postSlugs.map((slug) => ({
-    url: `${BASE_URL}/blog/${slug}`,
-    lastModified: now,
+  // Blog post pages — use each post's real published date so lastModified is
+  // a meaningful per-URL signal (falls back to build time if a date is blank).
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.date ? new Date(post.date) : now,
     changeFrequency: "monthly" as const,
     priority: 0.65,
   }));

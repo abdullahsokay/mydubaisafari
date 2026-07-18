@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
-import { SITE } from "@/lib/site";
+import { SITE, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "Terms and conditions governing the use of MyDubaiSafarii's website and the booking of Dubai desert safari tours via WhatsApp.",
+  alternates: { canonical: `${SITE_URL}/policy/terms` },
 };
 
 const LAST_UPDATED = "1 July 2026";
