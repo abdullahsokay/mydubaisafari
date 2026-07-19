@@ -170,12 +170,16 @@ export default async function TourDetailPage({
     },
   ];
 
+  // Typed as both Product (unlocks price + star rich results in Google) and
+  // TouristTrip (correct semantic type for a tour). One node, one rating/offer
+  // — avoids duplicate-entity conflicts.
   const tourSchema = {
     "@context": "https://schema.org",
-    "@type": "TouristTrip",
+    "@type": ["Product", "TouristTrip"],
     name: tour.name,
     description: tour.description,
     image: `${SITE_URL}/Images/sand.jpg`,
+    brand: { "@type": "Brand", name: "MyDubaiSafari" },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: tour.rating,

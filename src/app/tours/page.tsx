@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { AddonsSection } from "@/components/tours/addons-section";
 import { ToursExplorer } from "@/components/tours/tours-explorer";
+import { PackageComparison } from "@/components/tours/package-comparison";
 import { SITE_URL } from "@/lib/site";
 import { listCategories, listTours } from "@/lib/catalog/repository";
 
@@ -60,6 +61,7 @@ export default async function ToursPage() {
           <ToursExplorer categories={categories} tours={tours} />
         </Container>
       </div>
+      <PackageComparison tours={tours} />
       <AddonsSection />
     </>
   );

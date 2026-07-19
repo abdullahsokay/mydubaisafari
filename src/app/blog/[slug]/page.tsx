@@ -23,6 +23,8 @@ import { DesertCampStory } from "@/components/blog/desert-camp-story";
 import { SandboardingStory } from "@/components/blog/sandboarding-story";
 import { LoopVideo } from "@/components/ui/loop-video";
 import { ShareButtons } from "@/components/blog/share-buttons";
+import { AuthorBio } from "@/components/blog/author-bio";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { BackButton } from "@/components/ui/back-button";
@@ -171,6 +173,14 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Main content */}
       <Container className="py-12">
+        <Breadcrumbs
+          className="mb-8"
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Blog", href: "/blog" },
+            { name: post.title, href: `/blog/${slug}` },
+          ]}
+        />
         <div className="lg:grid lg:grid-cols-[260px_1fr] lg:gap-12">
           {/* TOC — sticky sidebar */}
           {post.toc.length > 0 && (
@@ -313,6 +323,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </div>
               </section>
             )}
+
+            {/* Author bio — EEAT signal */}
+            <AuthorBio author={post.author} />
 
             {/* Share buttons */}
             <div className="mt-10 border-t border-midnight/10 pt-8">
