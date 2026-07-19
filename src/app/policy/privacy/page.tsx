@@ -5,7 +5,7 @@ import { SITE, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Learn how MyDubaiSafarii collects, uses, and protects your personal information when you book a Dubai desert safari via WhatsApp.",
+    "Learn how MyDubaiSafari collects, uses, and protects your personal information when you book a Dubai desert safari via WhatsApp.",
   alternates: { canonical: `${SITE_URL}/policy/privacy` },
 };
 
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
                 1. Who We Are
               </h2>
               <p>
-                MyDubaiSafarii (&ldquo;we&rdquo;, &ldquo;our&rdquo;,
+                MyDubaiSafari (&ldquo;we&rdquo;, &ldquo;our&rdquo;,
                 &ldquo;us&rdquo;) operates a desert safari tour booking service
                 based in Dubai, United Arab Emirates. Our office is located at{" "}
                 {SITE.address}. We can be reached at{" "}
@@ -260,7 +260,7 @@ export default function PrivacyPolicyPage() {
                 For any privacy-related questions or requests, please contact us:
               </p>
               <address className="mt-3 not-italic space-y-1 text-midnight/70">
-                <p>MyDubaiSafarii</p>
+                <p>MyDubaiSafari</p>
                 <p>{SITE.address}</p>
                 <p>
                   Email:{" "}

@@ -2,7 +2,7 @@
 title: "Land Cruiser Dune Bashing in Dubai: What It Is, What to Expect & Safety Tips"
 category: desert-safari
 date: "2025-02-10"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Dune bashing in a Toyota Land Cruiser is the adrenaline centrepiece of any Dubai desert safari. Here is everything first-timers need to know — how it works, what the experience feels like, and how to stay safe."
 cover: "/Images/stock/blog/land-cruiser-dune-bashing-guide.jpg"
 location: "Dubai Desert Conservation Reserve"
@@ -67,4 +67,4 @@ The dune-bashing session typically runs 30–45 minutes within the evening or mo
 
 ---
 
-Experience dune bashing for yourself. Our [shared desert safari](/tours/shared-desert-safari), [morning desert safari](/tours/morning-desert-safari), and [VIP Bedouin Camp safari](/tours/vip-bedouin-camp) all include expert-guided Land Cruiser dune bashing with professional drivers. [Browse all our desert tours](/tours) and book your Arabian adventure with MyDubaiSafarii today.
+Experience dune bashing for yourself. Our [shared desert safari](/tours/shared-desert-safari), [morning desert safari](/tours/morning-desert-safari), and [VIP Bedouin Camp safari](/tours/vip-bedouin-camp) all include expert-guided Land Cruiser dune bashing with professional drivers. [Browse all our desert tours](/tours) and book your Arabian adventure with MyDubaiSafari today.

@@ -18,7 +18,7 @@ export default function Loading() {
             ))}
           </div>
           <p className="font-heading text-lg font-semibold text-midnight">
-            MyDubai<span className="text-gold">Safarii</span>
+            MyDubai<span className="text-gold">Safari</span>
           </p>
           <p className="mt-2 text-sm text-midnight/50">Loading your experience…</p>
         </div>

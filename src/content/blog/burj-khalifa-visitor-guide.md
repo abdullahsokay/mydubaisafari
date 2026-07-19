@@ -2,7 +2,7 @@
 title: "Burj Khalifa Visitor Guide: Tickets, Tips & What to Expect at the Top"
 category: dubai-travel-guides
 date: "2025-01-22"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Everything you need to know before visiting the Burj Khalifa — ticket types, the best time to go, what the observation decks look like, and how to combine it with a Dubai city tour."
 cover: "/Images/stock/blog/burj-khalifa-visitor-guide.jpg"
 location: "Burj Khalifa, Dubai"
@@ -50,7 +50,7 @@ At 555 metres, Level 148 is the world's highest observation deck. It is a more i
 
 ## Buying Your Tickets
 
-Tickets are purchased via the official At the Top website or through licensed tour operators like MyDubaiSafarii. Key points:
+Tickets are purchased via the official At the Top website or through licensed tour operators like MyDubaiSafari. Key points:
 
 - **Non-prime vs. prime:** Prime time slots (sunset, evening) cost significantly more than daytime visits
 - **Online vs. walk-in:** Booking online saves at least 20–30% and guarantees entry at your chosen time
@@ -85,4 +85,4 @@ The Burj Khalifa sits at the heart of Downtown Dubai, making it a natural centre
 
 ---
 
-**Want skip-the-line access and an expert guide to make every view meaningful?** Book your [Burj Khalifa At the Top experience](/tours) with MyDubaiSafarii and see Dubai's skyline the way it was meant to be seen.
+**Want skip-the-line access and an expert guide to make every view meaningful?** Book your [Burj Khalifa At the Top experience](/tours) with MyDubaiSafari and see Dubai's skyline the way it was meant to be seen.

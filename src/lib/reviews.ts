@@ -32,7 +32,7 @@ export const GUEST_REVIEWS: GuestReview[] = [
     flag: "🇮🇳",
     rating: 5,
     title: "Proposal in the dunes — she said yes",
-    text: "I told the team I wanted to propose during the private safari. They set up a quiet spot on the dunes before dinner, kept it secret, and the photographer among the crew caught the whole moment. My wife still shows everyone the photos. Thank you MyDubaiSafarii!",
+    text: "I told the team I wanted to propose during the private safari. They set up a quiet spot on the dunes before dinner, kept it secret, and the photographer among the crew caught the whole moment. My wife still shows everyone the photos. Thank you MyDubaiSafari!",
     date: "2026-04",
     tourSlug: "private-desert-safari",
     tourName: "Private Desert Safari",

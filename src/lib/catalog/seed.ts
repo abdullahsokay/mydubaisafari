@@ -617,7 +617,7 @@ export const TOURS: Tour[] = [
     shortDesc:
       "Our most luxurious camp package — the Luxury Noble Camp, premium dinner and 12 live traditional shows. Private 4x4 for your group.",
     description:
-      "The Noble Camp Experience is the pinnacle of the MyDubaiSafarii desert portfolio. Your private 4x4 Land Cruiser departs at 1:45–2:15 PM for 30–40 minutes of private Red Dunes dune bashing at Al Habab — sandboarding, a camel ride and henna painting follow in total privacy. As dusk settles over the dunes, you are welcomed into the exclusive Luxury Noble Camp, where a premium self-service dinner awaits: an elevated BBQ and international buffet with a full vegetarian spread. Twelve live traditional shows — more than any other package — fill the night with belly-dancing, tanoura, fire performances and additional cultural acts, creating an evening of unrivalled Arabian hospitality.",
+      "The Noble Camp Experience is the pinnacle of the MyDubaiSafari desert portfolio. Your private 4x4 Land Cruiser departs at 1:45–2:15 PM for 30–40 minutes of private Red Dunes dune bashing at Al Habab — sandboarding, a camel ride and henna painting follow in total privacy. As dusk settles over the dunes, you are welcomed into the exclusive Luxury Noble Camp, where a premium self-service dinner awaits: an elevated BBQ and international buffet with a full vegetarian spread. Twelve live traditional shows — more than any other package — fill the night with belly-dancing, tanoura, fire performances and additional cultural acts, creating an evening of unrivalled Arabian hospitality.",
     durationMinutes: 450,
     pickupTime: "1:45 PM – 2:15 PM",
     meetingPoint: "Hotel pickup (Dubai city area)",

@@ -58,16 +58,18 @@ const nextConfig: NextConfig = {
             //  - open-meteo API fetch (connect-src)
             //  - data: and blob: for canvas and inline video
             //  - fonts.googleapis.com / fonts.gstatic.com for next/font
+            //  - Google Analytics 4: script from googletagmanager.com,
+            //    beacons/config to google-analytics.com + analytics.google.com
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: blob: https:",
               "media-src 'self' blob: data:",
               "frame-src 'self' https://maps.google.com https://www.google.com",
-              "connect-src 'self' https://api.open-meteo.com",
+              "connect-src 'self' https://api.open-meteo.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self' https://wa.me",

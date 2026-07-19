@@ -2,7 +2,7 @@
 title: "Dubai Desert Safari Photography Guide: Capture Stunning Shots in the Dunes"
 category: desert-safari
 date: "2025-02-05"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "From golden-hour dune shots to camel portraits at sunset, here is everything you need to know to photograph Dubai's desert like a pro — gear, timing, and composition tips included."
 cover: "/Images/stock/blog/dubai-desert-safari-photography-guide.jpg"
 location: "Dubai Desert Conservation Reserve"
@@ -91,4 +91,4 @@ Private safaris also allow you to plan your timeline precisely around sunset, en
 
 ---
 
-Capture the Arabian desert at its most spectacular. [Book your shared or VIP safari with MyDubaiSafarii](/tours) and take home photographs that tell the story of Dubai's most breathtaking landscape.
+Capture the Arabian desert at its most spectacular. [Book your shared or VIP safari with MyDubaiSafari](/tours) and take home photographs that tell the story of Dubai's most breathtaking landscape.

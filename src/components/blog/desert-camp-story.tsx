@@ -303,7 +303,7 @@ const outro: DossierOutro = {
         <ALink href="/tours/luxury-5star-vip-camp">
           overnight desert safari
         </ALink>{" "}
-        with MyDubaiSafarii and experience an Arabian night that no hotel dinner
+        with MyDubaiSafari and experience an Arabian night that no hotel dinner
         can replicate.{" "}
         <ALink href="/tours">Browse all our desert experiences</ALink>.
       </p>

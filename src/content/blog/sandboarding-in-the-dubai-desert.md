@@ -2,7 +2,7 @@
 title: "Sandboarding in the Dubai Desert: A Beginner's Complete Guide"
 category: desert-safari
 date: "2025-02-22"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Sandboarding on Dubai's red dunes is one of the most fun, accessible, and memorable activities on any desert safari. Here is everything a first-timer needs to know — from what to wear to how to actually stay upright."
 cover: "/Images/stock/blog/sandboarding-in-the-dubai-desert.jpg"
 location: "Dubai Desert Conservation Reserve"
@@ -71,4 +71,4 @@ Our [morning desert safari](/tours/morning-desert-safari) is ideal for sandboard
 
 ---
 
-Sandboarding in Dubai's desert is the kind of activity that adults and children alike talk about for years after. [Book your desert safari with MyDubaiSafarii](/tours) and we will make sure the boards are waxed, the dunes are ready, and the camera is pointed in the right direction when you make your run.
+Sandboarding in Dubai's desert is the kind of activity that adults and children alike talk about for years after. [Book your desert safari with MyDubaiSafari](/tours) and we will make sure the boards are waxed, the dunes are ready, and the camera is pointed in the right direction when you make your run.

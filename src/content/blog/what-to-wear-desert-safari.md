@@ -2,7 +2,7 @@
 title: "What to Wear on a Desert Safari in Dubai: Complete Packing Guide"
 category: desert-safari
 date: "2025-01-14"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Heading on a Dubai desert safari? Here's exactly what to wear and pack for morning and evening safaris — from clothing and footwear to sun protection and cameras."
 cover: "/Images/wear/blog-what-to-wear-desert-safari.jpg"
 relatedTours:
@@ -93,4 +93,4 @@ If Instagram-worthy dune shots are high on your list, earth tones — camel, ter
 
 ---
 
-**Ready to experience the Dubai desert in style and comfort?** Book your [evening desert safari](/tours/shared-desert-safari) or [morning desert safari](/tours/morning-desert-safari) with MyDubaiSafarii — and arrive knowing you're perfectly prepared for every dune, sunset, and star.
+**Ready to experience the Dubai desert in style and comfort?** Book your [evening desert safari](/tours/shared-desert-safari) or [morning desert safari](/tours/morning-desert-safari) with MyDubaiSafari — and arrive knowing you're perfectly prepared for every dune, sunset, and star.

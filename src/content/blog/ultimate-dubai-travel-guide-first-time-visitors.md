@@ -2,7 +2,7 @@
 title: "Ultimate Dubai Travel Guide for First-Time Visitors"
 category: dubai-travel-guides
 date: "2025-01-08"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Everything a first-time visitor needs to know about Dubai — from must-see landmarks and cultural etiquette to transport tips and the best experiences to book."
 cover: "/Images/stock/blog/ultimate-dubai-travel-guide-first-time-visitors.jpg"
 location: "Dubai, UAE"
@@ -89,4 +89,4 @@ For a ready-made introduction to the city's highlights, our [Dubai City Tour](/t
 
 ---
 
-**Ready to make your first Dubai trip unforgettable?** Browse our full range of handpicked experiences at [MyDubaiSafarii Tours](/tours) and let us take care of every detail — from the desert dunes to the city skyline. Book your Dubai adventure with MyDubaiSafarii today.
+**Ready to make your first Dubai trip unforgettable?** Browse our full range of handpicked experiences at [MyDubaiSafari Tours](/tours) and let us take care of every detail — from the desert dunes to the city skyline. Book your Dubai adventure with MyDubaiSafari today.

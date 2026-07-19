@@ -2,7 +2,7 @@
 title: "Dubai Desert Camp: BBQ Dinner, Live Shows & Bedouin Culture Explained"
 category: desert-safari
 date: "2025-03-03"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "After the dunes comes the camp — and for many guests, it is the highlight of the entire evening. Here is what to expect from Dubai's Bedouin desert camp experience: the food, the entertainment, and the atmosphere."
 cover: "/Images/profiledesertcamp.jpg"
 location: "Dubai Desert Conservation Reserve"
@@ -109,4 +109,4 @@ To experience the camp atmosphere at its most immersive, consider the [Luxury 5-
 
 ---
 
-The desert camp is waiting. [Book your shared desert safari](/tours/shared-desert-safari) or [Luxury 5-Star VIP Camp](/tours/luxury-5star-vip-camp) with MyDubaiSafarii and experience an Arabian night that no hotel dinner can replicate. [Browse all our desert experiences](/tours).
+The desert camp is waiting. [Book your shared desert safari](/tours/shared-desert-safari) or [Luxury 5-Star VIP Camp](/tours/luxury-5star-vip-camp) with MyDubaiSafari and experience an Arabian night that no hotel dinner can replicate. [Browse all our desert experiences](/tours).

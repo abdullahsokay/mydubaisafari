@@ -13,7 +13,11 @@ import { cn } from "@/lib/utils";
 export function LoopVideo({
   src,
   className,
-  preload = "metadata",
+  // Default "none": the poster (below) shows immediately, and playback is
+  // started by the IntersectionObserver. With "metadata" the browser issued a
+  // full `bytes=0-` fetch up front and then re-fetched on play — downloading
+  // each clip ~twice. "none" defers to a single fetch when it actually plays.
+  preload = "none",
   poster,
 }: {
   src: string;

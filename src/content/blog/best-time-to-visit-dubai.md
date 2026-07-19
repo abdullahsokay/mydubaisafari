@@ -2,7 +2,7 @@
 title: "Best Time to Visit Dubai: Month-by-Month Guide"
 category: dubai-travel-guides
 date: "2025-01-15"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Planning your Dubai trip? Discover the best months to visit, weather patterns, peak season deals, and annual events to help you choose the perfect time."
 cover: "/Images/stock/blog/best-time-to-visit-dubai.jpg"
 location: "Dubai, UAE"
@@ -83,4 +83,4 @@ Whatever time of year you visit, a desert safari is a must-do Dubai experience. 
 
 ---
 
-**Ready to experience Dubai?** Whether you visit in the cool winter months or seek a summer bargain, MyDubaiSafarii's expert team is here to make your trip unforgettable. Compare [morning and evening desert safaris](/blog/morning-vs-evening-desert-safari) or browse our full range of experiences. Book your Dubai adventure with MyDubaiSafarii today — your desert dream awaits.
+**Ready to experience Dubai?** Whether you visit in the cool winter months or seek a summer bargain, MyDubaiSafari's expert team is here to make your trip unforgettable. Compare [morning and evening desert safaris](/blog/morning-vs-evening-desert-safari) or browse our full range of experiences. Book your Dubai adventure with MyDubaiSafari today — your desert dream awaits.

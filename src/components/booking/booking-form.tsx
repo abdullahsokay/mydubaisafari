@@ -12,6 +12,26 @@ interface BookingFormProps {
   tour: Tour;
 }
 
+/**
+ * Booking reference + human timestamp, generated at submit time.
+ * Kept at module scope (not in the component body) because it calls Date/
+ * Math.random, which the React Compiler purity rule disallows inside render.
+ * Ref format: MDS-YYMMDD-NNN.
+ */
+function makeBookingRef(): { ref: string; submittedStr: string } {
+  const now = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const ref = `MDS-${String(now.getFullYear()).slice(2)}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${Math.floor(Math.random() * 900) + 100}`;
+  const submittedStr = now.toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return { ref, submittedStr };
+}
+
 type AddonSelection = { optionIndex: number; qty: number };
 
 function Stepper({
@@ -62,6 +82,7 @@ export function BookingForm({ tour }: BookingFormProps) {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
+  const [nights, setNights] = useState(0);
   const [pickup, setPickup] = useState("");
   const [dropoff, setDropoff] = useState("");
   const [foodPref, setFoodPref] = useState("No preference");
@@ -71,6 +92,7 @@ export function BookingForm({ tour }: BookingFormProps) {
   const [phone, setPhone] = useState("");
   const [sent, setSent] = useState(false);
   const [waUrl, setWaUrl] = useState("");
+  const [bookingRef, setBookingRef] = useState("");
   const [selectedAddons, setSelectedAddons] = useState<
     Record<string, AddonSelection>
   >({});
@@ -133,12 +155,22 @@ export function BookingForm({ tour }: BookingFormProps) {
       ? `${foodPref}, ${foodNotes.trim()}`
       : foodPref;
 
-    // WhatsApp renders *bold* / _italic_; emojis + dividers make the plain-text
-    // prefill read like a structured booking card in the chat.
-    const divider = "━━━━━━━━━━━━━━";
+    // Human-readable stay: 0 nights = single-day tour, else "N nights / N+1 days".
+    const durationLine =
+      nights > 0
+        ? `🌙 Duration: ${nights} night${nights !== 1 ? "s" : ""} / ${nights + 1} days`
+        : "☀️ Duration: Day tour (no overnight stay)";
+
+    // Short booking reference so the owner (and guest) can quote one ID.
+    const { ref, submittedStr } = makeBookingRef();
+
+    // WhatsApp renders *bold* / _italic_; grouped sections + emojis make the
+    // plain-text prefill read like a structured booking card in the chat.
+    const divider = "━━━━━━━━━━━━━━━━━━━━";
     const addonsBlock = addonLines.length
       ? [
-          "🎯 *Add-ons*",
+          "",
+          "➕ *ADD-ONS*",
           ...addonLines.map(
             (l) =>
               `   • ${l.name} (${l.optLabel}) ×${l.qty} — AED ${l.lineTotal.toLocaleString()}`,
@@ -147,32 +179,36 @@ export function BookingForm({ tour }: BookingFormProps) {
       : null;
 
     const message = [
-      "🏜️ *New Booking Inquiry — MyDubaiSafarii*",
+      "🏜️ *MYDUBAISAFARI — NEW BOOKING*",
+      `Ref: ${ref} · ${submittedStr}`,
       divider,
-      `📦 *${tour.name}*`,
-      `💰 Package: AED ${basePrice.toLocaleString()} _(${tour.priceUnit ?? "per person"})_`,
+      "👤 *GUEST*",
+      `   ${name}`,
+      `   📞 ${phone.trim() || "—"}`,
       "",
-      `📅 Date: ${date}`,
-      `⏰ Time: ${time}`,
-      `👥 Guests: ${peopleStr}`,
+      "🎟️ *EXPERIENCE*",
+      `   ${tour.name}`,
+      `   📅 ${date} · ${time}`,
+      `   👥 ${peopleStr}`,
+      `   ${durationLine}`,
+      `   💰 Package: AED ${basePrice.toLocaleString()} _(${tour.priceUnit ?? "per person"})_`,
       "",
-      `📍 Pickup: ${pickup}`,
-      `🏁 Drop-off: ${dropoff.trim() || "Same as pickup"}`,
-      `🍽️ Food: ${foodStr}`,
-      `🩺 Medical/Special needs: ${medicalNeeds.trim() || "None"}`,
-      addonsBlock ? "" : null,
+      "🚐 *LOGISTICS*",
+      `   Pickup: ${pickup}`,
+      `   Drop-off: ${dropoff.trim() || "Same as pickup"}`,
+      `   🍽️ Food: ${foodStr}`,
+      `   🩺 Medical: ${medicalNeeds.trim() || "None"}`,
       addonsBlock,
-      divider,
-      `💵 *Estimated total: AED ${total.toLocaleString()}*`,
-      "_(final price confirmed on WhatsApp)_",
       "",
-      `🙍 Name: ${name}`,
-      `📞 Phone: ${phone.trim() || "-"}`,
+      divider,
+      `💵 *ESTIMATED TOTAL: AED ${total.toLocaleString()}*`,
+      "_final price confirmed on WhatsApp_",
     ]
       .filter((l) => l !== null)
       .join("\n");
 
     const url = whatsappUrl(message);
+    setBookingRef(ref);
     setWaUrl(url);
     window.open(url, "_blank", "noopener,noreferrer");
     setSent(true);
@@ -186,7 +222,12 @@ export function BookingForm({ tour }: BookingFormProps) {
           <h2 className="mt-4 font-heading text-h2 font-semibold text-midnight">
             Opening WhatsApp…
           </h2>
-          <p className="mt-2 text-midnight/75">
+          {bookingRef && (
+            <p className="mt-3 inline-block rounded-full bg-sand px-4 py-1.5 text-sm font-semibold tracking-wide text-midnight ring-1 ring-gold/30">
+              Booking ref: {bookingRef}
+            </p>
+          )}
+          <p className="mt-4 text-midnight/75">
             Thank you, {name}! We&apos;ve opened WhatsApp with your inquiry
             pre-filled. If it didn&apos;t open automatically,{" "}
             <a
@@ -292,6 +333,20 @@ export function BookingForm({ tour }: BookingFormProps) {
                   <option>Evening</option>
                 </select>
               </div>
+            </div>
+
+            <div className="mt-5 rounded-xl border border-midnight/10 bg-sand px-4 py-3">
+              <Stepper
+                label="Overnight nights"
+                value={nights}
+                min={0}
+                onChange={setNights}
+              />
+              <p className="mt-1 text-xs text-midnight/50">
+                Set 0 for a single-day tour · {nights === 0
+                  ? "Day tour"
+                  : `${nights} night${nights !== 1 ? "s" : ""} / ${nights + 1} days`}
+              </p>
             </div>
 
             <div className="mt-5 space-y-3">
@@ -590,6 +645,14 @@ export function BookingForm({ tour }: BookingFormProps) {
                   {infants > 0
                     ? `, ${infants} infant${infants !== 1 ? "s" : ""}`
                     : ""}
+                </span>
+              </li>
+              <li className="flex justify-between text-midnight/70">
+                <span>Duration</span>
+                <span className="font-medium text-midnight">
+                  {nights === 0
+                    ? "Day tour"
+                    : `${nights} night${nights !== 1 ? "s" : ""}`}
                 </span>
               </li>
               {pickup && (

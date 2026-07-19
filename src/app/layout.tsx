@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { SandLayer } from "@/components/effects/sand-layer";
+import { Analytics } from "@/components/seo/analytics";
 import { SITE_URL } from "@/lib/site";
 
 // Headings — Poppins (SRS §7.2.2). Poppins is not a variable font, so weights are explicit.
@@ -24,16 +25,21 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "MyDubaiSafarii — Desert Safari & Adventure Tours Dubai",
-    template: "%s | MyDubaiSafarii",
+    default: "MyDubaiSafari — Desert Safari & Adventure Tours Dubai",
+    template: "%s | MyDubaiSafari",
   },
   description:
     "Discover and book Dubai's best desert safaris and adventure experiences — dune bashing, quad biking, overnight camping and Bedouin BBQ dinners. Confirmed in minutes via WhatsApp, best price, 24/7 support.",
   metadataBase: new URL(SITE_URL),
+  // Google Search Console meta-tag verification — set NEXT_PUBLIC_GSC_VERIFICATION
+  // to the token GSC gives you (HTML-tag method). Omitted until then.
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+    : {}),
   openGraph: {
     type: "website",
-    siteName: "MyDubaiSafarii",
-    title: "MyDubaiSafarii — Desert Safari & Adventure Tours Dubai",
+    siteName: "MyDubaiSafari",
+    title: "MyDubaiSafari — Desert Safari & Adventure Tours Dubai",
     description:
       "Discover and book Dubai's best desert safaris and adventure experiences — dune bashing, quad biking, overnight camping and Bedouin BBQ dinners. Confirmed in minutes via WhatsApp, best price, 24/7 support.",
     locale: "en",
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MyDubaiSafarii — Desert Safari & Adventure Tours Dubai",
+    title: "MyDubaiSafari — Desert Safari & Adventure Tours Dubai",
     description:
       "Discover and book Dubai's best desert safaris and adventure experiences — dune bashing, quad biking, overnight camping and Bedouin BBQ dinners. Confirmed in minutes via WhatsApp, best price, 24/7 support.",
     images: ["/Images/sand.jpg"],
@@ -79,6 +85,7 @@ export default function RootLayout({
         <Footer />
         <WhatsappButton />
         <SandLayer />
+        <Analytics />
       </body>
     </html>
   );

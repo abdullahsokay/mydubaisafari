@@ -262,7 +262,7 @@ const outro: DossierOutro = {
     <p className="text-[1.0625rem] leading-relaxed text-midnight/70">
       Sandboarding in Dubai&apos;s desert is the kind of activity that adults and
       children alike talk about for years after.{" "}
-      <ALink href="/tours">Book your desert safari with MyDubaiSafarii</ALink>{" "}
+      <ALink href="/tours">Book your desert safari with MyDubaiSafari</ALink>{" "}
       and we will make sure the boards are waxed, the dunes are ready, and the
       camera is pointed in the right direction when you make your run.
     </p>

@@ -36,7 +36,7 @@ export function organizationSchema() {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "@id": ORG_ID,
-    name: "MyDubaiSafarii",
+    name: "MyDubaiSafari",
     url: SITE_URL,
     image: `${SITE_URL}/Images/sand.jpg`,
     logo: `${SITE_URL}/Images/sand.jpg`,
@@ -63,7 +63,7 @@ export function websiteSchema() {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     url: SITE_URL,
-    name: "MyDubaiSafarii",
+    name: "MyDubaiSafari",
     publisher: { "@id": ORG_ID },
   };
 }
@@ -83,6 +83,20 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       name: item.name,
       item: item.url,
     })),
+  };
+}
+
+/**
+ * The /contact page as a ContactPage entity, linked to the business node so
+ * Google ties the contact details (phone/email/address on the org) to this page.
+ */
+export function contactPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact MyDubaiSafari",
+    url: `${SITE_URL}/contact`,
+    mainEntity: { "@id": ORG_ID },
   };
 }
 

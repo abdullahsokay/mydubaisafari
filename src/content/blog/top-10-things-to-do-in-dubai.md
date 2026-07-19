@@ -2,7 +2,7 @@
 title: "Top 10 Things to Do in Dubai You Absolutely Cannot Miss"
 category: dubai-travel-guides
 date: "2025-01-29"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "From desert dunes to luxury yachts and ancient souks to record-breaking skyscrapers, here are the 10 essential Dubai experiences every visitor should have."
 cover: "/Images/stock/blog/top-10-things-to-do-in-dubai.jpg"
 location: "Dubai, UAE"
@@ -71,4 +71,4 @@ Dubai's beach scene rivals the best in the world. Kite Beach and JBR (Jumeirah B
 
 ---
 
-**Want a perfectly planned Dubai experience without the logistics headache?** Browse all our tours at [MyDubaiSafarii](/tours) — from desert safaris to city explorations and luxury yacht cruises. Book your top 10 Dubai adventure with MyDubaiSafarii today.
+**Want a perfectly planned Dubai experience without the logistics headache?** Browse all our tours at [MyDubaiSafari](/tours) — from desert safaris to city explorations and luxury yacht cruises. Book your top 10 Dubai adventure with MyDubaiSafari today.

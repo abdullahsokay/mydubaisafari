@@ -14,12 +14,12 @@ import { whatsappUrl, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Dubai Travel Blog",
   description:
-    "Expert guides, tips, and stories about Dubai desert safaris, dune adventures, and desert travel planning from the MyDubaiSafarii team.",
+    "Expert guides, tips, and stories about Dubai desert safaris, dune adventures, and desert travel planning from the MyDubaiSafari team.",
   alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
     title: "Dubai Travel Blog",
     description:
-      "Expert guides, tips, and stories about Dubai desert safaris, dune adventures, and desert travel planning from the MyDubaiSafarii team.",
+      "Expert guides, tips, and stories about Dubai desert safaris, dune adventures, and desert travel planning from the MyDubaiSafari team.",
     url: `${SITE_URL}/blog`,
   },
 };
@@ -52,7 +52,7 @@ export default function BlogPage() {
           </h1>
           <p className="mt-3 text-lg text-white/85 drop-shadow-md">
             Expert guides, insider tips, and real stories from Dubai&apos;s
-            golden dunes and desert camps — curated by the MyDubaiSafarii team.
+            golden dunes and desert camps — curated by the MyDubaiSafari team.
           </p>
           <div className="mt-8 max-w-md">
             <BlogSearch posts={allPosts} />

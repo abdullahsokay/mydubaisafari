@@ -23,12 +23,12 @@ import { Reveal } from "@/components/about/reveal";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Meet MyDubaiSafarii — a local Dubai crew guiding the Al Habab red dunes. Licensed drivers, small private groups, handpicked camps and WhatsApp-direct booking.",
+    "Meet MyDubaiSafari — a local Dubai crew guiding the Al Habab red dunes. Licensed drivers, small private groups, handpicked camps and WhatsApp-direct booking.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
-    title: "About MyDubaiSafarii",
+    title: "About MyDubaiSafari",
     description:
-      "Meet MyDubaiSafarii — a local Dubai crew guiding the Al Habab red dunes. Licensed drivers, small private groups, handpicked camps and WhatsApp-direct booking.",
+      "Meet MyDubaiSafari — a local Dubai crew guiding the Al Habab red dunes. Licensed drivers, small private groups, handpicked camps and WhatsApp-direct booking.",
     url: `${SITE_URL}/about`,
   },
 };
@@ -226,7 +226,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={140}>
               <p className="mt-6 leading-relaxed text-midnight/75">
-                MyDubaiSafarii is a small, local outfit — drivers, guides and
+                MyDubaiSafari is a small, local outfit — drivers, guides and
                 camp hosts who grew up with the desert on our doorstep.
                 We&rsquo;ve spent years leading 4x4s through the Al Habab red
                 dunes, and it shows in the small things: which ridge catches
@@ -258,7 +258,7 @@ export default function AboutPage() {
                   it&rsquo;s worth doing properly.&rdquo;
                 </blockquote>
                 <figcaption className="mt-2 text-sm text-midnight/75">
-                  — The MyDubaiSafarii crew
+                  — The MyDubaiSafari crew
                 </figcaption>
               </figure>
             </Reveal>
@@ -501,7 +501,7 @@ export default function AboutPage() {
             <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
               <a
                 href={whatsappUrl(
-                  "Hi MyDubaiSafarii! I'd like to plan a desert safari — can you help me pick the right package?",
+                  "Hi MyDubaiSafari! I'd like to plan a desert safari — can you help me pick the right package?",
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

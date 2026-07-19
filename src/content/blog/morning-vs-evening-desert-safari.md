@@ -2,7 +2,7 @@
 title: "Morning vs Evening Desert Safari: Which Is Right for You?"
 category: desert-safari
 date: "2025-01-20"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Can't decide between a morning or evening desert safari in Dubai? We compare timings, activities, scenery, and who each experience suits best."
 cover: "/Images/stock/blog/morning-vs-evening-desert-safari.jpg"
 location: "Dubai Desert Conservation Reserve"
@@ -102,4 +102,4 @@ Explore our full range of [Dubai desert safaris and city tours](/tours) with tra
 
 ---
 
-**Still unsure which to choose?** Our team at MyDubaiSafarii is happy to help you pick the perfect experience based on your group size, interests, and budget. Book your desert safari with MyDubaiSafarii today and discover why the Arabian desert is Dubai's greatest adventure.
+**Still unsure which to choose?** Our team at MyDubaiSafari is happy to help you pick the perfect experience based on your group size, interests, and budget. Book your desert safari with MyDubaiSafari today and discover why the Arabian desert is Dubai's greatest adventure.

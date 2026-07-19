@@ -60,7 +60,7 @@ export function Footer() {
               href="/"
               className="font-heading text-xl font-semibold text-surface"
             >
-              MyDubai<span className="text-gold">Safarii</span>
+              MyDubai<span className="text-gold">Safari</span>
             </Link>
             <p className="mt-4 max-w-sm text-sm text-surface/60">
               Dubai&rsquo;s desert safari specialists — confirmed in minutes via WhatsApp, best-price guarantee, 24/7 support.
@@ -111,7 +111,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-surface/10 pt-8 sm:flex-row">
           <p className="text-sm text-surface/50">
-            &copy; {year} MyDubaiSafarii. All rights reserved.
+            &copy; {year} MyDubaiSafari. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             {SOCIALS.map(({ Icon, href, label }) => (

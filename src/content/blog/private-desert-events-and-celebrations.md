@@ -2,7 +2,7 @@
 title: "Private Desert Events in Dubai: Proposals, Birthdays, Corporate & Romantic Dinners"
 category: desert-safari
 date: "2025-03-10"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Dubai's desert offers one of the world's most spectacular backdrops for private events. Whether you are planning a marriage proposal, milestone birthday, romantic dinner, or corporate retreat — here is how to make it unforgettable."
 cover: "/Images/private.webp"
 location: "Dubai Desert Conservation Reserve"
@@ -11,7 +11,7 @@ relatedTours:
   - luxury-5star-vip-camp
 faqs:
   - q: "How much does a private desert event in Dubai cost?"
-    a: "Private desert events vary widely depending on group size, level of décor, catering choices, and entertainment. A romantic private dinner for two starts at a different price point than a corporate event for 50. Contact our team at MyDubaiSafarii for a custom quote — we build packages around your specific requirements and budget."
+    a: "Private desert events vary widely depending on group size, level of décor, catering choices, and entertainment. A romantic private dinner for two starts at a different price point than a corporate event for 50. Contact our team at MyDubaiSafari for a custom quote — we build packages around your specific requirements and budget."
   - q: "How far in advance should I book a private desert event?"
     a: "We recommend booking at least 2–3 weeks in advance for private events, and 4–6 weeks for larger corporate groups or events with complex setup requirements. Peak season (October–April) books quickly, so earlier is always better."
   - q: "Can I propose in the Dubai desert?"
@@ -22,7 +22,7 @@ faqs:
 
 The Dubai desert does not belong exclusively to group safari packages and tourist buses. It is also one of the most extraordinary private event venues on earth — a setting so dramatic, so remote, and so completely unlike any ballroom or hotel terrace that guests at even the most jaded corporate event stop and stare.
 
-Whether you are planning the most romantic proposal of your relationship, a milestone birthday celebration that genuinely surprises, a corporate retreat that reinvigorates a team, or simply a private dinner under a star-filled desert sky — a private desert event with MyDubaiSafarii delivers an experience that no conventional venue can replicate.
+Whether you are planning the most romantic proposal of your relationship, a milestone birthday celebration that genuinely surprises, a corporate retreat that reinvigorates a team, or simply a private dinner under a star-filled desert sky — a private desert event with MyDubaiSafari delivers an experience that no conventional venue can replicate.
 
 ## Marriage Proposals in the Dubai Desert
 
@@ -76,10 +76,10 @@ The [Luxury 5-Star VIP Camp](/tours/luxury-5star-vip-camp) takes this experience
 
 ## Planning Your Private Desert Event
 
-Every private event is different. Our team at MyDubaiSafarii works with you directly to understand your group, your vision, and your budget — then builds a package that delivers exactly what you are imagining.
+Every private event is different. Our team at MyDubaiSafari works with you directly to understand your group, your vision, and your budget — then builds a package that delivers exactly what you are imagining.
 
 Start with our [VIP Bedouin Camp](/tours/vip-bedouin-camp) as the base, then layer in the additional elements — décor, photography, entertainment, catering — that make your event specific.
 
 ---
 
-The desert is waiting. [Contact MyDubaiSafarii](/tours) to begin planning your private desert event — proposal, birthday, corporate retreat, or romantic escape. We handle every detail so you can focus entirely on the people and the moment that matter.
+The desert is waiting. [Contact MyDubaiSafari](/tours) to begin planning your private desert event — proposal, birthday, corporate retreat, or romantic escape. We handle every detail so you can focus entirely on the people and the moment that matter.

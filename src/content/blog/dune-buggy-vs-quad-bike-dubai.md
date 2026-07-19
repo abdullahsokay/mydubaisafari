@@ -2,7 +2,7 @@
 title: "Dune Buggy vs Quad Bike in Dubai: Which Desert Ride Should You Choose?"
 category: desert-safari
 date: "2025-02-14"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Can't decide between a dune buggy and a quad bike for your Dubai desert adventure? We compare both rides on speed, skill level, age suitability, and pure fun — so you can choose with confidence."
 cover: "/Images/stock/blog/dune-buggy-vs-quad-bike-dubai.jpg"
 location: "Dubai Desert Conservation Reserve"
@@ -79,8 +79,8 @@ Book our [quad bike add-on](/tours#add-ons) as a standalone or as part of any sa
 
 ## Can You Do Both?
 
-Absolutely. Many guests choose to combine both experiences by booking a morning desert safari with a quad bike add-on, or by selecting a package that bundles dune buggy and standard safari activities together. Contact our team at MyDubaiSafarii to build a custom combination.
+Absolutely. Many guests choose to combine both experiences by booking a morning desert safari with a quad bike add-on, or by selecting a package that bundles dune buggy and standard safari activities together. Contact our team at MyDubaiSafari to build a custom combination.
 
 ---
 
-Ready to hit the dunes under your own power? Browse our [adventure add-ons](/tours#add-ons) — quad bikes and dune buggies available at every price point. Our team at MyDubaiSafarii will match you with the perfect ride.
+Ready to hit the dunes under your own power? Browse our [adventure add-ons](/tours#add-ons) — quad bikes and dune buggies available at every price point. Our team at MyDubaiSafari will match you with the perfect ride.

@@ -413,23 +413,14 @@ function SectionBody({ body }: { body: DossierSection["body"] }) {
 
 export function BlogDossier({
   sections,
-  rail,
   outro,
 }: {
   sections: DossierSectionWithMedia[];
-  /** Sticky scene-rail numerals (lg+). Defaults to section count. */
-  rail?: string[];
   /** Optional centered colophon/outro block. */
   outro?: DossierOutro;
 }) {
-  const railLabels =
-    rail ?? sections.map((_, i) => String(i + 1).padStart(2, "0"));
-
   return (
     <div className="relative -mx-1">
-      {/* Sticky "scene rail" — progress dots (xl only) */}
-      <SceneRail labels={railLabels} />
-
       <div className="relative">
         {/* Living gold spine — runs the full height through the center gutter */}
         <div
@@ -513,25 +504,3 @@ export function BlogDossier({
   );
 }
 
-/* ── Sticky scene rail — cinematic progress numerals (xl only) ─────── */
-
-function SceneRail({ labels }: { labels: string[] }) {
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute -left-10 top-0 hidden h-full xl:block"
-    >
-      <div className="sticky top-1/2 flex -translate-y-1/2 flex-col items-center gap-5">
-        {labels.map((label) => (
-          <span
-            key={label}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-surface text-[0.65rem] font-semibold text-gold ring-1 ring-gold/40"
-          >
-            {label}
-          </span>
-        ))}
-        <span className="mt-1 h-16 w-px bg-gold/20" />
-      </div>
-    </div>
-  );
-}

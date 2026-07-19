@@ -2,7 +2,7 @@
 title: "Camel Riding in the Dubai Desert: What to Expect, Tips & the History Behind It"
 category: desert-safari
 date: "2025-02-18"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Riding a camel through the red dunes of Dubai is one of those once-in-a-lifetime moments — slow, rocking, and utterly unforgettable. Here is everything you need to know before you climb aboard."
 cover: "/Images/stock/blog/camel-riding-in-the-dubai-desert.jpg"
 location: "Dubai Desert Conservation Reserve"
@@ -69,4 +69,4 @@ Both our [shared desert safari](/tours/shared-desert-safari) and [morning desert
 
 ---
 
-Step into the ancient world for a moment — a camel ride in the Dubai desert with MyDubaiSafarii is one of those experiences that stays with you long after you leave the UAE. Book your safari today and discover the desert the way it was always meant to be explored.
+Step into the ancient world for a moment — a camel ride in the Dubai desert with MyDubaiSafari is one of those experiences that stays with you long after you leave the UAE. Book your safari today and discover the desert the way it was always meant to be explored.

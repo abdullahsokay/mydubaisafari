@@ -16,18 +16,18 @@ import { organizationSchema } from "@/lib/seo/schema";
 export const metadata: Metadata = {
   title: "Guest Reviews",
   description:
-    "Real guest reviews of MyDubaiSafarii desert safaris — dune bashing, camel rides, VIP Bedouin camps and more. 4.9★ average across thousands of verified bookings.",
+    "Real guest reviews of MyDubaiSafari desert safaris — dune bashing, camel rides, VIP Bedouin camps and more. 4.9★ average across thousands of verified bookings.",
   alternates: { canonical: `${SITE_URL}/reviews` },
   openGraph: {
-    title: "Guest Reviews | MyDubaiSafarii",
+    title: "Guest Reviews | MyDubaiSafari",
     description:
-      "Real guest reviews of MyDubaiSafarii desert safaris — 4.9★ average across thousands of verified bookings.",
+      "Real guest reviews of MyDubaiSafari desert safaris — 4.9★ average across thousands of verified bookings.",
     url: `${SITE_URL}/reviews`,
   },
 };
 
 const WA_REVIEW = whatsappUrl(
-  "Hi! I recently completed a tour with MyDubaiSafarii and I'd love to share my feedback.",
+  "Hi! I recently completed a tour with MyDubaiSafari and I'd love to share my feedback.",
 );
 
 /** Avatar tints cycled across review cards. */

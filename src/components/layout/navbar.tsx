@@ -44,7 +44,7 @@ export function Navbar() {
           onClick={() => setOpen(false)}
           className="font-heading text-lg font-semibold text-midnight"
         >
-          MyDubai<span className="text-gold">Safarii</span>
+          MyDubai<span className="text-gold">Safari</span>
         </Link>
 
         {/* Desktop nav */}

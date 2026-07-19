@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { WhatsappIcon, InstagramIcon, FacebookIcon, TiktokIcon } from "@/components/icons/social";
 import { SITE, whatsappUrl, SITE_URL } from "@/lib/site";
+import { JsonLd } from "@/components/seo/json-ld";
+import { contactPageSchema } from "@/lib/seo/schema";
 
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with MyDubaiSafarii via WhatsApp, email, or social media. We respond to Dubai desert safari booking enquiries within minutes, 24/7.",
+    "Get in touch with MyDubaiSafari via WhatsApp, email, or social media. We respond to Dubai desert safari booking enquiries within minutes, 24/7.",
   alternates: { canonical: `${SITE_URL}/contact` },
   openGraph: {
-    title: "Contact MyDubaiSafarii",
+    title: "Contact MyDubaiSafari",
     description:
-      "Get in touch with MyDubaiSafarii via WhatsApp, email, or social media. We respond to booking enquiries within minutes.",
+      "Get in touch with MyDubaiSafari via WhatsApp, email, or social media. We respond to booking enquiries within minutes.",
     url: `${SITE_URL}/contact`,
   },
 };
@@ -23,6 +25,7 @@ export default function ContactPage() {
 
   return (
     <div className="bg-sand pt-24 pb-20">
+      <JsonLd data={contactPageSchema()} />
       <Container>
         <div className="max-w-2xl">
           <h1 className="font-heading text-4xl font-semibold text-midnight leading-tight sm:text-h1">

@@ -29,5 +29,5 @@ faqs:                  # FAQ pairs — rendered as FAQ section + FAQPage JSON-LD
 
 - Use `##` for H2 sections and `###` for H3 sub-sections
 - Internal links to `/tours` and other blog posts are encouraged
-- End with a soft CTA mentioning MyDubaiSafarii
+- End with a soft CTA mentioning MyDubaiSafari
 - Aim for 600–800 words for good SEO coverage

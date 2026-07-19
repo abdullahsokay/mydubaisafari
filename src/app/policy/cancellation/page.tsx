@@ -5,7 +5,7 @@ import { SITE, whatsappUrl, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Cancellation Policy",
   description:
-    "MyDubaiSafarii's cancellation and refund policy for desert safari and adventure tours booked via WhatsApp.",
+    "MyDubaiSafari's cancellation and refund policy for desert safari and adventure tours booked via WhatsApp.",
   alternates: { canonical: `${SITE_URL}/policy/cancellation` },
 };
 
@@ -29,7 +29,7 @@ export default function CancellationPolicyPage() {
 
           <p className="mt-6 text-midnight/70 leading-relaxed">
             We understand plans can change. Below is our cancellation and refund
-            policy for all tours booked with MyDubaiSafarii. If you need to
+            policy for all tours booked with MyDubaiSafari. If you need to
             cancel or reschedule, please message us on WhatsApp at{" "}
             <a
               href={waHref}
@@ -205,7 +205,7 @@ export default function CancellationPolicyPage() {
 
             <section>
               <h2 className="font-heading text-xl font-semibold text-midnight mb-3">
-                Cancellation by MyDubaiSafarii
+                Cancellation by MyDubaiSafari
               </h2>
               <p>
                 If we cancel a tour for any reason — including adverse weather,

@@ -2,7 +2,7 @@
 title: "Family Guide to Dubai: Best Activities, Tips & Tours for Kids"
 category: family-travel
 date: "2025-02-12"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "Planning a Dubai family holiday? Discover the best family-friendly activities, age-appropriate tours, essential tips for travelling with children, and how to make every member of the family happy."
 cover: "/Images/stock/blog/family-guide-to-dubai.jpg"
 relatedTours:
@@ -95,4 +95,4 @@ Dubai's restaurant scene is genuinely excellent for families. Some reliable opti
 
 ---
 
-**Planning a Dubai family holiday?** MyDubaiSafarii's family-focused [morning desert safari](/tours/morning-desert-safari) and [Dubai city tour](/tours) are designed to delight children and parents alike. Book your family adventure with MyDubaiSafarii — Dubai memories that last a lifetime await.
+**Planning a Dubai family holiday?** MyDubaiSafari's family-focused [morning desert safari](/tours/morning-desert-safari) and [Dubai city tour](/tours) are designed to delight children and parents alike. Book your family adventure with MyDubaiSafari — Dubai memories that last a lifetime await.

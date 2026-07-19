@@ -2,7 +2,7 @@
 title: "UAE Visa Guide for Tourists: Everything You Need to Know in 2025"
 category: travel-tips
 date: "2025-02-05"
-author: "MyDubaiSafarii Team"
+author: "MyDubaiSafari Team"
 excerpt: "A clear, up-to-date guide to UAE tourist visas for 2025 — who gets a visa on arrival, how to apply for an e-visa, costs, duration, and key rules for visiting Dubai."
 cover: "/Images/stock/blog/uae-visa-guide-for-tourists.jpg"
 relatedTours:
@@ -55,7 +55,7 @@ Processing typically takes 3–5 working days. Approval is sent by email.
 Emirates, flydubai, Air Arabia, and Etihad Airways can process UAE visas for passengers on their flights. This is often the easiest option if you are flying on one of these carriers. Visa fees are added to your booking or paid separately.
 
 **3. Through a Licensed Travel Agent or Tour Operator**
-Authorised tour operators like MyDubaiSafarii can arrange visa applications as part of a holiday package, often streamlining the process and providing support if issues arise.
+Authorised tour operators like MyDubaiSafari can arrange visa applications as part of a holiday package, often streamlining the process and providing support if issues arise.
 
 ## Types of UAE Tourist Visa
 
@@ -93,8 +93,8 @@ On departure, you'll pass through the same terminal's emigration section, where 
 
 ## Planning Your Trip
 
-Once your visa is confirmed, the real planning begins. Our [Dubai City Tour](/tours) is the perfect way to orientate yourself in the city on arrival — covering the key landmarks, neighbourhoods, and cultural highlights in a single guided day. Browse all our experiences at [MyDubaiSafarii Tours](/tours).
+Once your visa is confirmed, the real planning begins. Our [Dubai City Tour](/tours) is the perfect way to orientate yourself in the city on arrival — covering the key landmarks, neighbourhoods, and cultural highlights in a single guided day. Browse all our experiences at [MyDubaiSafari Tours](/tours).
 
 ---
 
-**Ready to explore Dubai?** Let MyDubaiSafarii handle the experience planning while you handle the paperwork. Book your Dubai city tour or desert safari with us today — and arrive knowing your trip is fully taken care of.
+**Ready to explore Dubai?** Let MyDubaiSafari handle the experience planning while you handle the paperwork. Book your Dubai city tour or desert safari with us today — and arrive knowing your trip is fully taken care of.

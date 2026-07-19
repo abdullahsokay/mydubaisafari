@@ -5,7 +5,7 @@ import { SITE, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms and conditions governing the use of MyDubaiSafarii's website and the booking of Dubai desert safari tours via WhatsApp.",
+    "Terms and conditions governing the use of MyDubaiSafari's website and the booking of Dubai desert safari tours via WhatsApp.",
   alternates: { canonical: `${SITE_URL}/policy/terms` },
 };
 
@@ -29,7 +29,7 @@ export default function TermsPage() {
                 1. Acceptance of Terms
               </h2>
               <p>
-                By accessing this website or booking a tour with MyDubaiSafarii
+                By accessing this website or booking a tour with MyDubaiSafari
                 (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;,
                 &ldquo;the Company&rdquo;), you agree to be bound by these Terms
                 of Service. If you do not agree, please do not use our website or
@@ -43,7 +43,7 @@ export default function TermsPage() {
                 2. Services
               </h2>
               <p>
-                MyDubaiSafarii provides desert safari tours, adventure
+                MyDubaiSafari provides desert safari tours, adventure
                 experiences, and related tourism services in Dubai, UAE. All
                 bookings are confirmed via WhatsApp ({SITE.whatsappDisplay}).
                 A booking is only confirmed when you receive an explicit
@@ -143,7 +143,7 @@ export default function TermsPage() {
                 6. Liability
               </h2>
               <p>
-                MyDubaiSafarii carries public liability insurance appropriate for
+                MyDubaiSafari carries public liability insurance appropriate for
                 our licensed activities. However, to the maximum extent permitted
                 by UAE law, we are not liable for:
               </p>
@@ -203,7 +203,7 @@ export default function TermsPage() {
               </h2>
               <p>
                 All content on this website — including text, photography,
-                graphics, and branding — is the property of MyDubaiSafarii or
+                graphics, and branding — is the property of MyDubaiSafari or
                 its licensors. You may not reproduce, distribute, or create
                 derivative works from this content without our written permission.
               </p>
@@ -238,7 +238,7 @@ export default function TermsPage() {
                 12. Contact
               </h2>
               <address className="not-italic space-y-1 text-midnight/70">
-                <p>MyDubaiSafarii</p>
+                <p>MyDubaiSafari</p>
                 <p>{SITE.address}</p>
                 <p>
                   Email:{" "}

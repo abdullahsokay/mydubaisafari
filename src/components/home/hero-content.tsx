@@ -54,7 +54,7 @@ export function HeroContent() {
 
       <p className="animate-rise rise-3 mt-5 max-w-2xl text-base text-surface/85 sm:text-lg">
         Blast across the Arabian dunes at golden hour, ride a camel at sunset,
-        dine under a Bedouin tent, and stargaze by the fire. MyDubaiSafarii
+        dine under a Bedouin tent, and stargaze by the fire. MyDubaiSafari
         crafts unforgettable desert adventures — dune bashing, quad biking,
         overnight camping and authentic BBQ nights beneath a sky full of stars.
         Every experience is handpicked, safe, and built for those who crave the

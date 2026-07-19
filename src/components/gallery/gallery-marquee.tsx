@@ -29,7 +29,7 @@ function Row({ images, reverse }: { images: string[]; reverse?: boolean }) {
           >
             <Image
               src={src}
-              alt="MyDubaiSafarii guest photo"
+              alt="MyDubaiSafari guest photo"
               width={192}
               height={192}
               loading="lazy"
