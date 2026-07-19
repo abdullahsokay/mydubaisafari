@@ -30,7 +30,7 @@ const sections: DossierSectionWithMedia[] = [
     media: {
       type: "image",
       hero: `${BASE}/sandboard.jpg`,
-      alt: "A sandboard resting on the red dunes of the Dubai desert",
+      alt: "A sandboarder riding down the red dunes of the Dubai desert",
       caption: "On the Dunes",
       ratio: "aspect-[4/5]",
     },
