@@ -62,7 +62,7 @@ export function HeroContent() {
       </p>
 
       <div className="animate-rise rise-4 mt-9 flex flex-col gap-3 sm:flex-row">
-        <Link href="/tours" className={buttonVariants({ size: "lg" })}>
+        <Link href="/tours" className={buttonVariants({ variant: "ocean", size: "lg" })}>
           Explore Tours
         </Link>
         <Link

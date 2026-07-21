@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { SandLayer } from "@/components/effects/sand-layer";
 import { Analytics } from "@/components/seo/analytics";
+import { listCategories, listTours } from "@/lib/catalog/repository";
 import { SITE_URL } from "@/lib/site";
 
 // Headings — Poppins (SRS §7.2.2). Poppins is not a variable font, so weights are explicit.
@@ -63,11 +64,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Build the "Experiences" mega-menu: tours grouped under their category.
+  const [categories, tours] = await Promise.all([listCategories(), listTours()]);
+  const experiencesMenu = categories.map((c) => ({
+    name: c.name,
+    slug: c.slug,
+    tours: tours
+      .filter((t) => t.categorySlug === c.slug)
+      .map((t) => ({ name: t.name, slug: t.slug })),
+  }));
+
   return (
     <html
       lang="en"
@@ -80,7 +91,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Navbar />
+        <Navbar experiences={experiencesMenu} />
         <main id="main-content" className="flex flex-1 flex-col">{children}</main>
         <Footer />
         <WhatsappButton />

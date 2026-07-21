@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "outline" | "ghost";
+type Variant = "primary" | "secondary" | "outline" | "ghost" | "ocean";
 type Size = "sm" | "md" | "lg";
 
 const base =
@@ -12,6 +12,9 @@ const variants: Record<Variant, string> = {
     "bg-gold text-white font-semibold shadow-[0_10px_24px_-10px_rgba(176,66,28,0.55)] hover:-translate-y-0.5 hover:bg-gold/90 hover:shadow-[0_14px_30px_-10px_rgba(176,66,28,0.65)] active:translate-y-0",
   secondary:
     "bg-navy text-surface shadow-[0_10px_24px_-12px_rgba(30,27,24,0.5)] hover:-translate-y-0.5 hover:bg-navy/90 active:translate-y-0",
+  // Ocean blue — white text on #0077b6 for a bright, high-contrast CTA.
+  ocean:
+    "bg-[#0077b6] text-white font-semibold shadow-[0_10px_24px_-10px_rgba(0,119,182,0.55)] hover:-translate-y-0.5 hover:bg-[#00618f] hover:shadow-[0_14px_30px_-10px_rgba(0,119,182,0.65)] active:translate-y-0",
   outline:
     "border border-gold text-goldink hover:-translate-y-0.5 hover:bg-gold hover:text-white active:translate-y-0",
   ghost: "text-current hover:opacity-70",

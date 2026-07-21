@@ -8,16 +8,15 @@ import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/container";
 import { whatsappUrl } from "@/lib/site";
 
-const TOUR_MENU = [
-  { label: "All Tours", href: "/tours" },
-  { label: "With Camp", href: "/tours?category=with-camp" },
-  { label: "Safari Only", href: "/tours?category=safari-only" },
-  { label: "Add-ons", href: "/tours#add-ons" },
-];
+type ExperienceCategory = {
+  name: string;
+  slug: string;
+  tours: { name: string; slug: string }[];
+};
 
 const WA = whatsappUrl("Hi! I'd like to book a tour.");
 
-export function Navbar() {
+export function Navbar({ experiences }: { experiences: ExperienceCategory[] }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -56,26 +55,53 @@ export function Navbar() {
             About Us
           </Link>
 
-          {/* All Tours UAE dropdown */}
+          {/* Experiences mega-menu — tours grouped by category */}
           <div className="group relative">
             <Link
               href="/tours"
               className={cn(link(toursActive), "inline-flex items-center gap-1")}
             >
-              All Tours UAE
+              Experiences
               <ChevronDown className="size-4" />
             </Link>
-            <div className="invisible absolute top-full left-0 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-              <div className="w-56 rounded-xl border border-midnight/10 bg-surface p-2 shadow-xl">
-                {TOUR_MENU.map((t) => (
-                  <Link
-                    key={t.href}
-                    href={t.href}
-                    className="block rounded-lg px-3 py-2 text-sm text-midnight/80 transition-colors hover:bg-sand hover:text-orange"
-                  >
-                    {t.label}
-                  </Link>
+            <div className="invisible absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+              <div className="flex gap-6 rounded-xl border border-midnight/10 bg-surface p-5 shadow-xl">
+                {experiences.map((cat) => (
+                  <div key={cat.slug} className="min-w-[190px]">
+                    <Link
+                      href={`/tours?category=${cat.slug}`}
+                      className="mb-2 block text-xs font-semibold uppercase tracking-wide text-orange hover:underline"
+                    >
+                      {cat.name}
+                    </Link>
+                    <ul className="space-y-0.5">
+                      {cat.tours.map((t) => (
+                        <li key={t.slug}>
+                          <Link
+                            href={`/tours/${t.slug}`}
+                            className="block rounded-lg px-2 py-1.5 text-sm text-midnight/80 transition-colors hover:bg-sand hover:text-orange"
+                          >
+                            {t.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
+                <div className="flex min-w-[130px] flex-col gap-1 border-l border-midnight/10 pl-5">
+                  <Link
+                    href="/tours"
+                    className="rounded-lg px-2 py-1.5 text-sm font-medium text-midnight/80 transition-colors hover:bg-sand hover:text-orange"
+                  >
+                    All Experiences →
+                  </Link>
+                  <Link
+                    href="/tours#add-ons"
+                    className="rounded-lg px-2 py-1.5 text-sm text-midnight/80 transition-colors hover:bg-sand hover:text-orange"
+                  >
+                    Adventure Add-ons
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -115,7 +141,7 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="border-t border-midnight/10 bg-surface lg:hidden">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-midnight/10 bg-surface lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             <Link
               href="/"
@@ -136,19 +162,38 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className={mobileLink(toursActive)}
             >
-              All Tours UAE
+              Experiences
             </Link>
-            <div className="ml-3 flex flex-col border-l border-midnight/10 pl-2">
-              {TOUR_MENU.slice(1).map((t) => (
-                <Link
-                  key={t.href}
-                  href={t.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-2 py-2 text-sm text-midnight/70 transition-colors hover:text-orange"
-                >
-                  {t.label}
-                </Link>
+            {/* Experiences grouped by category */}
+            <div className="ml-3 flex flex-col gap-2 border-l border-midnight/10 pl-3">
+              {experiences.map((cat) => (
+                <div key={cat.slug}>
+                  <Link
+                    href={`/tours?category=${cat.slug}`}
+                    onClick={() => setOpen(false)}
+                    className="block py-1 text-xs font-semibold uppercase tracking-wide text-orange"
+                  >
+                    {cat.name}
+                  </Link>
+                  {cat.tours.map((t) => (
+                    <Link
+                      key={t.slug}
+                      href={`/tours/${t.slug}`}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-lg px-2 py-1.5 text-sm text-midnight/70 transition-colors hover:text-orange"
+                    >
+                      {t.name}
+                    </Link>
+                  ))}
+                </div>
               ))}
+              <Link
+                href="/tours#add-ons"
+                onClick={() => setOpen(false)}
+                className="block py-1 text-sm text-midnight/70 hover:text-orange"
+              >
+                Adventure Add-ons
+              </Link>
             </div>
             <Link
               href="/blog"
