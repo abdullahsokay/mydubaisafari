@@ -76,7 +76,15 @@ export default async function RootLayout({
     slug: c.slug,
     tours: tours
       .filter((t) => t.categorySlug === c.slug)
-      .map((t) => ({ name: t.name, slug: t.slug })),
+      .map((t) => ({
+        name: t.name,
+        slug: t.slug,
+        image: t.image ?? null,
+        price: t.priceAdult,
+        currency: t.currency,
+        rating: t.rating,
+        durationMinutes: t.durationMinutes,
+      })),
   }));
 
   return (

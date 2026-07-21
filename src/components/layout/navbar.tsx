@@ -2,16 +2,27 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Clock, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/container";
 import { whatsappUrl } from "@/lib/site";
+import { formatDuration } from "@/lib/catalog/format";
 
+type ExperienceTour = {
+  name: string;
+  slug: string;
+  image: string | null;
+  price: number;
+  currency: string;
+  rating: number;
+  durationMinutes: number;
+};
 type ExperienceCategory = {
   name: string;
   slug: string;
-  tours: { name: string; slug: string }[];
+  tours: ExperienceTour[];
 };
 
 const WA = whatsappUrl("Hi! I'd like to book a tour.");
@@ -65,39 +76,74 @@ export function Navbar({ experiences }: { experiences: ExperienceCategory[] }) {
               <ChevronDown className="size-4" />
             </Link>
             <div className="invisible absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-              <div className="flex gap-6 rounded-xl border border-midnight/10 bg-surface p-5 shadow-xl">
-                {experiences.map((cat) => (
-                  <div key={cat.slug} className="min-w-[190px]">
-                    <Link
-                      href={`/tours?category=${cat.slug}`}
-                      className="mb-2 block text-xs font-semibold uppercase tracking-wide text-orange hover:underline"
-                    >
-                      {cat.name}
-                    </Link>
-                    <ul className="space-y-0.5">
+              <div className="w-[720px] rounded-2xl border border-midnight/10 bg-surface p-5 shadow-2xl">
+                {experiences.map((cat, ci) => (
+                  <div
+                    key={cat.slug}
+                    className={ci > 0 ? "mt-4 border-t border-midnight/10 pt-4" : ""}
+                  >
+                    <div className="mb-2.5 flex items-center justify-between">
+                      <h3 className="text-xs font-semibold uppercase tracking-wider text-midnight/45">
+                        {cat.name}
+                      </h3>
+                      <Link
+                        href={`/tours?category=${cat.slug}`}
+                        className="text-xs font-medium text-orange hover:underline"
+                      >
+                        View all →
+                      </Link>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1.5">
                       {cat.tours.map((t) => (
-                        <li key={t.slug}>
-                          <Link
-                            href={`/tours/${t.slug}`}
-                            className="block rounded-lg px-2 py-1.5 text-sm text-midnight/80 transition-colors hover:bg-sand hover:text-orange"
-                          >
-                            {t.name}
-                          </Link>
-                        </li>
+                        <Link
+                          key={t.slug}
+                          href={`/tours/${t.slug}`}
+                          className="group/card flex items-center gap-3 rounded-xl p-2 transition-colors hover:bg-sand"
+                        >
+                          <div className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-sand ring-1 ring-midnight/10">
+                            {t.image && (
+                              <Image
+                                src={t.image}
+                                alt=""
+                                fill
+                                sizes="56px"
+                                className="object-cover transition-transform duration-300 group-hover/card:scale-105"
+                              />
+                            )}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="truncate text-sm font-medium text-midnight">
+                              {t.name}
+                            </div>
+                            <div className="mt-0.5 flex items-center gap-2 text-xs text-midnight/55">
+                              <span className="font-semibold text-midnight/80">
+                                {t.currency} {t.price.toLocaleString()}
+                              </span>
+                              <span className="inline-flex items-center gap-0.5 text-goldink">
+                                <Star className="size-3 fill-gold text-gold" />
+                                {t.rating.toFixed(1)}
+                              </span>
+                              <span className="inline-flex items-center gap-0.5">
+                                <Clock className="size-3" />
+                                {formatDuration(t.durationMinutes)}
+                              </span>
+                            </div>
+                          </div>
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 ))}
-                <div className="flex min-w-[130px] flex-col gap-1 border-l border-midnight/10 pl-5">
+                <div className="mt-4 flex items-center justify-between border-t border-midnight/10 pt-3.5">
                   <Link
                     href="/tours"
-                    className="rounded-lg px-2 py-1.5 text-sm font-medium text-midnight/80 transition-colors hover:bg-sand hover:text-orange"
+                    className="text-sm font-semibold text-midnight transition-colors hover:text-orange"
                   >
                     All Experiences →
                   </Link>
                   <Link
                     href="/tours#add-ons"
-                    className="rounded-lg px-2 py-1.5 text-sm text-midnight/80 transition-colors hover:bg-sand hover:text-orange"
+                    className="text-sm text-midnight/70 transition-colors hover:text-orange"
                   >
                     Adventure Add-ons
                   </Link>
