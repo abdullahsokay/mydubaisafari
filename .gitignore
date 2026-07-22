@@ -39,7 +39,6 @@ yarn-error.log*
 
 # agent tooling (installed skills, not app code)
 /.agents
-/.claude
 skills-lock.json
 
 # typescript
